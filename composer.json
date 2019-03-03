@@ -1,0 +1,26 @@
+{
+    "name": "pilot114/vk-apigen",
+    "config": {
+        "platform": {
+            "php": "7.2"
+        }
+    },
+    "authors": [
+        {
+            "name": "pilot114",
+            "email": "pilot114@bk.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "VkApigen\\": "src/"
+        }
+    },
+    "require": {
+        "php": "7.2",
+        "ext-json": "*",
+        "vkcom/vk-api-schema": "^5.80",
+        "nikic/php-parser": "^4.2",
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}

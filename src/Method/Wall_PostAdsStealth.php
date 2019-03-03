@@ -1,0 +1,143 @@
+<?php
+
+namespace VkApigen\Method;
+
+/**
+ * Allows to create hidden post which will not be shown on the community's wall and can be used for creating an ad with type "Community post".
+ */
+class Wall_PostAdsStealth extends \VkApigen\BaseMethod
+{
+    protected $params = array();
+    public function isOpen() : bool
+    {
+        return false;
+    }
+    public function __construct($client, $defaultQuery)
+    {
+        parent::__construct($client, $defaultQuery);
+    }
+    public function call()
+    {
+        return $this->onCall('wall.postAdsStealth');
+    }
+    /**
+     * User ID or community ID. Use a negative value to designate a community ID.
+     *
+     * {"type":"int"}
+     */
+    public function owner_id(int $owner_id) : Wall_PostAdsStealth
+    {
+        $this->params['owner_id'] = $owner_id;
+        return $this;
+    }
+    /**
+     * (Required if 'attachments' is not set.) Text of the post.
+     *
+     * {"type":"string"}
+     */
+    public function _message(string $message) : Wall_PostAdsStealth
+    {
+        $this->params['message'] = $message;
+        return $this;
+    }
+    /**
+     * (Required if 'message' is not set.) List of objects attached to the post, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, 'page' — wiki-page, 'note' — note, 'poll' — poll, 'album' — photo album, '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID. Example: "photo100172_166443618,photo66748_265827614", May contain a link to an external page to include in the post. Example: "photo66748_265827614,http://habrahabr.ru", "NOTE: If more than one link is being attached, an error will be thrown."
+     *
+     * {"type":"array","items":{"type":"string"}}
+     */
+    public function _attachments(array $attachments) : Wall_PostAdsStealth
+    {
+        $this->params['attachments'] = $attachments;
+        return $this;
+    }
+    /**
+     * Only for posts in communities with 'from_group' set to '1': '1' — post will be signed with the name of the posting user, '0' — post will not be signed (default)
+     *
+     * {"type":"bool"}
+     */
+    public function _signed(bool $signed) : Wall_PostAdsStealth
+    {
+        $this->params['signed'] = $signed;
+        return $this;
+    }
+    /**
+     * Geographical latitude of a check-in, in degrees (from -90 to 90).
+     *
+     * {"type":"float","minimum":-90,"maximum":90}
+     */
+    public function _lat(float $lat) : Wall_PostAdsStealth
+    {
+        $this->params['lat'] = $lat;
+        return $this;
+    }
+    /**
+     * Geographical longitude of a check-in, in degrees (from -180 to 180).
+     *
+     * {"type":"float","minimum":-180,"maximum":180}
+     */
+    public function _long(float $long) : Wall_PostAdsStealth
+    {
+        $this->params['long'] = $long;
+        return $this;
+    }
+    /**
+     * ID of the location where the user was tagged.
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _place_id(int $place_id) : Wall_PostAdsStealth
+    {
+        $this->params['place_id'] = $place_id;
+        return $this;
+    }
+    /**
+     * Post ID. Used for publishing of scheduled and suggested posts.
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _post_id(int $post_id) : Wall_PostAdsStealth
+    {
+        $this->params['post_id'] = $post_id;
+        return $this;
+    }
+    /**
+     * Unique identifier to avoid duplication the same post.
+     *
+     * {"type":"string"}
+     */
+    public function _guid(string $guid) : Wall_PostAdsStealth
+    {
+        $this->params['guid'] = $guid;
+        return $this;
+    }
+    /**
+     * Link button ID
+     *
+     * {"type":"string"}
+     */
+    public function _link_button(string $link_button) : Wall_PostAdsStealth
+    {
+        $this->params['link_button'] = $link_button;
+        return $this;
+    }
+    /**
+     * Link title
+     *
+     * {"type":"string"}
+     */
+    public function _link_title(string $link_title) : Wall_PostAdsStealth
+    {
+        $this->params['link_title'] = $link_title;
+        return $this;
+    }
+    /**
+     * Link image url
+     *
+     * {"type":"string"}
+     */
+    public function _link_image(string $link_image) : Wall_PostAdsStealth
+    {
+        $this->params['link_image'] = $link_image;
+        return $this;
+    }
+}
