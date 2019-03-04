@@ -7,13 +7,15 @@ class Search
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function getHints() : Method\Search_GetHints
+    public function getHints() : Method\Search\GetHints
     {
-        return new Method\Search_GetHints($this->client, $this->defaultQuery);
+        return new Method\Search\GetHints($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

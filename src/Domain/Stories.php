@@ -7,61 +7,63 @@ class Stories
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function banOwner() : Method\Stories_BanOwner
+    public function banOwner() : Method\Stories\BanOwner
     {
-        return new Method\Stories_BanOwner($this->client, $this->defaultQuery);
+        return new Method\Stories\BanOwner($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function delete() : Method\Stories_Delete
+    public function delete() : Method\Stories\Delete
     {
-        return new Method\Stories_Delete($this->client, $this->defaultQuery);
+        return new Method\Stories\Delete($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function get() : Method\Stories_Get
+    public function get() : Method\Stories\Get
     {
-        return new Method\Stories_Get($this->client, $this->defaultQuery);
+        return new Method\Stories\Get($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getBanned() : Method\Stories_GetBanned
+    public function getBanned() : Method\Stories\GetBanned
     {
-        return new Method\Stories_GetBanned($this->client, $this->defaultQuery);
+        return new Method\Stories\GetBanned($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getById() : Method\Stories_GetById
+    public function getById() : Method\Stories\GetById
     {
-        return new Method\Stories_GetById($this->client, $this->defaultQuery);
+        return new Method\Stories\GetById($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getPhotoUploadServer() : Method\Stories_GetPhotoUploadServer
+    public function getPhotoUploadServer() : Method\Stories\GetPhotoUploadServer
     {
-        return new Method\Stories_GetPhotoUploadServer($this->client, $this->defaultQuery);
+        return new Method\Stories\GetPhotoUploadServer($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getReplies() : Method\Stories_GetReplies
+    public function getReplies() : Method\Stories\GetReplies
     {
-        return new Method\Stories_GetReplies($this->client, $this->defaultQuery);
+        return new Method\Stories\GetReplies($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getStats() : Method\Stories_GetStats
+    public function getStats() : Method\Stories\GetStats
     {
-        return new Method\Stories_GetStats($this->client, $this->defaultQuery);
+        return new Method\Stories\GetStats($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getVideoUploadServer() : Method\Stories_GetVideoUploadServer
+    public function getVideoUploadServer() : Method\Stories\GetVideoUploadServer
     {
-        return new Method\Stories_GetVideoUploadServer($this->client, $this->defaultQuery);
+        return new Method\Stories\GetVideoUploadServer($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getViewers() : Method\Stories_GetViewers
+    public function getViewers() : Method\Stories\GetViewers
     {
-        return new Method\Stories_GetViewers($this->client, $this->defaultQuery);
+        return new Method\Stories\GetViewers($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function hideAllReplies() : Method\Stories_HideAllReplies
+    public function hideAllReplies() : Method\Stories\HideAllReplies
     {
-        return new Method\Stories_HideAllReplies($this->client, $this->defaultQuery);
+        return new Method\Stories\HideAllReplies($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function hideReply() : Method\Stories_HideReply
+    public function hideReply() : Method\Stories\HideReply
     {
-        return new Method\Stories_HideReply($this->client, $this->defaultQuery);
+        return new Method\Stories\HideReply($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function unbanOwner() : Method\Stories_UnbanOwner
+    public function unbanOwner() : Method\Stories\UnbanOwner
     {
-        return new Method\Stories_UnbanOwner($this->client, $this->defaultQuery);
+        return new Method\Stories\UnbanOwner($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

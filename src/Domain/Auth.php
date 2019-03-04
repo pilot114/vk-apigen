@@ -7,25 +7,27 @@ class Auth
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function checkPhone() : Method\Auth_CheckPhone
+    public function checkPhone() : Method\Auth\CheckPhone
     {
-        return new Method\Auth_CheckPhone($this->client, $this->defaultQuery);
+        return new Method\Auth\CheckPhone($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function signup() : Method\Auth_Signup
+    public function signup() : Method\Auth\Signup
     {
-        return new Method\Auth_Signup($this->client, $this->defaultQuery);
+        return new Method\Auth\Signup($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function confirm() : Method\Auth_Confirm
+    public function confirm() : Method\Auth\Confirm
     {
-        return new Method\Auth_Confirm($this->client, $this->defaultQuery);
+        return new Method\Auth\Confirm($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function restore() : Method\Auth_Restore
+    public function restore() : Method\Auth\Restore
     {
-        return new Method\Auth_Restore($this->client, $this->defaultQuery);
+        return new Method\Auth\Restore($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

@@ -7,17 +7,19 @@ class Status
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function get() : Method\Status_Get
+    public function get() : Method\Status\Get
     {
-        return new Method\Status_Get($this->client, $this->defaultQuery);
+        return new Method\Status\Get($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function set() : Method\Status_Set
+    public function set() : Method\Status\Set
     {
-        return new Method\Status_Set($this->client, $this->defaultQuery);
+        return new Method\Status\Set($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

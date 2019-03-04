@@ -7,42 +7,43 @@ use PhpParser\Node;
 class Printer
 {
     protected $namespace;
+    protected $apiVersion;
     protected $factory;
     protected $prettyPrinter;
 
-    public function __construct($namespace)
+    public function __construct($namespace, $apiVersion)
     {
         $this->namespace = $namespace;
+        $this->apiVersion = $apiVersion;
         $this->factory = new BuilderFactory();
-        $this->prettyPrinter = new PrettyPrinter\Standard();
+        $this->prettyPrinter = new PrettyPrinter\Standard(['shortArraySyntax' => true]);
     }
 
     public function apiPrint(array $methods)
     {
         $methods = $this->prepareMethods($methods);
 
-        $methodsStatements = [];
-        foreach ($methods as $method) {
-            $method = (object)($method);
+        $domains = array_unique(array_column($methods, 'domain'));
 
-            if (!isset($methodsStatements[$method->domain])) {
-                $methodsStatements[$method->domain] = $this->factory->method($method->domain)
-                    ->makePublic()
-                    ->setReturnType('Domain\\' . ucfirst($method->domain))
-                    ->addStmt(new Node\Stmt\Return_(
-                        new Node\Expr\New_(new Node\Name('Domain\\' . ucfirst($method->domain)), [
-                            new Node\Arg(new Node\Expr\PropertyFetch(new Node\Expr\Variable('this'), 'client')),
-                            new Node\Arg(new Node\Expr\PropertyFetch(new Node\Expr\Variable('this'), 'defaultQuery')),
-                        ])
-                    ));
-            }
+        $methodsStatements = [];
+        foreach ($domains as $domain) {
+            $methodsStatements[$domain] = $this->factory->method($domain)
+                ->makePublic()
+                ->setReturnType('Domain\\' . ucfirst($domain))
+                ->addStmt(new Node\Stmt\Return_(
+                    new Node\Expr\New_(new Node\Name('Domain\\' . ucfirst($domain)), [
+                        new Node\Arg(new Node\Expr\PropertyFetch(new Node\Expr\Variable('this'), 'client')),
+                        new Node\Arg(new Node\Expr\PropertyFetch(new Node\Expr\Variable('this'), 'defaultQuery')),
+                        new Node\Arg(new Node\Expr\PropertyFetch(new Node\Expr\Variable('this'), 'accessTokenType')),
+                    ])
+                ));
         }
 
         $node = $this->factory->namespace($this->namespace)
             ->addStmt($this->factory->use('GuzzleHttp\Client'))
             ->addStmt($this->factory->class('Api')
                 ->addStmt(new Node\Stmt\ClassConst([
-                    new Node\Const_('VERSION', new Node\Scalar\String_('5.80.1'))
+                    new Node\Const_('VERSION', new Node\Scalar\String_($this->apiVersion))
                 ]))
                 ->addStmt(new Node\Stmt\Property(
                     Node\Stmt\Class_::MODIFIER_PROTECTED, [
@@ -54,9 +55,21 @@ class Printer
                         new Node\Stmt\PropertyProperty('defaultQuery')
                     ]
                 ))
+                ->addStmt(new Node\Stmt\Property(
+                    Node\Stmt\Class_::MODIFIER_PROTECTED, [
+                        new Node\Stmt\PropertyProperty('accessTokenType')
+                    ]
+                ))
                 ->addStmt($this->factory->method('__construct')
                     ->makePublic()
                     ->addParam($this->factory->param('accessToken')->setType('string'))
+                    ->addParam($this->factory->param('accessTokenType')->setType('string')->setDefault(null))
+                    ->addStmt(new Node\Expr\Assign(
+                        new Node\Expr\PropertyFetch(
+                            new Node\Expr\Variable('this'), 'accessTokenType'
+                        ),
+                        new Node\Expr\Variable('accessTokenType')
+                    ))
                     ->addStmt(new Node\Expr\Assign(
                         new Node\Expr\PropertyFetch(
                             new Node\Expr\Variable('this'), 'defaultQuery'
@@ -111,11 +124,12 @@ class Printer
 
             $domainsStatements[$method->domain][] = $this->factory->method($method->name)
                 ->makePublic()
-                ->setReturnType('Method\\' . ucfirst($method->domain) . '_' . ucfirst($method->name))
+                ->setReturnType('Method\\' . ucfirst($method->domain) . '\\' . ucfirst($method->name))
                 ->addStmt(new Node\Stmt\Return_(
-                    new Node\Expr\New_(new Node\Name('Method\\' . ucfirst($method->domain) . '_' . ucfirst($method->name)), [
+                    new Node\Expr\New_(new Node\Name('Method\\' . ucfirst($method->domain) . '\\' . ucfirst($method->name)), [
                         new Node\Arg(new Node\Expr\PropertyFetch(new Node\Expr\Variable('this'), 'client')),
                         new Node\Arg(new Node\Expr\PropertyFetch(new Node\Expr\Variable('this'), 'defaultQuery')),
+                        new Node\Arg(new Node\Expr\PropertyFetch(new Node\Expr\Variable('this'), 'accessTokenType')),
                     ])
                 ));
         }
@@ -136,10 +150,22 @@ class Printer
                             new Node\Stmt\PropertyProperty('defaultQuery')
                         ]
                     ))
+                    ->addStmt(new Node\Stmt\Property(
+                        Node\Stmt\Class_::MODIFIER_PROTECTED, [
+                            new Node\Stmt\PropertyProperty('accessTokenType')
+                        ]
+                    ))
                     ->addStmt($this->factory->method('__construct')
                         ->makePublic()
                         ->addParam($this->factory->param('client'))
                         ->addParam($this->factory->param('defaultQuery'))
+                        ->addParam($this->factory->param('accessTokenType')->setType('string')->setDefault(null))
+                        ->addStmt(new Node\Expr\Assign(
+                            new Node\Expr\PropertyFetch(
+                                new Node\Expr\Variable('this'), 'accessTokenType'
+                            ),
+                            new Node\Expr\Variable('accessTokenType')
+                        ))
                         ->addStmt(new Node\Expr\Assign(
                             new Node\Expr\PropertyFetch(
                                 new Node\Expr\Variable('this'), 'client'
@@ -169,16 +195,21 @@ class Printer
         foreach ($methods as $method) {
             $method = (object)($method);
 
-            $class = $this->factory->class(ucfirst($method->domain) . '_' . ucfirst($method->name))
+            $class = $this->factory->class(ucfirst($method->name))
                 ->extend(sprintf('\%s\BaseMethod', $this->namespace))
                 ->addStmt(new Node\Stmt\Property(
                     Node\Stmt\Class_::MODIFIER_PROTECTED,
                     [
                         new Node\Stmt\PropertyProperty('params', new Node\Expr\Array_([]))
                     ]
+                ))
+                ->addStmt(new Node\Stmt\Property(
+                    Node\Stmt\Class_::MODIFIER_PROTECTED, [
+                        new Node\Stmt\PropertyProperty('accessTokenType')
+                    ]
                 ));
 
-            $description = isset($method->description) ? $method->description : 'not description';
+            $description = isset($method->description) ? $method->description : 'Нет описания';
             $class->setDocComment(
                 sprintf('/**
                   * %s
@@ -187,19 +218,29 @@ class Printer
                 )
             );
 
-            $isOpen = isset($method->open) ? 'true' : 'false';
-            $class->addStmt($this->factory->method('isOpen')
-                ->makePublic()
-                ->setReturnType('bool')
-                ->addStmt(new Node\Stmt\Return_(
-                    new Node\Expr\ConstFetch(new Node\Name($isOpen))
-                ))
-            );
-
             $class->addStmt($this->factory->method('__construct')
                 ->makePublic()
                 ->addParam($this->factory->param('client'))
                 ->addParam($this->factory->param('defaultQuery'))
+                ->addParam($this->factory->param('accessTokenType')->setType('string')->setDefault(null))
+                // TODO проверка, что выбран подходящий тип токена
+                /*
+                $availableTypes = [_];
+                if (!in_array($accessTokenType, $availableTypes)) {
+                    throw new \Exception('Неверный тип токена доступа ("%s") для метода %s', $accessTokenType, _);
+                }
+
+                ->addStmt(new Node\Expr\Assign(
+                    new Node\Expr\ArrayDimFetch(
+                        new Node\Expr\PropertyFetch(
+                            new Node\Expr\Variable('this'),
+                            'params'
+                        ),
+                        new Node\Scalar\String_()
+                    ),
+                    new Node\Expr\Variable('availableTypes')
+                ))
+                */
                 ->addStmt(new Node\Expr\StaticCall(
                     new Node\Name('parent'),
                     '__construct',
@@ -221,20 +262,9 @@ class Printer
                 )))
             );
 
-            // TODO: add POST support for tipical upload flow
-
-            // TODO: add optional errors
-            //    if (isset($method->errors)) {
-            //        var_dump($method->errors);
-            //        die();
-            //    }
-
-            // TODO сначала билдим описания объектов, убирая ссылки, затем уже генерим объекты
-            // если ответов несколько - комбинируем в один с isMutual() -> true
-            //foreach ($method->responses as $nameResponse => $response) {
-            //    $response = $this->resolveRefs($response['$ref'], $responses, $objects);
-            //}
-
+            /**
+             * параметры метода, c подчеркивания начинаются опциональные
+             */
             if (isset($method->parameters)) {
 
                 $parameters = [];
@@ -243,7 +273,7 @@ class Printer
 
                     $name = $parameter->name;
                     $nameUnderscore = isset($parameter->required) && $parameter->required ? $parameter->name : '_' . $parameter->name;
-                    $description = isset($parameter->description) ? $parameter->description : 'not description';
+                    $description = !empty($parameter->description) ? $parameter->description : 'Нет описания';
 
                     // fix typing for php
                     if ($parameter->type === 'number') {
@@ -275,7 +305,7 @@ class Printer
                         ->setDocComment($docBlock)
                         ->makePublic()
                         ->addParam($this->factory->param($name)->setType($parameter->type))
-                        ->setReturnType(ucfirst($method->domain) . '_' . ucfirst($method->name))
+                        ->setReturnType('self')
                         ->addStmt(
                             new Node\Expr\Assign(
                                 new Node\Expr\ArrayDimFetch(
@@ -296,7 +326,7 @@ class Printer
             }
 
             $node = $this->factory
-                ->namespace($this->namespace . '\Method')
+                ->namespace(sprintf('%s\Method\%s', $this->namespace, ucfirst($method->domain)))
                 ->addStmt($class)
                 ->getNode();
 
@@ -305,7 +335,9 @@ class Printer
         return $results;
     }
 
-
+    /**
+     * Разделяем собственно имя метода и имя раздела (домена), в который входит метод
+     */
     protected function prepareMethods($methods)
     {
         foreach ($methods as $i => $method) {
@@ -314,114 +346,5 @@ class Printer
             $methods[$i]['domain'] = $methodDomain;
         }
         return $methods;
-    }
-
-    protected function getObjectName($inputNode)
-    {
-        $refName = str_replace('#/definitions/', '', $inputNode['$ref']);
-        return str_replace('objects.json', '', $refName);
-    }
-
-    protected function resolveObjectRef($inputNode, $collection)
-    {
-        $refName = $this->getObjectName($inputNode);
-        return $collection[$refName] ?? null;
-    }
-
-    /**
-     * Собираем описание объекта ответа, "раскрывая" вложенные ссылки
-     * Кусок сложный, но цель простая - заменить все $ref на соотвествующие описания
-     *
-     * @param $refName
-     * @param $responses
-     * @param $objects
-     */
-    protected function resolveRefs($refName, $responses, $objects)
-    {
-        $refName = str_replace('responses.json#/definitions/', '', $refName);
-        $response = $responses[$refName]['properties']['response'] ?? null;
-
-        if (isset($response['$ref'])) {
-            $response = $this->resolveObjectRef(
-                $response,
-                $objects
-            );
-        }
-
-        if (isset($response['items'])) {
-            if (isset($response['items']['$ref'])) {
-                $response['items'] = $this->resolveObjectRef(
-                    $response['items'],
-                    $objects
-                );
-            }
-
-            if (isset($response['items']['oneOf'])) {
-                foreach ($response['items']['oneOf'] as $i => $item) {
-                    if (isset($response['items']['oneOf'][$i]['$ref'])) {
-                        $response['items']['oneOf'][$i] = $this->resolveObjectRef(
-                            $response['items']['oneOf'][$i],
-                            $objects
-                        );
-                    }
-                }
-            }
-
-            if (isset($response['items']['allOf'])) {
-                foreach ($response['items']['allOf'] as $i => $item) {
-                    if (isset($response['items']['allOf'][$i]['$ref'])) {
-                        $response['items']['allOf'][$i] = $this->resolveObjectRef(
-                            $response['items']['allOf'][$i],
-                            $objects
-                        );
-                    }
-                }
-            }
-        }
-
-        if (isset($response['properties'])) {
-            foreach ($response['properties'] as $propertyName => $property) {
-
-                if (isset($property['$ref'])) {
-                    $response['properties'][$propertyName] = $this->resolveObjectRef(
-                        $response['properties'][$propertyName],
-                        $objects
-                    );
-                }
-
-                if (isset($property['items'])) {
-                    if (isset($property['items']['$ref'])) {
-                        $response['properties'][$propertyName]['items'] = $this->resolveObjectRef(
-                            $response['properties'][$propertyName]['items'],
-                            $objects
-                        );
-                    }
-
-                    if (isset($property['items']['oneOf'])) {
-                        foreach ($property['items']['oneOf'] as $i => $item) {
-                            if (isset($property['items']['oneOf'][$i]['$ref'])) {
-                                $response['properties'][$propertyName]['items']['oneOf'][$i] = $this->resolveObjectRef(
-                                    $response['properties'][$propertyName]['items']['oneOf'][$i],
-                                    $objects
-                                );
-                            }
-                        }
-                    }
-
-                    if (isset($property['items']['allOf'])) {
-                        foreach ($property['items']['allOf'] as $i => $item) {
-                            if (isset($property['items']['allOf'][$i]['$ref'])) {
-                                $response['properties'][$propertyName]['items']['allOf'][$i] = $this->resolveObjectRef(
-                                    $response['properties'][$propertyName]['items']['allOf'][$i],
-                                    $objects
-                                );
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        return $response;
     }
 }

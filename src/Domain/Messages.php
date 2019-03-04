@@ -7,133 +7,135 @@ class Messages
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function getConversations() : Method\Messages_GetConversations
+    public function getConversations() : Method\Messages\GetConversations
     {
-        return new Method\Messages_GetConversations($this->client, $this->defaultQuery);
+        return new Method\Messages\GetConversations($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getConversationsById() : Method\Messages_GetConversationsById
+    public function getConversationsById() : Method\Messages\GetConversationsById
     {
-        return new Method\Messages_GetConversationsById($this->client, $this->defaultQuery);
+        return new Method\Messages\GetConversationsById($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getById() : Method\Messages_GetById
+    public function getById() : Method\Messages\GetById
     {
-        return new Method\Messages_GetById($this->client, $this->defaultQuery);
+        return new Method\Messages\GetById($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getByConversationMessageId() : Method\Messages_GetByConversationMessageId
+    public function getByConversationMessageId() : Method\Messages\GetByConversationMessageId
     {
-        return new Method\Messages_GetByConversationMessageId($this->client, $this->defaultQuery);
+        return new Method\Messages\GetByConversationMessageId($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function search() : Method\Messages_Search
+    public function search() : Method\Messages\Search
     {
-        return new Method\Messages_Search($this->client, $this->defaultQuery);
+        return new Method\Messages\Search($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getHistory() : Method\Messages_GetHistory
+    public function getHistory() : Method\Messages\GetHistory
     {
-        return new Method\Messages_GetHistory($this->client, $this->defaultQuery);
+        return new Method\Messages\GetHistory($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getHistoryAttachments() : Method\Messages_GetHistoryAttachments
+    public function getHistoryAttachments() : Method\Messages\GetHistoryAttachments
     {
-        return new Method\Messages_GetHistoryAttachments($this->client, $this->defaultQuery);
+        return new Method\Messages\GetHistoryAttachments($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function send() : Method\Messages_Send
+    public function send() : Method\Messages\Send
     {
-        return new Method\Messages_Send($this->client, $this->defaultQuery);
+        return new Method\Messages\Send($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function edit() : Method\Messages_Edit
+    public function edit() : Method\Messages\Edit
     {
-        return new Method\Messages_Edit($this->client, $this->defaultQuery);
+        return new Method\Messages\Edit($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function delete() : Method\Messages_Delete
+    public function delete() : Method\Messages\Delete
     {
-        return new Method\Messages_Delete($this->client, $this->defaultQuery);
+        return new Method\Messages\Delete($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteConversation() : Method\Messages_DeleteConversation
+    public function deleteConversation() : Method\Messages\DeleteConversation
     {
-        return new Method\Messages_DeleteConversation($this->client, $this->defaultQuery);
+        return new Method\Messages\DeleteConversation($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function restore() : Method\Messages_Restore
+    public function restore() : Method\Messages\Restore
     {
-        return new Method\Messages_Restore($this->client, $this->defaultQuery);
+        return new Method\Messages\Restore($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function markAsRead() : Method\Messages_MarkAsRead
+    public function markAsRead() : Method\Messages\MarkAsRead
     {
-        return new Method\Messages_MarkAsRead($this->client, $this->defaultQuery);
+        return new Method\Messages\MarkAsRead($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function markAsImportant() : Method\Messages_MarkAsImportant
+    public function markAsImportant() : Method\Messages\MarkAsImportant
     {
-        return new Method\Messages_MarkAsImportant($this->client, $this->defaultQuery);
+        return new Method\Messages\MarkAsImportant($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function markAsImportantConversation() : Method\Messages_MarkAsImportantConversation
+    public function markAsImportantConversation() : Method\Messages\MarkAsImportantConversation
     {
-        return new Method\Messages_MarkAsImportantConversation($this->client, $this->defaultQuery);
+        return new Method\Messages\MarkAsImportantConversation($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function markAsAnsweredConversation() : Method\Messages_MarkAsAnsweredConversation
+    public function markAsAnsweredConversation() : Method\Messages\MarkAsAnsweredConversation
     {
-        return new Method\Messages_MarkAsAnsweredConversation($this->client, $this->defaultQuery);
+        return new Method\Messages\MarkAsAnsweredConversation($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getLongPollServer() : Method\Messages_GetLongPollServer
+    public function getLongPollServer() : Method\Messages\GetLongPollServer
     {
-        return new Method\Messages_GetLongPollServer($this->client, $this->defaultQuery);
+        return new Method\Messages\GetLongPollServer($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getLongPollHistory() : Method\Messages_GetLongPollHistory
+    public function getLongPollHistory() : Method\Messages\GetLongPollHistory
     {
-        return new Method\Messages_GetLongPollHistory($this->client, $this->defaultQuery);
+        return new Method\Messages\GetLongPollHistory($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function createChat() : Method\Messages_CreateChat
+    public function createChat() : Method\Messages\CreateChat
     {
-        return new Method\Messages_CreateChat($this->client, $this->defaultQuery);
+        return new Method\Messages\CreateChat($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function editChat() : Method\Messages_EditChat
+    public function editChat() : Method\Messages\EditChat
     {
-        return new Method\Messages_EditChat($this->client, $this->defaultQuery);
+        return new Method\Messages\EditChat($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getConversationMembers() : Method\Messages_GetConversationMembers
+    public function getConversationMembers() : Method\Messages\GetConversationMembers
     {
-        return new Method\Messages_GetConversationMembers($this->client, $this->defaultQuery);
+        return new Method\Messages\GetConversationMembers($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function setActivity() : Method\Messages_SetActivity
+    public function setActivity() : Method\Messages\SetActivity
     {
-        return new Method\Messages_SetActivity($this->client, $this->defaultQuery);
+        return new Method\Messages\SetActivity($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function searchConversations() : Method\Messages_SearchConversations
+    public function searchConversations() : Method\Messages\SearchConversations
     {
-        return new Method\Messages_SearchConversations($this->client, $this->defaultQuery);
+        return new Method\Messages\SearchConversations($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function addChatUser() : Method\Messages_AddChatUser
+    public function addChatUser() : Method\Messages\AddChatUser
     {
-        return new Method\Messages_AddChatUser($this->client, $this->defaultQuery);
+        return new Method\Messages\AddChatUser($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function removeChatUser() : Method\Messages_RemoveChatUser
+    public function removeChatUser() : Method\Messages\RemoveChatUser
     {
-        return new Method\Messages_RemoveChatUser($this->client, $this->defaultQuery);
+        return new Method\Messages\RemoveChatUser($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getLastActivity() : Method\Messages_GetLastActivity
+    public function getLastActivity() : Method\Messages\GetLastActivity
     {
-        return new Method\Messages_GetLastActivity($this->client, $this->defaultQuery);
+        return new Method\Messages\GetLastActivity($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function setChatPhoto() : Method\Messages_SetChatPhoto
+    public function setChatPhoto() : Method\Messages\SetChatPhoto
     {
-        return new Method\Messages_SetChatPhoto($this->client, $this->defaultQuery);
+        return new Method\Messages\SetChatPhoto($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteChatPhoto() : Method\Messages_DeleteChatPhoto
+    public function deleteChatPhoto() : Method\Messages\DeleteChatPhoto
     {
-        return new Method\Messages_DeleteChatPhoto($this->client, $this->defaultQuery);
+        return new Method\Messages\DeleteChatPhoto($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function denyMessagesFromGroup() : Method\Messages_DenyMessagesFromGroup
+    public function denyMessagesFromGroup() : Method\Messages\DenyMessagesFromGroup
     {
-        return new Method\Messages_DenyMessagesFromGroup($this->client, $this->defaultQuery);
+        return new Method\Messages\DenyMessagesFromGroup($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function allowMessagesFromGroup() : Method\Messages_AllowMessagesFromGroup
+    public function allowMessagesFromGroup() : Method\Messages\AllowMessagesFromGroup
     {
-        return new Method\Messages_AllowMessagesFromGroup($this->client, $this->defaultQuery);
+        return new Method\Messages\AllowMessagesFromGroup($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function isMessagesFromGroupAllowed() : Method\Messages_IsMessagesFromGroupAllowed
+    public function isMessagesFromGroupAllowed() : Method\Messages\IsMessagesFromGroupAllowed
     {
-        return new Method\Messages_IsMessagesFromGroupAllowed($this->client, $this->defaultQuery);
+        return new Method\Messages\IsMessagesFromGroupAllowed($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

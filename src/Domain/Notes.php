@@ -7,49 +7,51 @@ class Notes
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function get() : Method\Notes_Get
+    public function get() : Method\Notes\Get
     {
-        return new Method\Notes_Get($this->client, $this->defaultQuery);
+        return new Method\Notes\Get($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getById() : Method\Notes_GetById
+    public function getById() : Method\Notes\GetById
     {
-        return new Method\Notes_GetById($this->client, $this->defaultQuery);
+        return new Method\Notes\GetById($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function add() : Method\Notes_Add
+    public function add() : Method\Notes\Add
     {
-        return new Method\Notes_Add($this->client, $this->defaultQuery);
+        return new Method\Notes\Add($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function edit() : Method\Notes_Edit
+    public function edit() : Method\Notes\Edit
     {
-        return new Method\Notes_Edit($this->client, $this->defaultQuery);
+        return new Method\Notes\Edit($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function delete() : Method\Notes_Delete
+    public function delete() : Method\Notes\Delete
     {
-        return new Method\Notes_Delete($this->client, $this->defaultQuery);
+        return new Method\Notes\Delete($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getComments() : Method\Notes_GetComments
+    public function getComments() : Method\Notes\GetComments
     {
-        return new Method\Notes_GetComments($this->client, $this->defaultQuery);
+        return new Method\Notes\GetComments($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function createComment() : Method\Notes_CreateComment
+    public function createComment() : Method\Notes\CreateComment
     {
-        return new Method\Notes_CreateComment($this->client, $this->defaultQuery);
+        return new Method\Notes\CreateComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function editComment() : Method\Notes_EditComment
+    public function editComment() : Method\Notes\EditComment
     {
-        return new Method\Notes_EditComment($this->client, $this->defaultQuery);
+        return new Method\Notes\EditComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteComment() : Method\Notes_DeleteComment
+    public function deleteComment() : Method\Notes\DeleteComment
     {
-        return new Method\Notes_DeleteComment($this->client, $this->defaultQuery);
+        return new Method\Notes\DeleteComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function restoreComment() : Method\Notes_RestoreComment
+    public function restoreComment() : Method\Notes\RestoreComment
     {
-        return new Method\Notes_RestoreComment($this->client, $this->defaultQuery);
+        return new Method\Notes\RestoreComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

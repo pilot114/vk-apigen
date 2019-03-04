@@ -7,57 +7,59 @@ class Fave
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function getUsers() : Method\Fave_GetUsers
+    public function getUsers() : Method\Fave\GetUsers
     {
-        return new Method\Fave_GetUsers($this->client, $this->defaultQuery);
+        return new Method\Fave\GetUsers($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getPhotos() : Method\Fave_GetPhotos
+    public function getPhotos() : Method\Fave\GetPhotos
     {
-        return new Method\Fave_GetPhotos($this->client, $this->defaultQuery);
+        return new Method\Fave\GetPhotos($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getPosts() : Method\Fave_GetPosts
+    public function getPosts() : Method\Fave\GetPosts
     {
-        return new Method\Fave_GetPosts($this->client, $this->defaultQuery);
+        return new Method\Fave\GetPosts($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getVideos() : Method\Fave_GetVideos
+    public function getVideos() : Method\Fave\GetVideos
     {
-        return new Method\Fave_GetVideos($this->client, $this->defaultQuery);
+        return new Method\Fave\GetVideos($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getLinks() : Method\Fave_GetLinks
+    public function getLinks() : Method\Fave\GetLinks
     {
-        return new Method\Fave_GetLinks($this->client, $this->defaultQuery);
+        return new Method\Fave\GetLinks($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getMarketItems() : Method\Fave_GetMarketItems
+    public function getMarketItems() : Method\Fave\GetMarketItems
     {
-        return new Method\Fave_GetMarketItems($this->client, $this->defaultQuery);
+        return new Method\Fave\GetMarketItems($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function addUser() : Method\Fave_AddUser
+    public function addUser() : Method\Fave\AddUser
     {
-        return new Method\Fave_AddUser($this->client, $this->defaultQuery);
+        return new Method\Fave\AddUser($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function removeUser() : Method\Fave_RemoveUser
+    public function removeUser() : Method\Fave\RemoveUser
     {
-        return new Method\Fave_RemoveUser($this->client, $this->defaultQuery);
+        return new Method\Fave\RemoveUser($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function addGroup() : Method\Fave_AddGroup
+    public function addGroup() : Method\Fave\AddGroup
     {
-        return new Method\Fave_AddGroup($this->client, $this->defaultQuery);
+        return new Method\Fave\AddGroup($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function removeGroup() : Method\Fave_RemoveGroup
+    public function removeGroup() : Method\Fave\RemoveGroup
     {
-        return new Method\Fave_RemoveGroup($this->client, $this->defaultQuery);
+        return new Method\Fave\RemoveGroup($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function addLink() : Method\Fave_AddLink
+    public function addLink() : Method\Fave\AddLink
     {
-        return new Method\Fave_AddLink($this->client, $this->defaultQuery);
+        return new Method\Fave\AddLink($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function removeLink() : Method\Fave_RemoveLink
+    public function removeLink() : Method\Fave\RemoveLink
     {
-        return new Method\Fave_RemoveLink($this->client, $this->defaultQuery);
+        return new Method\Fave\RemoveLink($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

@@ -1,0 +1,40 @@
+<?php
+
+namespace VkApigen\Method\Messages;
+
+/**
+ * Restores a deleted message.
+ */
+class Restore extends \VkApigen\BaseMethod
+{
+    protected $params = [];
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
+    {
+        parent::__construct($client, $defaultQuery);
+    }
+    public function call()
+    {
+        return $this->onCall('messages.restore');
+    }
+    /**
+     * ID of a previously-deleted message to restore.
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function message_id(int $message_id) : self
+    {
+        $this->params['message_id'] = $message_id;
+        return $this;
+    }
+    /**
+     * Group ID (for group messages with user access token)
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _group_id(int $group_id) : self
+    {
+        $this->params['group_id'] = $group_id;
+        return $this;
+    }
+}

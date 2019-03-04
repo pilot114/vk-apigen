@@ -7,89 +7,91 @@ class Account
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function getCounters() : Method\Account_GetCounters
+    public function getCounters() : Method\Account\GetCounters
     {
-        return new Method\Account_GetCounters($this->client, $this->defaultQuery);
+        return new Method\Account\GetCounters($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function setNameInMenu() : Method\Account_SetNameInMenu
+    public function setNameInMenu() : Method\Account\SetNameInMenu
     {
-        return new Method\Account_SetNameInMenu($this->client, $this->defaultQuery);
+        return new Method\Account\SetNameInMenu($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function setOnline() : Method\Account_SetOnline
+    public function setOnline() : Method\Account\SetOnline
     {
-        return new Method\Account_SetOnline($this->client, $this->defaultQuery);
+        return new Method\Account\SetOnline($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function setOffline() : Method\Account_SetOffline
+    public function setOffline() : Method\Account\SetOffline
     {
-        return new Method\Account_SetOffline($this->client, $this->defaultQuery);
+        return new Method\Account\SetOffline($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function lookupContacts() : Method\Account_LookupContacts
+    public function lookupContacts() : Method\Account\LookupContacts
     {
-        return new Method\Account_LookupContacts($this->client, $this->defaultQuery);
+        return new Method\Account\LookupContacts($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function registerDevice() : Method\Account_RegisterDevice
+    public function registerDevice() : Method\Account\RegisterDevice
     {
-        return new Method\Account_RegisterDevice($this->client, $this->defaultQuery);
+        return new Method\Account\RegisterDevice($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function unregisterDevice() : Method\Account_UnregisterDevice
+    public function unregisterDevice() : Method\Account\UnregisterDevice
     {
-        return new Method\Account_UnregisterDevice($this->client, $this->defaultQuery);
+        return new Method\Account\UnregisterDevice($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function setSilenceMode() : Method\Account_SetSilenceMode
+    public function setSilenceMode() : Method\Account\SetSilenceMode
     {
-        return new Method\Account_SetSilenceMode($this->client, $this->defaultQuery);
+        return new Method\Account\SetSilenceMode($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getPushSettings() : Method\Account_GetPushSettings
+    public function getPushSettings() : Method\Account\GetPushSettings
     {
-        return new Method\Account_GetPushSettings($this->client, $this->defaultQuery);
+        return new Method\Account\GetPushSettings($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function setPushSettings() : Method\Account_SetPushSettings
+    public function setPushSettings() : Method\Account\SetPushSettings
     {
-        return new Method\Account_SetPushSettings($this->client, $this->defaultQuery);
+        return new Method\Account\SetPushSettings($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getAppPermissions() : Method\Account_GetAppPermissions
+    public function getAppPermissions() : Method\Account\GetAppPermissions
     {
-        return new Method\Account_GetAppPermissions($this->client, $this->defaultQuery);
+        return new Method\Account\GetAppPermissions($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getActiveOffers() : Method\Account_GetActiveOffers
+    public function getActiveOffers() : Method\Account\GetActiveOffers
     {
-        return new Method\Account_GetActiveOffers($this->client, $this->defaultQuery);
+        return new Method\Account\GetActiveOffers($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function banUser() : Method\Account_BanUser
+    public function banUser() : Method\Account\BanUser
     {
-        return new Method\Account_BanUser($this->client, $this->defaultQuery);
+        return new Method\Account\BanUser($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function unbanUser() : Method\Account_UnbanUser
+    public function unbanUser() : Method\Account\UnbanUser
     {
-        return new Method\Account_UnbanUser($this->client, $this->defaultQuery);
+        return new Method\Account\UnbanUser($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getBanned() : Method\Account_GetBanned
+    public function getBanned() : Method\Account\GetBanned
     {
-        return new Method\Account_GetBanned($this->client, $this->defaultQuery);
+        return new Method\Account\GetBanned($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getInfo() : Method\Account_GetInfo
+    public function getInfo() : Method\Account\GetInfo
     {
-        return new Method\Account_GetInfo($this->client, $this->defaultQuery);
+        return new Method\Account\GetInfo($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function setInfo() : Method\Account_SetInfo
+    public function setInfo() : Method\Account\SetInfo
     {
-        return new Method\Account_SetInfo($this->client, $this->defaultQuery);
+        return new Method\Account\SetInfo($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function changePassword() : Method\Account_ChangePassword
+    public function changePassword() : Method\Account\ChangePassword
     {
-        return new Method\Account_ChangePassword($this->client, $this->defaultQuery);
+        return new Method\Account\ChangePassword($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getProfileInfo() : Method\Account_GetProfileInfo
+    public function getProfileInfo() : Method\Account\GetProfileInfo
     {
-        return new Method\Account_GetProfileInfo($this->client, $this->defaultQuery);
+        return new Method\Account\GetProfileInfo($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function saveProfileInfo() : Method\Account_SaveProfileInfo
+    public function saveProfileInfo() : Method\Account\SaveProfileInfo
     {
-        return new Method\Account_SaveProfileInfo($this->client, $this->defaultQuery);
+        return new Method\Account\SaveProfileInfo($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

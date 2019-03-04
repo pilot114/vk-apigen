@@ -7,13 +7,15 @@ class Gifts
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function get() : Method\Gifts_Get
+    public function get() : Method\Gifts\Get
     {
-        return new Method\Gifts_Get($this->client, $this->defaultQuery);
+        return new Method\Gifts\Get($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

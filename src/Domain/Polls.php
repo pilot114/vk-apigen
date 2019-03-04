@@ -7,33 +7,35 @@ class Polls
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function getById() : Method\Polls_GetById
+    public function getById() : Method\Polls\GetById
     {
-        return new Method\Polls_GetById($this->client, $this->defaultQuery);
+        return new Method\Polls\GetById($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function addVote() : Method\Polls_AddVote
+    public function addVote() : Method\Polls\AddVote
     {
-        return new Method\Polls_AddVote($this->client, $this->defaultQuery);
+        return new Method\Polls\AddVote($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteVote() : Method\Polls_DeleteVote
+    public function deleteVote() : Method\Polls\DeleteVote
     {
-        return new Method\Polls_DeleteVote($this->client, $this->defaultQuery);
+        return new Method\Polls\DeleteVote($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getVoters() : Method\Polls_GetVoters
+    public function getVoters() : Method\Polls\GetVoters
     {
-        return new Method\Polls_GetVoters($this->client, $this->defaultQuery);
+        return new Method\Polls\GetVoters($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function create() : Method\Polls_Create
+    public function create() : Method\Polls\Create
     {
-        return new Method\Polls_Create($this->client, $this->defaultQuery);
+        return new Method\Polls\Create($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function edit() : Method\Polls_Edit
+    public function edit() : Method\Polls\Edit
     {
-        return new Method\Polls_Edit($this->client, $this->defaultQuery);
+        return new Method\Polls\Edit($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

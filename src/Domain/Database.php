@@ -7,53 +7,55 @@ class Database
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function getCountries() : Method\Database_GetCountries
+    public function getCountries() : Method\Database\GetCountries
     {
-        return new Method\Database_GetCountries($this->client, $this->defaultQuery);
+        return new Method\Database\GetCountries($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getRegions() : Method\Database_GetRegions
+    public function getRegions() : Method\Database\GetRegions
     {
-        return new Method\Database_GetRegions($this->client, $this->defaultQuery);
+        return new Method\Database\GetRegions($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getStreetsById() : Method\Database_GetStreetsById
+    public function getStreetsById() : Method\Database\GetStreetsById
     {
-        return new Method\Database_GetStreetsById($this->client, $this->defaultQuery);
+        return new Method\Database\GetStreetsById($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getCountriesById() : Method\Database_GetCountriesById
+    public function getCountriesById() : Method\Database\GetCountriesById
     {
-        return new Method\Database_GetCountriesById($this->client, $this->defaultQuery);
+        return new Method\Database\GetCountriesById($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getCities() : Method\Database_GetCities
+    public function getCities() : Method\Database\GetCities
     {
-        return new Method\Database_GetCities($this->client, $this->defaultQuery);
+        return new Method\Database\GetCities($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getCitiesById() : Method\Database_GetCitiesById
+    public function getCitiesById() : Method\Database\GetCitiesById
     {
-        return new Method\Database_GetCitiesById($this->client, $this->defaultQuery);
+        return new Method\Database\GetCitiesById($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getUniversities() : Method\Database_GetUniversities
+    public function getUniversities() : Method\Database\GetUniversities
     {
-        return new Method\Database_GetUniversities($this->client, $this->defaultQuery);
+        return new Method\Database\GetUniversities($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getSchools() : Method\Database_GetSchools
+    public function getSchools() : Method\Database\GetSchools
     {
-        return new Method\Database_GetSchools($this->client, $this->defaultQuery);
+        return new Method\Database\GetSchools($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getSchoolClasses() : Method\Database_GetSchoolClasses
+    public function getSchoolClasses() : Method\Database\GetSchoolClasses
     {
-        return new Method\Database_GetSchoolClasses($this->client, $this->defaultQuery);
+        return new Method\Database\GetSchoolClasses($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getFaculties() : Method\Database_GetFaculties
+    public function getFaculties() : Method\Database\GetFaculties
     {
-        return new Method\Database_GetFaculties($this->client, $this->defaultQuery);
+        return new Method\Database\GetFaculties($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getChairs() : Method\Database_GetChairs
+    public function getChairs() : Method\Database\GetChairs
     {
-        return new Method\Database_GetChairs($this->client, $this->defaultQuery);
+        return new Method\Database\GetChairs($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

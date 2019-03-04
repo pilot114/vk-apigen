@@ -7,69 +7,71 @@ class Newsfeed
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function get() : Method\Newsfeed_Get
+    public function get() : Method\Newsfeed\Get
     {
-        return new Method\Newsfeed_Get($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\Get($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getRecommended() : Method\Newsfeed_GetRecommended
+    public function getRecommended() : Method\Newsfeed\GetRecommended
     {
-        return new Method\Newsfeed_GetRecommended($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\GetRecommended($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getComments() : Method\Newsfeed_GetComments
+    public function getComments() : Method\Newsfeed\GetComments
     {
-        return new Method\Newsfeed_GetComments($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\GetComments($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getMentions() : Method\Newsfeed_GetMentions
+    public function getMentions() : Method\Newsfeed\GetMentions
     {
-        return new Method\Newsfeed_GetMentions($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\GetMentions($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getBanned() : Method\Newsfeed_GetBanned
+    public function getBanned() : Method\Newsfeed\GetBanned
     {
-        return new Method\Newsfeed_GetBanned($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\GetBanned($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function addBan() : Method\Newsfeed_AddBan
+    public function addBan() : Method\Newsfeed\AddBan
     {
-        return new Method\Newsfeed_AddBan($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\AddBan($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteBan() : Method\Newsfeed_DeleteBan
+    public function deleteBan() : Method\Newsfeed\DeleteBan
     {
-        return new Method\Newsfeed_DeleteBan($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\DeleteBan($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function ignoreItem() : Method\Newsfeed_IgnoreItem
+    public function ignoreItem() : Method\Newsfeed\IgnoreItem
     {
-        return new Method\Newsfeed_IgnoreItem($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\IgnoreItem($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function unignoreItem() : Method\Newsfeed_UnignoreItem
+    public function unignoreItem() : Method\Newsfeed\UnignoreItem
     {
-        return new Method\Newsfeed_UnignoreItem($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\UnignoreItem($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function search() : Method\Newsfeed_Search
+    public function search() : Method\Newsfeed\Search
     {
-        return new Method\Newsfeed_Search($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\Search($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getLists() : Method\Newsfeed_GetLists
+    public function getLists() : Method\Newsfeed\GetLists
     {
-        return new Method\Newsfeed_GetLists($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\GetLists($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function saveList() : Method\Newsfeed_SaveList
+    public function saveList() : Method\Newsfeed\SaveList
     {
-        return new Method\Newsfeed_SaveList($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\SaveList($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteList() : Method\Newsfeed_DeleteList
+    public function deleteList() : Method\Newsfeed\DeleteList
     {
-        return new Method\Newsfeed_DeleteList($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\DeleteList($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function unsubscribe() : Method\Newsfeed_Unsubscribe
+    public function unsubscribe() : Method\Newsfeed\Unsubscribe
     {
-        return new Method\Newsfeed_Unsubscribe($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\Unsubscribe($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getSuggestedSources() : Method\Newsfeed_GetSuggestedSources
+    public function getSuggestedSources() : Method\Newsfeed\GetSuggestedSources
     {
-        return new Method\Newsfeed_GetSuggestedSources($this->client, $this->defaultQuery);
+        return new Method\Newsfeed\GetSuggestedSources($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

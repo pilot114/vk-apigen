@@ -7,85 +7,87 @@ class Friends
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function get() : Method\Friends_Get
+    public function get() : Method\Friends\Get
     {
-        return new Method\Friends_Get($this->client, $this->defaultQuery);
+        return new Method\Friends\Get($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getOnline() : Method\Friends_GetOnline
+    public function getOnline() : Method\Friends\GetOnline
     {
-        return new Method\Friends_GetOnline($this->client, $this->defaultQuery);
+        return new Method\Friends\GetOnline($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getMutual() : Method\Friends_GetMutual
+    public function getMutual() : Method\Friends\GetMutual
     {
-        return new Method\Friends_GetMutual($this->client, $this->defaultQuery);
+        return new Method\Friends\GetMutual($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getRecent() : Method\Friends_GetRecent
+    public function getRecent() : Method\Friends\GetRecent
     {
-        return new Method\Friends_GetRecent($this->client, $this->defaultQuery);
+        return new Method\Friends\GetRecent($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getRequests() : Method\Friends_GetRequests
+    public function getRequests() : Method\Friends\GetRequests
     {
-        return new Method\Friends_GetRequests($this->client, $this->defaultQuery);
+        return new Method\Friends\GetRequests($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function add() : Method\Friends_Add
+    public function add() : Method\Friends\Add
     {
-        return new Method\Friends_Add($this->client, $this->defaultQuery);
+        return new Method\Friends\Add($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function edit() : Method\Friends_Edit
+    public function edit() : Method\Friends\Edit
     {
-        return new Method\Friends_Edit($this->client, $this->defaultQuery);
+        return new Method\Friends\Edit($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function delete() : Method\Friends_Delete
+    public function delete() : Method\Friends\Delete
     {
-        return new Method\Friends_Delete($this->client, $this->defaultQuery);
+        return new Method\Friends\Delete($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getLists() : Method\Friends_GetLists
+    public function getLists() : Method\Friends\GetLists
     {
-        return new Method\Friends_GetLists($this->client, $this->defaultQuery);
+        return new Method\Friends\GetLists($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function addList() : Method\Friends_AddList
+    public function addList() : Method\Friends\AddList
     {
-        return new Method\Friends_AddList($this->client, $this->defaultQuery);
+        return new Method\Friends\AddList($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function editList() : Method\Friends_EditList
+    public function editList() : Method\Friends\EditList
     {
-        return new Method\Friends_EditList($this->client, $this->defaultQuery);
+        return new Method\Friends\EditList($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteList() : Method\Friends_DeleteList
+    public function deleteList() : Method\Friends\DeleteList
     {
-        return new Method\Friends_DeleteList($this->client, $this->defaultQuery);
+        return new Method\Friends\DeleteList($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getAppUsers() : Method\Friends_GetAppUsers
+    public function getAppUsers() : Method\Friends\GetAppUsers
     {
-        return new Method\Friends_GetAppUsers($this->client, $this->defaultQuery);
+        return new Method\Friends\GetAppUsers($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getByPhones() : Method\Friends_GetByPhones
+    public function getByPhones() : Method\Friends\GetByPhones
     {
-        return new Method\Friends_GetByPhones($this->client, $this->defaultQuery);
+        return new Method\Friends\GetByPhones($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteAllRequests() : Method\Friends_DeleteAllRequests
+    public function deleteAllRequests() : Method\Friends\DeleteAllRequests
     {
-        return new Method\Friends_DeleteAllRequests($this->client, $this->defaultQuery);
+        return new Method\Friends\DeleteAllRequests($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getSuggestions() : Method\Friends_GetSuggestions
+    public function getSuggestions() : Method\Friends\GetSuggestions
     {
-        return new Method\Friends_GetSuggestions($this->client, $this->defaultQuery);
+        return new Method\Friends\GetSuggestions($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function areFriends() : Method\Friends_AreFriends
+    public function areFriends() : Method\Friends\AreFriends
     {
-        return new Method\Friends_AreFriends($this->client, $this->defaultQuery);
+        return new Method\Friends\AreFriends($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getAvailableForCall() : Method\Friends_GetAvailableForCall
+    public function getAvailableForCall() : Method\Friends\GetAvailableForCall
     {
-        return new Method\Friends_GetAvailableForCall($this->client, $this->defaultQuery);
+        return new Method\Friends\GetAvailableForCall($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function search() : Method\Friends_Search
+    public function search() : Method\Friends\Search
     {
-        return new Method\Friends_Search($this->client, $this->defaultQuery);
+        return new Method\Friends\Search($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

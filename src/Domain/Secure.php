@@ -7,49 +7,51 @@ class Secure
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function getAppBalance() : Method\Secure_GetAppBalance
+    public function getAppBalance() : Method\Secure\GetAppBalance
     {
-        return new Method\Secure_GetAppBalance($this->client, $this->defaultQuery);
+        return new Method\Secure\GetAppBalance($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getTransactionsHistory() : Method\Secure_GetTransactionsHistory
+    public function getTransactionsHistory() : Method\Secure\GetTransactionsHistory
     {
-        return new Method\Secure_GetTransactionsHistory($this->client, $this->defaultQuery);
+        return new Method\Secure\GetTransactionsHistory($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getSMSHistory() : Method\Secure_GetSMSHistory
+    public function getSMSHistory() : Method\Secure\GetSMSHistory
     {
-        return new Method\Secure_GetSMSHistory($this->client, $this->defaultQuery);
+        return new Method\Secure\GetSMSHistory($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function sendSMSNotification() : Method\Secure_SendSMSNotification
+    public function sendSMSNotification() : Method\Secure\SendSMSNotification
     {
-        return new Method\Secure_SendSMSNotification($this->client, $this->defaultQuery);
+        return new Method\Secure\SendSMSNotification($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function sendNotification() : Method\Secure_SendNotification
+    public function sendNotification() : Method\Secure\SendNotification
     {
-        return new Method\Secure_SendNotification($this->client, $this->defaultQuery);
+        return new Method\Secure\SendNotification($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function setCounter() : Method\Secure_SetCounter
+    public function setCounter() : Method\Secure\SetCounter
     {
-        return new Method\Secure_SetCounter($this->client, $this->defaultQuery);
+        return new Method\Secure\SetCounter($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function setUserLevel() : Method\Secure_SetUserLevel
+    public function setUserLevel() : Method\Secure\SetUserLevel
     {
-        return new Method\Secure_SetUserLevel($this->client, $this->defaultQuery);
+        return new Method\Secure\SetUserLevel($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getUserLevel() : Method\Secure_GetUserLevel
+    public function getUserLevel() : Method\Secure\GetUserLevel
     {
-        return new Method\Secure_GetUserLevel($this->client, $this->defaultQuery);
+        return new Method\Secure\GetUserLevel($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function addAppEvent() : Method\Secure_AddAppEvent
+    public function addAppEvent() : Method\Secure\AddAppEvent
     {
-        return new Method\Secure_AddAppEvent($this->client, $this->defaultQuery);
+        return new Method\Secure\AddAppEvent($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function checkToken() : Method\Secure_CheckToken
+    public function checkToken() : Method\Secure\CheckToken
     {
-        return new Method\Secure_CheckToken($this->client, $this->defaultQuery);
+        return new Method\Secure\CheckToken($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

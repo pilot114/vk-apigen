@@ -7,21 +7,23 @@ class Storage
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function get() : Method\Storage_Get
+    public function get() : Method\Storage\Get
     {
-        return new Method\Storage_Get($this->client, $this->defaultQuery);
+        return new Method\Storage\Get($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function set() : Method\Storage_Set
+    public function set() : Method\Storage\Set
     {
-        return new Method\Storage_Set($this->client, $this->defaultQuery);
+        return new Method\Storage\Set($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getKeys() : Method\Storage_GetKeys
+    public function getKeys() : Method\Storage\GetKeys
     {
-        return new Method\Storage_GetKeys($this->client, $this->defaultQuery);
+        return new Method\Storage\GetKeys($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

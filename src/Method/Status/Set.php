@@ -1,0 +1,40 @@
+<?php
+
+namespace VkApigen\Method\Status;
+
+/**
+ * Sets a new status for the current user.
+ */
+class Set extends \VkApigen\BaseMethod
+{
+    protected $params = [];
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
+    {
+        parent::__construct($client, $defaultQuery);
+    }
+    public function call()
+    {
+        return $this->onCall('status.set');
+    }
+    /**
+     * Text of the new status.
+     *
+     * {"type":"string"}
+     */
+    public function _text(string $text) : self
+    {
+        $this->params['text'] = $text;
+        return $this;
+    }
+    /**
+     * Identifier of a community to set a status in. If left blank the status is set to current user.
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _group_id(int $group_id) : self
+    {
+        $this->params['group_id'] = $group_id;
+        return $this;
+    }
+}

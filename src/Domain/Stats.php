@@ -7,21 +7,23 @@ class Stats
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function get() : Method\Stats_Get
+    public function get() : Method\Stats\Get
     {
-        return new Method\Stats_Get($this->client, $this->defaultQuery);
+        return new Method\Stats\Get($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function trackVisitor() : Method\Stats_TrackVisitor
+    public function trackVisitor() : Method\Stats\TrackVisitor
     {
-        return new Method\Stats_TrackVisitor($this->client, $this->defaultQuery);
+        return new Method\Stats\TrackVisitor($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getPostReach() : Method\Stats_GetPostReach
+    public function getPostReach() : Method\Stats\GetPostReach
     {
-        return new Method\Stats_GetPostReach($this->client, $this->defaultQuery);
+        return new Method\Stats\GetPostReach($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

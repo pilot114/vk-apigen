@@ -7,33 +7,35 @@ class Places
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function add() : Method\Places_Add
+    public function add() : Method\Places\Add
     {
-        return new Method\Places_Add($this->client, $this->defaultQuery);
+        return new Method\Places\Add($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getById() : Method\Places_GetById
+    public function getById() : Method\Places\GetById
     {
-        return new Method\Places_GetById($this->client, $this->defaultQuery);
+        return new Method\Places\GetById($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function search() : Method\Places_Search
+    public function search() : Method\Places\Search
     {
-        return new Method\Places_Search($this->client, $this->defaultQuery);
+        return new Method\Places\Search($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function checkin() : Method\Places_Checkin
+    public function checkin() : Method\Places\Checkin
     {
-        return new Method\Places_Checkin($this->client, $this->defaultQuery);
+        return new Method\Places\Checkin($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getCheckins() : Method\Places_GetCheckins
+    public function getCheckins() : Method\Places\GetCheckins
     {
-        return new Method\Places_GetCheckins($this->client, $this->defaultQuery);
+        return new Method\Places\GetCheckins($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getTypes() : Method\Places_GetTypes
+    public function getTypes() : Method\Places\GetTypes
     {
-        return new Method\Places_GetTypes($this->client, $this->defaultQuery);
+        return new Method\Places\GetTypes($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

@@ -7,17 +7,19 @@ class Notifications
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function get() : Method\Notifications_Get
+    public function get() : Method\Notifications\Get
     {
-        return new Method\Notifications_Get($this->client, $this->defaultQuery);
+        return new Method\Notifications\Get($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function markAsViewed() : Method\Notifications_MarkAsViewed
+    public function markAsViewed() : Method\Notifications\MarkAsViewed
     {
-        return new Method\Notifications_MarkAsViewed($this->client, $this->defaultQuery);
+        return new Method\Notifications\MarkAsViewed($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

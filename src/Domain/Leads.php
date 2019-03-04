@@ -7,33 +7,35 @@ class Leads
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function complete() : Method\Leads_Complete
+    public function complete() : Method\Leads\Complete
     {
-        return new Method\Leads_Complete($this->client, $this->defaultQuery);
+        return new Method\Leads\Complete($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function start() : Method\Leads_Start
+    public function start() : Method\Leads\Start
     {
-        return new Method\Leads_Start($this->client, $this->defaultQuery);
+        return new Method\Leads\Start($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getStats() : Method\Leads_GetStats
+    public function getStats() : Method\Leads\GetStats
     {
-        return new Method\Leads_GetStats($this->client, $this->defaultQuery);
+        return new Method\Leads\GetStats($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getUsers() : Method\Leads_GetUsers
+    public function getUsers() : Method\Leads\GetUsers
     {
-        return new Method\Leads_GetUsers($this->client, $this->defaultQuery);
+        return new Method\Leads\GetUsers($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function checkUser() : Method\Leads_CheckUser
+    public function checkUser() : Method\Leads\CheckUser
     {
-        return new Method\Leads_CheckUser($this->client, $this->defaultQuery);
+        return new Method\Leads\CheckUser($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function metricHit() : Method\Leads_MetricHit
+    public function metricHit() : Method\Leads\MetricHit
     {
-        return new Method\Leads_MetricHit($this->client, $this->defaultQuery);
+        return new Method\Leads\MetricHit($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

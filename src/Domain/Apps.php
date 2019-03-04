@@ -7,37 +7,39 @@ class Apps
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function getCatalog() : Method\Apps_GetCatalog
+    public function getCatalog() : Method\Apps\GetCatalog
     {
-        return new Method\Apps_GetCatalog($this->client, $this->defaultQuery);
+        return new Method\Apps\GetCatalog($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function get() : Method\Apps_Get
+    public function get() : Method\Apps\Get
     {
-        return new Method\Apps_Get($this->client, $this->defaultQuery);
+        return new Method\Apps\Get($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function sendRequest() : Method\Apps_SendRequest
+    public function sendRequest() : Method\Apps\SendRequest
     {
-        return new Method\Apps_SendRequest($this->client, $this->defaultQuery);
+        return new Method\Apps\SendRequest($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteAppRequests() : Method\Apps_DeleteAppRequests
+    public function deleteAppRequests() : Method\Apps\DeleteAppRequests
     {
-        return new Method\Apps_DeleteAppRequests($this->client, $this->defaultQuery);
+        return new Method\Apps\DeleteAppRequests($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getFriendsList() : Method\Apps_GetFriendsList
+    public function getFriendsList() : Method\Apps\GetFriendsList
     {
-        return new Method\Apps_GetFriendsList($this->client, $this->defaultQuery);
+        return new Method\Apps\GetFriendsList($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getLeaderboard() : Method\Apps_GetLeaderboard
+    public function getLeaderboard() : Method\Apps\GetLeaderboard
     {
-        return new Method\Apps_GetLeaderboard($this->client, $this->defaultQuery);
+        return new Method\Apps\GetLeaderboard($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getScore() : Method\Apps_GetScore
+    public function getScore() : Method\Apps\GetScore
     {
-        return new Method\Apps_GetScore($this->client, $this->defaultQuery);
+        return new Method\Apps\GetScore($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

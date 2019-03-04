@@ -7,61 +7,63 @@ class Board
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function getTopics() : Method\Board_GetTopics
+    public function getTopics() : Method\Board\GetTopics
     {
-        return new Method\Board_GetTopics($this->client, $this->defaultQuery);
+        return new Method\Board\GetTopics($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getComments() : Method\Board_GetComments
+    public function getComments() : Method\Board\GetComments
     {
-        return new Method\Board_GetComments($this->client, $this->defaultQuery);
+        return new Method\Board\GetComments($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function addTopic() : Method\Board_AddTopic
+    public function addTopic() : Method\Board\AddTopic
     {
-        return new Method\Board_AddTopic($this->client, $this->defaultQuery);
+        return new Method\Board\AddTopic($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function createComment() : Method\Board_CreateComment
+    public function createComment() : Method\Board\CreateComment
     {
-        return new Method\Board_CreateComment($this->client, $this->defaultQuery);
+        return new Method\Board\CreateComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteTopic() : Method\Board_DeleteTopic
+    public function deleteTopic() : Method\Board\DeleteTopic
     {
-        return new Method\Board_DeleteTopic($this->client, $this->defaultQuery);
+        return new Method\Board\DeleteTopic($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function editTopic() : Method\Board_EditTopic
+    public function editTopic() : Method\Board\EditTopic
     {
-        return new Method\Board_EditTopic($this->client, $this->defaultQuery);
+        return new Method\Board\EditTopic($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function editComment() : Method\Board_EditComment
+    public function editComment() : Method\Board\EditComment
     {
-        return new Method\Board_EditComment($this->client, $this->defaultQuery);
+        return new Method\Board\EditComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function restoreComment() : Method\Board_RestoreComment
+    public function restoreComment() : Method\Board\RestoreComment
     {
-        return new Method\Board_RestoreComment($this->client, $this->defaultQuery);
+        return new Method\Board\RestoreComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteComment() : Method\Board_DeleteComment
+    public function deleteComment() : Method\Board\DeleteComment
     {
-        return new Method\Board_DeleteComment($this->client, $this->defaultQuery);
+        return new Method\Board\DeleteComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function openTopic() : Method\Board_OpenTopic
+    public function openTopic() : Method\Board\OpenTopic
     {
-        return new Method\Board_OpenTopic($this->client, $this->defaultQuery);
+        return new Method\Board\OpenTopic($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function closeTopic() : Method\Board_CloseTopic
+    public function closeTopic() : Method\Board\CloseTopic
     {
-        return new Method\Board_CloseTopic($this->client, $this->defaultQuery);
+        return new Method\Board\CloseTopic($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function fixTopic() : Method\Board_FixTopic
+    public function fixTopic() : Method\Board\FixTopic
     {
-        return new Method\Board_FixTopic($this->client, $this->defaultQuery);
+        return new Method\Board\FixTopic($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function unfixTopic() : Method\Board_UnfixTopic
+    public function unfixTopic() : Method\Board\UnfixTopic
     {
-        return new Method\Board_UnfixTopic($this->client, $this->defaultQuery);
+        return new Method\Board\UnfixTopic($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

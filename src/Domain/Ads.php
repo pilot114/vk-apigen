@@ -7,149 +7,151 @@ class Ads
 {
     protected $client;
     protected $defaultQuery;
-    public function __construct($client, $defaultQuery)
+    protected $accessTokenType;
+    public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function getAccounts() : Method\Ads_GetAccounts
+    public function getAccounts() : Method\Ads\GetAccounts
     {
-        return new Method\Ads_GetAccounts($this->client, $this->defaultQuery);
+        return new Method\Ads\GetAccounts($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getClients() : Method\Ads_GetClients
+    public function getClients() : Method\Ads\GetClients
     {
-        return new Method\Ads_GetClients($this->client, $this->defaultQuery);
+        return new Method\Ads\GetClients($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function createClients() : Method\Ads_CreateClients
+    public function createClients() : Method\Ads\CreateClients
     {
-        return new Method\Ads_CreateClients($this->client, $this->defaultQuery);
+        return new Method\Ads\CreateClients($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function updateClients() : Method\Ads_UpdateClients
+    public function updateClients() : Method\Ads\UpdateClients
     {
-        return new Method\Ads_UpdateClients($this->client, $this->defaultQuery);
+        return new Method\Ads\UpdateClients($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteClients() : Method\Ads_DeleteClients
+    public function deleteClients() : Method\Ads\DeleteClients
     {
-        return new Method\Ads_DeleteClients($this->client, $this->defaultQuery);
+        return new Method\Ads\DeleteClients($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getCampaigns() : Method\Ads_GetCampaigns
+    public function getCampaigns() : Method\Ads\GetCampaigns
     {
-        return new Method\Ads_GetCampaigns($this->client, $this->defaultQuery);
+        return new Method\Ads\GetCampaigns($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function createCampaigns() : Method\Ads_CreateCampaigns
+    public function createCampaigns() : Method\Ads\CreateCampaigns
     {
-        return new Method\Ads_CreateCampaigns($this->client, $this->defaultQuery);
+        return new Method\Ads\CreateCampaigns($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function updateCampaigns() : Method\Ads_UpdateCampaigns
+    public function updateCampaigns() : Method\Ads\UpdateCampaigns
     {
-        return new Method\Ads_UpdateCampaigns($this->client, $this->defaultQuery);
+        return new Method\Ads\UpdateCampaigns($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteCampaigns() : Method\Ads_DeleteCampaigns
+    public function deleteCampaigns() : Method\Ads\DeleteCampaigns
     {
-        return new Method\Ads_DeleteCampaigns($this->client, $this->defaultQuery);
+        return new Method\Ads\DeleteCampaigns($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getAds() : Method\Ads_GetAds
+    public function getAds() : Method\Ads\GetAds
     {
-        return new Method\Ads_GetAds($this->client, $this->defaultQuery);
+        return new Method\Ads\GetAds($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getAdsLayout() : Method\Ads_GetAdsLayout
+    public function getAdsLayout() : Method\Ads\GetAdsLayout
     {
-        return new Method\Ads_GetAdsLayout($this->client, $this->defaultQuery);
+        return new Method\Ads\GetAdsLayout($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getAdsTargeting() : Method\Ads_GetAdsTargeting
+    public function getAdsTargeting() : Method\Ads\GetAdsTargeting
     {
-        return new Method\Ads_GetAdsTargeting($this->client, $this->defaultQuery);
+        return new Method\Ads\GetAdsTargeting($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function createAds() : Method\Ads_CreateAds
+    public function createAds() : Method\Ads\CreateAds
     {
-        return new Method\Ads_CreateAds($this->client, $this->defaultQuery);
+        return new Method\Ads\CreateAds($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function updateAds() : Method\Ads_UpdateAds
+    public function updateAds() : Method\Ads\UpdateAds
     {
-        return new Method\Ads_UpdateAds($this->client, $this->defaultQuery);
+        return new Method\Ads\UpdateAds($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteAds() : Method\Ads_DeleteAds
+    public function deleteAds() : Method\Ads\DeleteAds
     {
-        return new Method\Ads_DeleteAds($this->client, $this->defaultQuery);
+        return new Method\Ads\DeleteAds($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function checkLink() : Method\Ads_CheckLink
+    public function checkLink() : Method\Ads\CheckLink
     {
-        return new Method\Ads_CheckLink($this->client, $this->defaultQuery);
+        return new Method\Ads\CheckLink($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getStatistics() : Method\Ads_GetStatistics
+    public function getStatistics() : Method\Ads\GetStatistics
     {
-        return new Method\Ads_GetStatistics($this->client, $this->defaultQuery);
+        return new Method\Ads\GetStatistics($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getDemographics() : Method\Ads_GetDemographics
+    public function getDemographics() : Method\Ads\GetDemographics
     {
-        return new Method\Ads_GetDemographics($this->client, $this->defaultQuery);
+        return new Method\Ads\GetDemographics($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getAdsPostsReach() : Method\Ads_GetAdsPostsReach
+    public function getAdsPostsReach() : Method\Ads\GetAdsPostsReach
     {
-        return new Method\Ads_GetAdsPostsReach($this->client, $this->defaultQuery);
+        return new Method\Ads\GetAdsPostsReach($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getBudget() : Method\Ads_GetBudget
+    public function getBudget() : Method\Ads\GetBudget
     {
-        return new Method\Ads_GetBudget($this->client, $this->defaultQuery);
+        return new Method\Ads\GetBudget($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getOfficeUsers() : Method\Ads_GetOfficeUsers
+    public function getOfficeUsers() : Method\Ads\GetOfficeUsers
     {
-        return new Method\Ads_GetOfficeUsers($this->client, $this->defaultQuery);
+        return new Method\Ads\GetOfficeUsers($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function addOfficeUsers() : Method\Ads_AddOfficeUsers
+    public function addOfficeUsers() : Method\Ads\AddOfficeUsers
     {
-        return new Method\Ads_AddOfficeUsers($this->client, $this->defaultQuery);
+        return new Method\Ads\AddOfficeUsers($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function removeOfficeUsers() : Method\Ads_RemoveOfficeUsers
+    public function removeOfficeUsers() : Method\Ads\RemoveOfficeUsers
     {
-        return new Method\Ads_RemoveOfficeUsers($this->client, $this->defaultQuery);
+        return new Method\Ads\RemoveOfficeUsers($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getTargetingStats() : Method\Ads_GetTargetingStats
+    public function getTargetingStats() : Method\Ads\GetTargetingStats
     {
-        return new Method\Ads_GetTargetingStats($this->client, $this->defaultQuery);
+        return new Method\Ads\GetTargetingStats($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getSuggestions() : Method\Ads_GetSuggestions
+    public function getSuggestions() : Method\Ads\GetSuggestions
     {
-        return new Method\Ads_GetSuggestions($this->client, $this->defaultQuery);
+        return new Method\Ads\GetSuggestions($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getCategories() : Method\Ads_GetCategories
+    public function getCategories() : Method\Ads\GetCategories
     {
-        return new Method\Ads_GetCategories($this->client, $this->defaultQuery);
+        return new Method\Ads\GetCategories($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getUploadURL() : Method\Ads_GetUploadURL
+    public function getUploadURL() : Method\Ads\GetUploadURL
     {
-        return new Method\Ads_GetUploadURL($this->client, $this->defaultQuery);
+        return new Method\Ads\GetUploadURL($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getVideoUploadURL() : Method\Ads_GetVideoUploadURL
+    public function getVideoUploadURL() : Method\Ads\GetVideoUploadURL
     {
-        return new Method\Ads_GetVideoUploadURL($this->client, $this->defaultQuery);
+        return new Method\Ads\GetVideoUploadURL($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getFloodStats() : Method\Ads_GetFloodStats
+    public function getFloodStats() : Method\Ads\GetFloodStats
     {
-        return new Method\Ads_GetFloodStats($this->client, $this->defaultQuery);
+        return new Method\Ads\GetFloodStats($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getRejectionReason() : Method\Ads_GetRejectionReason
+    public function getRejectionReason() : Method\Ads\GetRejectionReason
     {
-        return new Method\Ads_GetRejectionReason($this->client, $this->defaultQuery);
+        return new Method\Ads\GetRejectionReason($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function createTargetGroup() : Method\Ads_CreateTargetGroup
+    public function createTargetGroup() : Method\Ads\CreateTargetGroup
     {
-        return new Method\Ads_CreateTargetGroup($this->client, $this->defaultQuery);
+        return new Method\Ads\CreateTargetGroup($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function updateTargetGroup() : Method\Ads_UpdateTargetGroup
+    public function updateTargetGroup() : Method\Ads\UpdateTargetGroup
     {
-        return new Method\Ads_UpdateTargetGroup($this->client, $this->defaultQuery);
+        return new Method\Ads\UpdateTargetGroup($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteTargetGroup() : Method\Ads_DeleteTargetGroup
+    public function deleteTargetGroup() : Method\Ads\DeleteTargetGroup
     {
-        return new Method\Ads_DeleteTargetGroup($this->client, $this->defaultQuery);
+        return new Method\Ads\DeleteTargetGroup($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getTargetGroups() : Method\Ads_GetTargetGroups
+    public function getTargetGroups() : Method\Ads\GetTargetGroups
     {
-        return new Method\Ads_GetTargetGroups($this->client, $this->defaultQuery);
+        return new Method\Ads\GetTargetGroups($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function importTargetContacts() : Method\Ads_ImportTargetContacts
+    public function importTargetContacts() : Method\Ads\ImportTargetContacts
     {
-        return new Method\Ads_ImportTargetContacts($this->client, $this->defaultQuery);
+        return new Method\Ads\ImportTargetContacts($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }
