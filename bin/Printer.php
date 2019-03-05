@@ -223,24 +223,12 @@ class Printer
                 ->addParam($this->factory->param('client'))
                 ->addParam($this->factory->param('defaultQuery'))
                 ->addParam($this->factory->param('accessTokenType')->setType('string')->setDefault(null))
-                // TODO проверка, что выбран подходящий тип токена
-                /*
-                $availableTypes = [_];
-                if (!in_array($accessTokenType, $availableTypes)) {
-                    throw new \Exception('Неверный тип токена доступа ("%s") для метода %s', $accessTokenType, _);
-                }
-
                 ->addStmt(new Node\Expr\Assign(
-                    new Node\Expr\ArrayDimFetch(
-                        new Node\Expr\PropertyFetch(
-                            new Node\Expr\Variable('this'),
-                            'params'
-                        ),
-                        new Node\Scalar\String_()
+                    new Node\Expr\PropertyFetch(
+                        new Node\Expr\Variable('this'), 'accessTokenType'
                     ),
-                    new Node\Expr\Variable('availableTypes')
+                    new Node\Expr\Variable('accessTokenType')
                 ))
-                */
                 ->addStmt(new Node\Expr\StaticCall(
                     new Node\Name('parent'),
                     '__construct',
@@ -250,6 +238,32 @@ class Printer
                     ]
                 ))
             );
+
+            if (isset($method->access_token_type)) {
+                $types = array_map(function($item) {
+                    return new Node\Scalar\String_($item);
+                }, $method->access_token_type);
+
+                $class->addStmt($this->factory->method('isAvailable')
+                    ->makePublic()
+                    ->addStmt(new Node\Stmt\Return_(new Node\Expr\FuncCall(
+                        new Node\Name('in_array'),
+                        [
+                            new Node\Expr\PropertyFetch(
+                                new Node\Expr\Variable('this'), 'accessTokenType'
+                            ),
+                            new Node\Expr\Array_($types)
+                        ]
+                    )))
+                );
+            } else {
+                $class->addStmt($this->factory->method('isAvailable')
+                    ->makePublic()
+                    ->addStmt(new Node\Stmt\Return_(
+                        new PhpParser\Node\Scalar\LNumber(1)
+                    ))
+                );
+            }
 
             $class->addStmt($this->factory->method('call')
                 ->makePublic()

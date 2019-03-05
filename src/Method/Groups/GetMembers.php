@@ -11,7 +11,12 @@ class GetMembers extends \VkApigen\BaseMethod
     protected $accessTokenType;
     public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         parent::__construct($client, $defaultQuery);
+    }
+    public function isAvailable()
+    {
+        return in_array($this->accessTokenType, ['user', 'group', 'open', 'service']);
     }
     public function call()
     {

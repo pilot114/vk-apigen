@@ -11,6 +11,7 @@ class AddToAlbum extends \VkApigen\BaseMethod
     protected $accessTokenType;
     public function __construct($client, $defaultQuery, string $accessTokenType = null)
     {
+        $this->accessTokenType = $accessTokenType;
         parent::__construct($client, $defaultQuery);
     }
     public function call()
