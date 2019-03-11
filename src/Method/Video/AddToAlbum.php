@@ -14,6 +14,10 @@ class AddToAlbum extends \VkApigen\BaseMethod
         $this->accessTokenType = $accessTokenType;
         parent::__construct($client, $defaultQuery);
     }
+    public function isAvailable()
+    {
+        return 1;
+    }
     public function call()
     {
         return $this->onCall('video.addToAlbum');
