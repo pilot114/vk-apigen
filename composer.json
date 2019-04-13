@@ -12,7 +12,7 @@
         }
     },
     "require": {
-        "php": "7.2",
+        "php": "7.*",
         "ext-json": "*",
         "vkcom/vk-api-schema": "^5.80",
         "nikic/php-parser": "^4.2",
