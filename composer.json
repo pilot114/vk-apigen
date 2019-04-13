@@ -1,10 +1,5 @@
 {
     "name": "pilot114/vk-apigen",
-    "config": {
-        "platform": {
-            "php": "7.*"
-        }
-    },
     "authors": [
         {
             "name": "pilot114",
