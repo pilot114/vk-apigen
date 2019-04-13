@@ -2,7 +2,7 @@
     "name": "pilot114/vk-apigen",
     "config": {
         "platform": {
-            "php": "7.2"
+            "php": "7.*"
         }
     },
     "authors": [
