@@ -104,6 +104,33 @@ class Printer
                         ])
                     ))
                 )
+                ->addStmt($this->factory->method('execute')
+                    ->makePublic()
+                    ->addParam($this->factory->param('code')->setType('string'))
+                    ->addStmt(new Node\Expr\Assign(
+                        new Node\Expr\Variable('params'),
+                        new Node\Expr\FuncCall(new Node\Name('array_merge'), [
+                            new Node\Arg(new Node\Expr\PropertyFetch(new Node\Expr\Variable('this'), 'defaultQuery')),
+                            new Node\Arg(new Node\Expr\Array_([
+                                new PhpParser\Node\Expr\ArrayItem(new Node\Expr\Variable('code'), new Node\Scalar\String_('code'))
+                            ])),
+                        ])
+                    ))
+                    ->addStmt(new Node\Stmt\Return_(
+                        new Node\Expr\MethodCall(
+                            new Node\Expr\PropertyFetch(new Node\Expr\Variable('this'), 'client'),
+                            'get',
+                            [
+                                new Node\Arg(new Node\Scalar\String_('execute')),
+                                new Node\Arg(new Node\Expr\Array_([
+                                    new PhpParser\Node\Expr\ArrayItem(new Node\Expr\Variable('params'), new Node\Scalar\String_('query'))
+                                ])),
+                            ]
+                        )
+
+                    ))
+                )
+
                 ->addStmts($methodsStatements)
             )
             ->getNode();

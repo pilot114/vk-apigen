@@ -15,6 +15,11 @@ class Api
         $this->defaultQuery = ['v' => self::VERSION, 'access_token' => $accessToken];
         $this->client = new Client(['base_uri' => 'https://api.vk.com/method/']);
     }
+    public function execute(string $code)
+    {
+        $params = array_merge($this->defaultQuery, ['code' => $code]);
+        return $this->client->get('execute', ['query' => $params]);
+    }
     public function users() : Domain\Users
     {
         return new Domain\Users($this->client, $this->defaultQuery, $this->accessTokenType);
