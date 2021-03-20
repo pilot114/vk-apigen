@@ -33,7 +33,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Post ID.
+     * Нет описания
      *
      * {"type":"int","minimum":0}
      */
@@ -43,7 +43,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * (Applies only when editing a scheduled post.), '1' — post will be available to friends only, '0' — post will be available to all users (default)
+     * Нет описания
      *
      * {"type":"bool"}
      */
@@ -73,7 +73,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * (Applies only to a scheduled post.) List of services or websites where status will be updated, if the user has so requested. Sample values: 'twitter', 'facebook'.
+     * Нет описания
      *
      * {"type":"string"}
      */
@@ -83,7 +83,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * (Applies only to a post that was created "as community" on a community wall.), '1' — to add the signature of the user who created the post
+     * Нет описания
      *
      * {"type":"bool"}
      */
@@ -93,7 +93,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * (Applies only to a scheduled post.) Publication date (in Unix time). If used, posting will be delayed until the set time.
+     * Нет описания
      *
      * {"type":"int","minimum":0}
      */
@@ -103,9 +103,9 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Geographical latitude of the check-in, in degrees (from -90 to 90).
+     * Нет описания
      *
-     * {"type":"float","minimum":-90,"maximum":90}
+     * {"type":"float"}
      */
     public function _lat(float $lat) : self
     {
@@ -113,9 +113,9 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Geographical longitude of the check-in, in degrees (from -180 to 180).
+     * Нет описания
      *
-     * {"type":"float","minimum":-180,"maximum":180}
+     * {"type":"float"}
      */
     public function _long(float $long) : self
     {
@@ -123,7 +123,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * ID of the location where the user was tagged.
+     * Нет описания
      *
      * {"type":"int","minimum":0}
      */
@@ -140,6 +140,66 @@ class Edit extends \VkApigen\BaseMethod
     public function _mark_as_ads(bool $mark_as_ads) : self
     {
         $this->params['mark_as_ads'] = $mark_as_ads;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _close_comments(bool $close_comments) : self
+    {
+        $this->params['close_comments'] = $close_comments;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int"}
+     */
+    public function _donut_paid_duration(int $donut_paid_duration) : self
+    {
+        $this->params['donut_paid_duration'] = $donut_paid_duration;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _poster_bkg_id(int $poster_bkg_id) : self
+    {
+        $this->params['poster_bkg_id'] = $poster_bkg_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int"}
+     */
+    public function _poster_bkg_owner_id(int $poster_bkg_owner_id) : self
+    {
+        $this->params['poster_bkg_owner_id'] = $poster_bkg_owner_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _poster_bkg_access_hash(string $poster_bkg_access_hash) : self
+    {
+        $this->params['poster_bkg_access_hash'] = $poster_bkg_access_hash;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _copyright(string $copyright) : self
+    {
+        $this->params['copyright'] = $copyright;
         return $this;
     }
 }

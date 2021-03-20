@@ -45,7 +45,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Types of communities to return: 'admin' — to return communities administered by the user , 'editor' — to return communities where the user is an administrator or editor, 'moder' — to return communities where the user is an administrator, editor, or moderator, 'groups' — to return only groups, 'publics' — to return only public pages, 'events' — to return only events
      *
-     * {"type":"array","items":{"type":"string","enum":["admin","editor","moder","groups","publics","events"]}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/groups_filter"}}
      */
     public function _filter(array $filter) : self
     {
@@ -55,7 +55,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Profile fields to return.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/groups_fields"}}
      */
     public function _fields(array $fields) : self
     {

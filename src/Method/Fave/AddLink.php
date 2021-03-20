@@ -32,14 +32,4 @@ class AddLink extends \VkApigen\BaseMethod
         $this->params['link'] = $link;
         return $this;
     }
-    /**
-     * Description text.
-     *
-     * {"type":"string"}
-     */
-    public function _text(string $text) : self
-    {
-        $this->params['text'] = $text;
-        return $this;
-    }
 }

@@ -16,7 +16,7 @@ class GetKeys extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['user', 'group', 'service']);
     }
     public function call()
     {
@@ -33,9 +33,19 @@ class GetKeys extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"int","default":0,"minimum":0}
+     */
+    public function _offset(int $offset) : self
+    {
+        $this->params['offset'] = $offset;
+        return $this;
+    }
+    /**
      * amount of variable names the info needs to be collected from.
      *
-     * {"type":"int","minimum":0,"maximum":1000,"default":100}
+     * {"type":"int","default":100,"minimum":0,"maximum":1000}
      */
     public function _count(int $count) : self
     {

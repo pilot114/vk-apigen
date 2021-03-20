@@ -23,16 +23,6 @@ class MarkAsImportantConversation extends \VkApigen\BaseMethod
         return $this->onCall('messages.markAsImportantConversation');
     }
     /**
-     * Group ID (for group messages with group access token)
-     *
-     * {"type":"int","minimum":0}
-     */
-    public function _group_id(int $group_id) : self
-    {
-        $this->params['group_id'] = $group_id;
-        return $this;
-    }
-    /**
      * ID of conversation to mark as important.
      *
      * {"type":"int"}
@@ -50,6 +40,16 @@ class MarkAsImportantConversation extends \VkApigen\BaseMethod
     public function _important(bool $important) : self
     {
         $this->params['important'] = $important;
+        return $this;
+    }
+    /**
+     * Group ID (for group messages with group access token)
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _group_id(int $group_id) : self
+    {
+        $this->params['group_id'] = $group_id;
         return $this;
     }
 }

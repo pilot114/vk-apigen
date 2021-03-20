@@ -16,7 +16,7 @@ class GetChairs extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -45,7 +45,7 @@ class GetChairs extends \VkApigen\BaseMethod
     /**
      * amount of chairs to get
      *
-     * {"type":"int","minimum":0,"default":100,"maximum":10000}
+     * {"type":"int","default":100,"minimum":0,"maximum":10000}
      */
     public function _count(int $count) : self
     {

@@ -16,7 +16,7 @@ class Get extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'group', 'service']);
     }
     public function call()
     {
@@ -33,9 +33,9 @@ class Get extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online', 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post', 'universities',
+     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online', 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post', 'universities', 'can_invite_to_chats'
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {
@@ -45,7 +45,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Case for declension of user name and surname: 'nom' — nominative (default), 'gen' — genitive , 'dat' — dative, 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
      *
-     * {"type":"string","default":"nom","enum":["nom","gen","dat","acc","ins","abl"],"enumNames":["nominative","genitive","dative","accusative","instrumental","prepositional"]}
+     * {"type":"string","enum":["nom","gen","dat","acc","ins","abl"],"enumNames":["nominative","genitive","dative","accusative","instrumental","prepositional"]}
      */
     public function _name_case(string $name_case) : self
     {

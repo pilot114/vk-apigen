@@ -45,7 +45,7 @@ class GetRecommended extends \VkApigen\BaseMethod
     /**
      * Maximum number of photos to return. By default, '5'.
      *
-     * {"type":"int","minimum":0,"default":5}
+     * {"type":"int","minimum":0}
      */
     public function _max_photos(int $max_photos) : self
     {
@@ -75,7 +75,7 @@ class GetRecommended extends \VkApigen\BaseMethod
     /**
      * Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
      */
     public function _fields(array $fields) : self
     {

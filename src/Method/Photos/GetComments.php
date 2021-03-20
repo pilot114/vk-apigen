@@ -75,7 +75,7 @@ class GetComments extends \VkApigen\BaseMethod
     /**
      * Number of comments to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":100}
+     * {"type":"int","default":"20","minimum":0,"maximum":100}
      */
     public function _count(int $count) : self
     {
@@ -115,7 +115,7 @@ class GetComments extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {

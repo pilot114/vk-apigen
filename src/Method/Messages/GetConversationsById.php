@@ -45,7 +45,7 @@ class GetConversationsById extends \VkApigen\BaseMethod
     /**
      * Profile and communities fields to return.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
      */
     public function _fields(array $fields) : self
     {

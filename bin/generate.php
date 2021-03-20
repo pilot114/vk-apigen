@@ -5,7 +5,6 @@
  */
 
 include '../vendor/autoload.php';
-include './Printer.php';
 
 $generateNamespace = 'VkApigen';
 $generatePath = '../src';
@@ -18,7 +17,7 @@ $methods   = json_decode(file_get_contents($vkDefinitionPath . '/methods.json'),
 $responses = json_decode(file_get_contents($vkDefinitionPath . '/responses.json'), true)['definitions'];
 $objects   = json_decode(file_get_contents($vkDefinitionPath . '/objects.json'), true)['definitions'];
 
-$printer = new Printer($generateNamespace, $apiVersion);
+$printer = new \VkApigen\Printer($generateNamespace, $apiVersion);
 
 // Генерация основного класса для работы с апи
 file_put_contents($generatePath . '/Api.php', $printer->apiPrint($methods));

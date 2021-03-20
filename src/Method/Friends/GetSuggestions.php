@@ -35,7 +35,7 @@ class GetSuggestions extends \VkApigen\BaseMethod
     /**
      * Number of suggestions to return.
      *
-     * {"type":"int","minimum":0,"maximum":500,"default":500}
+     * {"type":"int","default":500,"minimum":0,"maximum":500}
      */
     public function _count(int $count) : self
     {
@@ -55,7 +55,7 @@ class GetSuggestions extends \VkApigen\BaseMethod
     /**
      * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online', 'counters'.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {

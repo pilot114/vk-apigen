@@ -16,7 +16,7 @@ class AddToAlbum extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return 1;
+        return in_array($this->accessTokenType, ['user']);
     }
     public function call()
     {

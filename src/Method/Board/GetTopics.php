@@ -16,7 +16,7 @@ class GetTopics extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -35,7 +35,7 @@ class GetTopics extends \VkApigen\BaseMethod
     /**
      * IDs of topics to be returned (100 maximum). By default, all topics are returned. If this parameter is set, the 'order', 'offset', and 'count' parameters are ignored.
      *
-     * {"type":"array","maxItems":100,"items":{"type":"integer"}}
+     * {"type":"array","items":{"type":"integer"}}
      */
     public function _topic_ids(array $topic_ids) : self
     {
@@ -45,7 +45,7 @@ class GetTopics extends \VkApigen\BaseMethod
     /**
      * Sort order: '1' — by date updated in reverse chronological order. '2' — by date created in reverse chronological order. '-1' — by date updated in chronological order. '-2' — by date created in chronological order. If no sort order is specified, topics are returned in the order specified by the group administrator. Pinned topics are returned first, regardless of the sorting.
      *
-     * {"type":"int","default":0,"enum":[1,2,-1,-2,0],"enumNames":["updated desc","created desc","updated asc","created asc","as by administrator"]}
+     * {"type":"int","enum":[1,2,-1,-2,0],"enumNames":["updated desc","created desc","updated asc","created asc","as by administrator"]}
      */
     public function _order(int $order) : self
     {
@@ -65,7 +65,7 @@ class GetTopics extends \VkApigen\BaseMethod
     /**
      * Number of topics to return.
      *
-     * {"type":"int","minimum":0,"default":40,"maximum":100}
+     * {"type":"int","default":40,"minimum":0,"maximum":100}
      */
     public function _count(int $count) : self
     {
@@ -85,7 +85,7 @@ class GetTopics extends \VkApigen\BaseMethod
     /**
      * '1' — to return the first comment in each topic,, '2' — to return the last comment in each topic,, '0' — to return no comments. By default: '0'.
      *
-     * {"type":"int","default":0,"enum":[1,2,0],"enumNames":["first","last","none"]}
+     * {"type":"int","enum":[1,2,0],"enumNames":["first","last","none"]}
      */
     public function _preview(int $preview) : self
     {
@@ -95,7 +95,7 @@ class GetTopics extends \VkApigen\BaseMethod
     /**
      * Number of characters after which to truncate the previewed comment. To preview the full comment, specify '0'.
      *
-     * {"type":"int","minimum":0,"default":90}
+     * {"type":"int","default":90,"minimum":0}
      */
     public function _preview_length(int $preview_length) : self
     {

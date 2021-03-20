@@ -25,7 +25,7 @@ class GetByPhones extends \VkApigen\BaseMethod
     /**
      * List of phone numbers in MSISDN format (maximum 1000). Example: "+79219876543,+79111234567"
      *
-     * {"type":"array","items":{"type":"string"},"maxItems":1000}
+     * {"type":"array","items":{"type":"string"}}
      */
     public function _phones(array $phones) : self
     {
@@ -35,7 +35,7 @@ class GetByPhones extends \VkApigen\BaseMethod
     /**
      * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online, counters'.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {

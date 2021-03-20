@@ -35,21 +35,11 @@ class HideReply extends \VkApigen\BaseMethod
     /**
      * Story ID.
      *
-     * {"type":"int"}
+     * {"type":"int","minimum":0}
      */
     public function story_id(int $story_id) : self
     {
         $this->params['story_id'] = $story_id;
-        return $this;
-    }
-    /**
-     * Access key for the private object.
-     *
-     * {"type":"string"}
-     */
-    public function _access_key(string $access_key) : self
-    {
-        $this->params['access_key'] = $access_key;
         return $this;
     }
 }

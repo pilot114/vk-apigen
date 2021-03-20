@@ -45,7 +45,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Number of posts to return.
      *
-     * {"type":"int","minimum":0,"default":30,"maximum":200}
+     * {"type":"int","default":30,"minimum":0,"maximum":200}
      */
     public function _count(int $count) : self
     {
@@ -55,7 +55,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Geographical latitude point (in degrees, -90 to 90) within which to search.
      *
-     * {"type":"float","minimum":-90,"maximum":90}
+     * {"type":"float"}
      */
     public function _latitude(float $latitude) : self
     {
@@ -65,7 +65,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Geographical longitude point (in degrees, -180 to 180) within which to search.
      *
-     * {"type":"float","minimum":-180,"maximum":180}
+     * {"type":"float"}
      */
     public function _longitude(float $longitude) : self
     {
@@ -105,7 +105,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
      */
     public function _fields(array $fields) : self
     {

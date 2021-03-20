@@ -16,7 +16,7 @@ class MarkAsImportant extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'group']);
+        return in_array($this->accessTokenType, ['user']);
     }
     public function call()
     {
@@ -25,7 +25,7 @@ class MarkAsImportant extends \VkApigen\BaseMethod
     /**
      * IDs of messages to mark as important.
      *
-     * {"type":"array","items":{"type":"integer","minimum":0}}
+     * {"type":"array","default":[],"items":{"type":"integer","minimum":0}}
      */
     public function _message_ids(array $message_ids) : self
     {
@@ -35,9 +35,9 @@ class MarkAsImportant extends \VkApigen\BaseMethod
     /**
      * '1' — to add a star (mark as important), '0' — to remove the star
      *
-     * {"type":"bool"}
+     * {"type":"int","minimum":0}
      */
-    public function _important(bool $important) : self
+    public function _important(int $important) : self
     {
         $this->params['important'] = $important;
         return $this;

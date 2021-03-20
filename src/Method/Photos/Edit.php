@@ -55,7 +55,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"float","minimum":-90,"maximum":90}
+     * {"type":"float"}
      */
     public function _latitude(float $latitude) : self
     {
@@ -65,7 +65,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"float","minimum":-180,"maximum":180}
+     * {"type":"float"}
      */
     public function _longitude(float $longitude) : self
     {

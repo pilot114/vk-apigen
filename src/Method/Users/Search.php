@@ -55,7 +55,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Number of users to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":1000}
+     * {"type":"int","default":20,"minimum":0,"maximum":1000}
      */
     public function _count(int $count) : self
     {
@@ -65,7 +65,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online',
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {
@@ -155,7 +155,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * '1' — female, '2' — male, '0' — any (default)
      *
-     * {"type":"int","minimum":0,"default":0,"enum":[0,1,2],"enumNames":["any","female","male"]}
+     * {"type":"int","minimum":0,"enum":[0,1,2],"enumNames":["any","female","male"]}
      */
     public function _sex(int $sex) : self
     {
@@ -215,7 +215,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Year of birth.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","minimum":1900,"maximum":2100}
      */
     public function _birth_year(int $birth_year) : self
     {
@@ -300,16 +300,6 @@ class Search extends \VkApigen\BaseMethod
     public function _religion(string $religion) : self
     {
         $this->params['religion'] = $religion;
-        return $this;
-    }
-    /**
-     * Users' interests.
-     *
-     * {"type":"string"}
-     */
-    public function _interests(string $interests) : self
-    {
-        $this->params['interests'] = $interests;
         return $this;
     }
     /**

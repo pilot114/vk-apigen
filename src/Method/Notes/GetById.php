@@ -42,4 +42,14 @@ class GetById extends \VkApigen\BaseMethod
         $this->params['owner_id'] = $owner_id;
         return $this;
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool","default":0}
+     */
+    public function _need_wiki(bool $need_wiki) : self
+    {
+        $this->params['need_wiki'] = $need_wiki;
+        return $this;
+    }
 }

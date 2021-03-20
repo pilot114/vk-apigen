@@ -27,7 +27,7 @@ class GetByConversationMessageId extends \VkApigen\BaseMethod
      *
      * {"type":"int"}
      */
-    public function _peer_id(int $peer_id) : self
+    public function peer_id(int $peer_id) : self
     {
         $this->params['peer_id'] = $peer_id;
         return $this;
@@ -55,7 +55,7 @@ class GetByConversationMessageId extends \VkApigen\BaseMethod
     /**
      * Profile fields to return.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {

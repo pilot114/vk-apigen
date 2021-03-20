@@ -25,7 +25,7 @@ class GetHints extends \VkApigen\BaseMethod
     /**
      * Search query string.
      *
-     * {"type":"string"}
+     * {"type":"string","maxLength":9000}
      */
     public function _q(string $q) : self
     {
@@ -45,7 +45,7 @@ class GetHints extends \VkApigen\BaseMethod
     /**
      * Maximum number of results to return.
      *
-     * {"type":"int","minimum":0,"maximum":200,"default":9}
+     * {"type":"int","default":9,"minimum":0,"maximum":200}
      */
     public function _limit(int $limit) : self
     {
@@ -60,6 +60,16 @@ class GetHints extends \VkApigen\BaseMethod
     public function _filters(array $filters) : self
     {
         $this->params['filters'] = $filters;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"array","items":{"type":"string"}}
+     */
+    public function _fields(array $fields) : self
+    {
+        $this->params['fields'] = $fields;
         return $this;
     }
     /**

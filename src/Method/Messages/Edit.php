@@ -35,7 +35,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * (Required if 'attachments' is not set.) Text of the message.
      *
-     * {"type":"string"}
+     * {"type":"string","maxLength":9000}
      */
     public function _message(string $message) : self
     {
@@ -45,7 +45,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Geographical latitude of a check-in, in degrees (from -90 to 90).
      *
-     * {"type":"float","minimum":-90,"maximum":90}
+     * {"type":"float"}
      */
     public function _lat(float $lat) : self
     {
@@ -55,7 +55,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Geographical longitude of a check-in, in degrees (from -180 to 180).
      *
-     * {"type":"float","minimum":-180,"maximum":180}
+     * {"type":"float"}
      */
     public function _long(float $long) : self
     {
@@ -65,9 +65,9 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * (Required if 'message' is not set.) List of objects attached to the message, separated by commas, in the following format: "<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, 'wall' — wall post, '<owner_id>' — ID of the media attachment owner. '<media_id>' — media attachment ID. Example: "photo100172_166443618"
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"string"}
      */
-    public function _attachment(array $attachment) : self
+    public function _attachment(string $attachment) : self
     {
         $this->params['attachment'] = $attachment;
         return $this;
@@ -100,6 +100,56 @@ class Edit extends \VkApigen\BaseMethod
     public function _group_id(int $group_id) : self
     {
         $this->params['group_id'] = $group_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool","default":false}
+     */
+    public function _dont_parse_links(bool $dont_parse_links) : self
+    {
+        $this->params['dont_parse_links'] = $dont_parse_links;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _message_id(int $message_id) : self
+    {
+        $this->params['message_id'] = $message_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _conversation_message_id(int $conversation_message_id) : self
+    {
+        $this->params['conversation_message_id'] = $conversation_message_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _template(string $template) : self
+    {
+        $this->params['template'] = $template;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _keyboard(string $keyboard) : self
+    {
+        $this->params['keyboard'] = $keyboard;
         return $this;
     }
 }

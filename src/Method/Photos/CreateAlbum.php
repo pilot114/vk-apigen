@@ -35,7 +35,7 @@ class CreateAlbum extends \VkApigen\BaseMethod
     /**
      * ID of the community in which the album will be created.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int"}
      */
     public function _group_id(int $group_id) : self
     {
@@ -55,7 +55,7 @@ class CreateAlbum extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"array","items":{"type":"string"},"default":0}
+     * {"type":"array","default":"all","items":{"type":"string"}}
      */
     public function _privacy_view(array $privacy_view) : self
     {
@@ -65,7 +65,7 @@ class CreateAlbum extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"array","items":{"type":"string"},"default":0}
+     * {"type":"array","default":"all","items":{"type":"string"}}
      */
     public function _privacy_comment(array $privacy_comment) : self
     {

@@ -45,7 +45,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Number of results to return.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","default":20,"minimum":0}
      */
     public function _count(int $count) : self
     {
@@ -60,6 +60,16 @@ class Search extends \VkApigen\BaseMethod
     public function _offset(int $offset) : self
     {
         $this->params['offset'] = $offset;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _return_tags(bool $return_tags) : self
+    {
+        $this->params['return_tags'] = $return_tags;
         return $this;
     }
 }

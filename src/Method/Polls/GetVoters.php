@@ -85,7 +85,7 @@ class GetVoters extends \VkApigen\BaseMethod
     /**
      * Number of user IDs to return (if the 'friends_only' parameter is not set, maximum '1000', otherwise '10'). '100' — (default)
      *
-     * {"type":"int","minimum":0,"default":100}
+     * {"type":"int","minimum":0}
      */
     public function _count(int $count) : self
     {
@@ -95,7 +95,7 @@ class GetVoters extends \VkApigen\BaseMethod
     /**
      * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate (birthdate)', 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online', 'counters'.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {

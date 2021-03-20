@@ -18,12 +18,12 @@ class Stats
     {
         return new Method\Stats\Get($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function trackVisitor() : Method\Stats\TrackVisitor
-    {
-        return new Method\Stats\TrackVisitor($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
     public function getPostReach() : Method\Stats\GetPostReach
     {
         return new Method\Stats\GetPostReach($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function trackVisitor() : Method\Stats\TrackVisitor
+    {
+        return new Method\Stats\TrackVisitor($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

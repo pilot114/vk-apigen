@@ -35,7 +35,7 @@ class GetRequests extends \VkApigen\BaseMethod
     /**
      * Number of friend requests to return (default 100, maximum 1000).
      *
-     * {"type":"int","minimum":0,"maximum":1000,"default":100}
+     * {"type":"int","default":100,"minimum":0,"maximum":1000}
      */
     public function _count(int $count) : self
     {
@@ -75,11 +75,21 @@ class GetRequests extends \VkApigen\BaseMethod
     /**
      * Sort order: '1' — by number of mutual friends, '0' — by date
      *
-     * {"type":"int","minimum":0,"enum":[0,1],"enumNames":["date","mutual"]}
+     * {"type":"int","minimum":0,"enum":[0,1,2],"enumNames":["date","mutual","rotate"]}
      */
     public function _sort(int $sort) : self
     {
         $this->params['sort'] = $sort;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool","default":0}
+     */
+    public function _need_viewed(bool $need_viewed) : self
+    {
+        $this->params['need_viewed'] = $need_viewed;
         return $this;
     }
     /**
@@ -90,6 +100,26 @@ class GetRequests extends \VkApigen\BaseMethod
     public function _suggested(bool $suggested) : self
     {
         $this->params['suggested'] = $suggested;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string","maxLength":255}
+     */
+    public function _ref(string $ref) : self
+    {
+        $this->params['ref'] = $ref;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
+     */
+    public function _fields(array $fields) : self
+    {
+        $this->params['fields'] = $fields;
         return $this;
     }
 }

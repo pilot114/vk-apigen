@@ -82,4 +82,14 @@ class RegisterDevice extends \VkApigen\BaseMethod
         $this->params['settings'] = $settings;
         return $this;
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool","default":0}
+     */
+    public function _sandbox(bool $sandbox) : self
+    {
+        $this->params['sandbox'] = $sandbox;
+        return $this;
+    }
 }

@@ -22,4 +22,64 @@ class GetTransactionsHistory extends \VkApigen\BaseMethod
     {
         return $this->onCall('secure.getTransactionsHistory');
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"int"}
+     */
+    public function _type(int $type) : self
+    {
+        $this->params['type'] = $type;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _uid_from(int $uid_from) : self
+    {
+        $this->params['uid_from'] = $uid_from;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _uid_to(int $uid_to) : self
+    {
+        $this->params['uid_to'] = $uid_to;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _date_from(int $date_from) : self
+    {
+        $this->params['date_from'] = $date_from;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _date_to(int $date_to) : self
+    {
+        $this->params['date_to'] = $date_to;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","default":1000,"minimum":0,"maximum":1000}
+     */
+    public function _limit(int $limit) : self
+    {
+        $this->params['limit'] = $limit;
+        return $this;
+    }
 }

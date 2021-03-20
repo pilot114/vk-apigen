@@ -16,7 +16,7 @@ class Get extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -45,7 +45,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * platform. Possible values: *'ios' — iOS,, *'android' — Android,, *'winphone' — Windows Phone,, *'web' — приложения на vk.com. By default: 'web'.
      *
-     * {"type":"string","default":"web","enum":["web","ios","android","winphone"]}
+     * {"type":"string","default":"web","enum":["android","ios","web","winphone"]}
      */
     public function _platform(string $platform) : self
     {
@@ -53,9 +53,29 @@ class Get extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"bool","default":0}
+     */
+    public function _extended(bool $extended) : self
+    {
+        $this->params['extended'] = $extended;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool","default":0}
+     */
+    public function _return_friends(bool $return_friends) : self
+    {
+        $this->params['return_friends'] = $return_friends;
+        return $this;
+    }
+    /**
      * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online', 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post', 'universities', (only if return_friends - 1)
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {

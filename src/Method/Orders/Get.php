@@ -16,16 +16,26 @@ class Get extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['service']);
     }
     public function call()
     {
         return $this->onCall('orders.get');
     }
     /**
+     * Нет описания
+     *
+     * {"type":"int","default":0,"minimum":0}
+     */
+    public function _offset(int $offset) : self
+    {
+        $this->params['offset'] = $offset;
+        return $this;
+    }
+    /**
      * number of returned orders.
      *
-     * {"type":"int","minimum":0,"maximum":1000,"default":100}
+     * {"type":"int","default":100,"minimum":0,"maximum":1000}
      */
     public function _count(int $count) : self
     {

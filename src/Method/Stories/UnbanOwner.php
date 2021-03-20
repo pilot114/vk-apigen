@@ -25,7 +25,7 @@ class UnbanOwner extends \VkApigen\BaseMethod
     /**
      * List of hidden sources to show stories from.
      *
-     * {"type":"array","items":{"type":"integer","minimum":0}}
+     * {"type":"array","items":{"type":"integer"},"maxItems":200}
      */
     public function owners_ids(array $owners_ids) : self
     {

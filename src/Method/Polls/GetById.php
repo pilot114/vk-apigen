@@ -52,4 +52,44 @@ class GetById extends \VkApigen\BaseMethod
         $this->params['poll_id'] = $poll_id;
         return $this;
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _extended(bool $extended) : self
+    {
+        $this->params['extended'] = $extended;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","default":3,"minimum":0,"maximum":100}
+     */
+    public function _friends_count(int $friends_count) : self
+    {
+        $this->params['friends_count'] = $friends_count;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"array","items":{"type":"string"}}
+     */
+    public function _fields(array $fields) : self
+    {
+        $this->params['fields'] = $fields;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string","default":"nom","enum":["abl","acc","dat","gen","ins","nom"]}
+     */
+    public function _name_case(string $name_case) : self
+    {
+        $this->params['name_case'] = $name_case;
+        return $this;
+    }
 }

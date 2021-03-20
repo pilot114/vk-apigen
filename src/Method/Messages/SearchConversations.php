@@ -35,7 +35,7 @@ class SearchConversations extends \VkApigen\BaseMethod
     /**
      * Maximum number of results.
      *
-     * {"type":"int","minimum":0,"default":20}
+     * {"type":"int","default":20,"minimum":1,"maximum":255}
      */
     public function _count(int $count) : self
     {
@@ -55,7 +55,7 @@ class SearchConversations extends \VkApigen\BaseMethod
     /**
      * Profile fields to return.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {

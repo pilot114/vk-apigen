@@ -43,23 +43,73 @@ class Get extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Latest datestamp (in Unix time) of statistics to return.
+     * Нет описания
      *
-     * {"type":"string"}
+     * {"type":"int","minimum":0}
      */
-    public function _date_from(string $date_from) : self
+    public function _timestamp_from(int $timestamp_from) : self
     {
-        $this->params['date_from'] = $date_from;
+        $this->params['timestamp_from'] = $timestamp_from;
         return $this;
     }
     /**
-     * End datestamp (in Unix time) of statistics to return.
+     * Нет описания
      *
-     * {"type":"string"}
+     * {"type":"int","minimum":0}
      */
-    public function _date_to(string $date_to) : self
+    public function _timestamp_to(int $timestamp_to) : self
     {
-        $this->params['date_to'] = $date_to;
+        $this->params['timestamp_to'] = $timestamp_to;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string","default":"day","enum":["all","day","month","week","year"]}
+     */
+    public function _interval(string $interval) : self
+    {
+        $this->params['interval'] = $interval;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _intervals_count(int $intervals_count) : self
+    {
+        $this->params['intervals_count'] = $intervals_count;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"array","items":{"type":"string"}}
+     */
+    public function _filters(array $filters) : self
+    {
+        $this->params['filters'] = $filters;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"array","items":{"type":"string"}}
+     */
+    public function _stats_groups(array $stats_groups) : self
+    {
+        $this->params['stats_groups'] = $stats_groups;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool","default":true}
+     */
+    public function _extended(bool $extended) : self
+    {
+        $this->params['extended'] = $extended;
         return $this;
     }
 }

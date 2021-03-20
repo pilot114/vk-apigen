@@ -33,9 +33,19 @@ class Get extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"int","default":0,"minimum":0}
+     */
+    public function _album_id(int $album_id) : self
+    {
+        $this->params['album_id'] = $album_id;
+        return $this;
+    }
+    /**
      * Number of items to return.
      *
-     * {"type":"int","minimum":0,"maximum":200,"default":100}
+     * {"type":"int","default":100,"minimum":0,"maximum":200}
      */
     public function _count(int $count) : self
     {

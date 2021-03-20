@@ -45,7 +45,7 @@ class UpdateTargetGroup extends \VkApigen\BaseMethod
     /**
      * Group ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int"}
      */
     public function target_group_id(int $target_group_id) : self
     {
@@ -55,7 +55,7 @@ class UpdateTargetGroup extends \VkApigen\BaseMethod
     /**
      * New name of the target group — a string up to 64 characters long.
      *
-     * {"type":"string","maxLength":64}
+     * {"type":"string"}
      */
     public function name(string $name) : self
     {
@@ -73,13 +73,33 @@ class UpdateTargetGroup extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * 'Only for the groups that get audience from sites with user accounting code.', Time in days when users added to a retarget group will be automatically excluded from it. '0' – automatic exclusion is off.
+     * 'Only for the groups that get audience from sites with user accounting code.', Time in days when users added to a retarget group will be automatically excluded from it. '0' - automatic exclusion is off.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","minimum":1,"maximum":720}
      */
-    public function _lifetime(int $lifetime) : self
+    public function lifetime(int $lifetime) : self
     {
         $this->params['lifetime'] = $lifetime;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int"}
+     */
+    public function _target_pixel_id(int $target_pixel_id) : self
+    {
+        $this->params['target_pixel_id'] = $target_pixel_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _target_pixel_rules(string $target_pixel_rules) : self
+    {
+        $this->params['target_pixel_rules'] = $target_pixel_rules;
         return $this;
     }
 }

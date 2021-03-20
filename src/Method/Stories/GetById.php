@@ -25,9 +25,9 @@ class GetById extends \VkApigen\BaseMethod
     /**
      * Stories IDs separated by commas. Use format {owner_id}+'_'+{story_id}, for example, 12345_54331.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"type":"string"},"maxItems":100}
      */
-    public function _stories(array $stories) : self
+    public function stories(array $stories) : self
     {
         $this->params['stories'] = $stories;
         return $this;
@@ -35,7 +35,7 @@ class GetById extends \VkApigen\BaseMethod
     /**
      * '1' — to return additional fields for users and communities. Default value is 0.
      *
-     * {"type":"bool"}
+     * {"type":"bool","default":false}
      */
     public function _extended(bool $extended) : self
     {
@@ -45,7 +45,7 @@ class GetById extends \VkApigen\BaseMethod
     /**
      * Additional fields to return
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
      */
     public function _fields(array $fields) : self
     {

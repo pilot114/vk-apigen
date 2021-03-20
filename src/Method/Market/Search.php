@@ -33,6 +33,16 @@ class Search extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _album_id(int $album_id) : self
+    {
+        $this->params['album_id'] = $album_id;
+        return $this;
+    }
+    /**
      * Search query, for example "pink slippers".
      *
      * {"type":"string"}
@@ -63,19 +73,19 @@ class Search extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Comma-separated tag IDs list.
+     * Нет описания
      *
-     * {"type":"array","items":{"type":"integer"}}
+     * {"type":"int","default":0,"enum":[0,1,2,3],"enumNames":["default","date","price","relevance"]}
      */
-    public function _tags(array $tags) : self
+    public function _sort(int $sort) : self
     {
-        $this->params['tags'] = $tags;
+        $this->params['sort'] = $sort;
         return $this;
     }
     /**
      * '0' — do not use reverse order, '1' — use reverse order
      *
-     * {"type":"int","minimum":0,"default":1,"enum":[0,1],"enumNames":["normal","reverse"]}
+     * {"type":"int","default":1,"minimum":0,"enum":[0,1],"enumNames":["normal","reverse"]}
      */
     public function _rev(int $rev) : self
     {
@@ -95,7 +105,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Number of items to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":200}
+     * {"type":"int","default":20,"minimum":0,"maximum":200}
      */
     public function _count(int $count) : self
     {
@@ -105,11 +115,21 @@ class Search extends \VkApigen\BaseMethod
     /**
      * '1' – to return additional fields: 'likes, can_comment, car_repost, photos'. By default: '0'.
      *
-     * {"type":"bool","default":0}
+     * {"type":"bool","default":"0"}
      */
     public function _extended(bool $extended) : self
     {
         $this->params['extended'] = $extended;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","default":0,"minimum":0,"enum":[0,2],"enumNames":["active","disabled"]}
+     */
+    public function _status(int $status) : self
+    {
+        $this->params['status'] = $status;
         return $this;
     }
 }

@@ -45,7 +45,7 @@ class Create extends \VkApigen\BaseMethod
     /**
      * Community type. Possible values: *'group' – group,, *'event' – event,, *'public' – public page
      *
-     * {"type":"string","default":"group","enum":["group","public","event"]}
+     * {"type":"string","default":"group","enum":["event","group","public"]}
      */
     public function _type(string $type) : self
     {

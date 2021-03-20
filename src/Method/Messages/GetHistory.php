@@ -35,7 +35,7 @@ class GetHistory extends \VkApigen\BaseMethod
     /**
      * Number of messages to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":200}
+     * {"type":"int","default":20,"minimum":0,"maximum":200}
      */
     public function _count(int $count) : self
     {
@@ -65,11 +65,21 @@ class GetHistory extends \VkApigen\BaseMethod
     /**
      * Starting message ID from which to return history.
      *
-     * {"type":"int"}
+     * {"type":"int","minimum":0}
      */
     public function _start_message_id(int $start_message_id) : self
     {
         $this->params['start_message_id'] = $start_message_id;
+        return $this;
+    }
+    /**
+     * Sort order: '1' — return messages in chronological order. '0' — return messages in reverse chronological order.
+     *
+     * {"type":"int","enum":[1,0],"enumNames":["chronological","reverse chronological"]}
+     */
+    public function _rev(int $rev) : self
+    {
+        $this->params['rev'] = $rev;
         return $this;
     }
     /**
@@ -85,7 +95,7 @@ class GetHistory extends \VkApigen\BaseMethod
     /**
      * Profile fields to return.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {
@@ -100,16 +110,6 @@ class GetHistory extends \VkApigen\BaseMethod
     public function _group_id(int $group_id) : self
     {
         $this->params['group_id'] = $group_id;
-        return $this;
-    }
-    /**
-     * Sort order: '1' — return messages in chronological order. '0' — return messages in reverse chronological order.
-     *
-     * {"type":"int","enum":[1,0],"enumNames":["chronological","reverse chronological"]}
-     */
-    public function _rev(int $rev) : self
-    {
-        $this->params['rev'] = $rev;
         return $this;
     }
 }

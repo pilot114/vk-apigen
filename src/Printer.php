@@ -1,5 +1,7 @@
 <?php
 
+namespace VkApigen;
+
 use PhpParser\BuilderFactory;
 use PhpParser\PrettyPrinter;
 use PhpParser\Node;
@@ -75,14 +77,14 @@ class Printer
                             new Node\Expr\Variable('this'), 'defaultQuery'
                         ),
                         new Node\Expr\Array_([
-                            new PhpParser\Node\Expr\ArrayItem(
+                            new Node\Expr\ArrayItem(
                                 new Node\Expr\ClassConstFetch(
                                     new Node\Name('self'),
                                     'VERSION'
                                 ),
                                 new Node\Scalar\String_('v')
                             ),
-                            new PhpParser\Node\Expr\ArrayItem(
+                            new Node\Expr\ArrayItem(
                                 new Node\Expr\Variable('accessToken'),
                                 new Node\Scalar\String_('access_token')
                             ),
@@ -93,7 +95,7 @@ class Printer
                             new Node\Expr\Variable('this'), 'client'
                         ),
                         new Node\Expr\New_(new Node\Name('Client'), [
-                            new PhpParser\Node\Arg(
+                            new Node\Arg(
                                 new Node\Expr\Array_([
                                     new Node\Expr\ArrayItem(
                                         new Node\Scalar\String_('https://api.vk.com/method/'),
@@ -112,7 +114,7 @@ class Printer
                         new Node\Expr\FuncCall(new Node\Name('array_merge'), [
                             new Node\Arg(new Node\Expr\PropertyFetch(new Node\Expr\Variable('this'), 'defaultQuery')),
                             new Node\Arg(new Node\Expr\Array_([
-                                new PhpParser\Node\Expr\ArrayItem(new Node\Expr\Variable('code'), new Node\Scalar\String_('code'))
+                                new Node\Expr\ArrayItem(new Node\Expr\Variable('code'), new Node\Scalar\String_('code'))
                             ])),
                         ])
                     ))
@@ -123,7 +125,7 @@ class Printer
                             [
                                 new Node\Arg(new Node\Scalar\String_('execute')),
                                 new Node\Arg(new Node\Expr\Array_([
-                                    new PhpParser\Node\Expr\ArrayItem(new Node\Expr\Variable('params'), new Node\Scalar\String_('query'))
+                                    new Node\Expr\ArrayItem(new Node\Expr\Variable('params'), new Node\Scalar\String_('query'))
                                 ])),
                             ]
                         )
@@ -287,7 +289,7 @@ class Printer
                 $class->addStmt($this->factory->method('isAvailable')
                     ->makePublic()
                     ->addStmt(new Node\Stmt\Return_(
-                        new PhpParser\Node\Scalar\LNumber(1)
+                        new Node\Scalar\LNumber(1)
                     ))
                 );
             }

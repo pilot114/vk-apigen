@@ -16,7 +16,7 @@ class Restore extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'open']);
     }
     public function call()
     {

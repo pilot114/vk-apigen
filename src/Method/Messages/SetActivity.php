@@ -16,7 +16,7 @@ class SetActivity extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['user', 'group']);
     }
     public function call()
     {
@@ -25,9 +25,9 @@ class SetActivity extends \VkApigen\BaseMethod
     /**
      * User ID.
      *
-     * {"type":"string"}
+     * {"type":"int"}
      */
-    public function _user_id(string $user_id) : self
+    public function _user_id(int $user_id) : self
     {
         $this->params['user_id'] = $user_id;
         return $this;

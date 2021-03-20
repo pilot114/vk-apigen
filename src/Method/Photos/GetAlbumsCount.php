@@ -35,7 +35,7 @@ class GetAlbumsCount extends \VkApigen\BaseMethod
     /**
      * Community ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int"}
      */
     public function _group_id(int $group_id) : self
     {

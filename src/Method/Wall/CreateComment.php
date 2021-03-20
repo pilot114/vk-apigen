@@ -16,7 +16,7 @@ class CreateComment extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['user', 'group']);
     }
     public function call()
     {
@@ -45,7 +45,7 @@ class CreateComment extends \VkApigen\BaseMethod
     /**
      * Group ID.
      *
-     * {"type":"int"}
+     * {"type":"int","minimum":0}
      */
     public function _from_group(int $from_group) : self
     {

@@ -16,7 +16,7 @@ class Get extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -35,7 +35,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Photo album ID. To return information about photos from service albums, use the following string values: 'profile, wall, saved'.
      *
-     * {"type":"string","enum":["profile","wall","saved"]}
+     * {"type":"string"}
      */
     public function _album_id(string $album_id) : self
     {
@@ -115,7 +115,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","minimum":0,"maximum":1000}
+     * {"type":"int","default":50,"minimum":0,"maximum":1000}
      */
     public function _count(int $count) : self
     {

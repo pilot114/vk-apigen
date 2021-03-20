@@ -16,7 +16,7 @@ class GetBanned extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['user', 'group']);
     }
     public function call()
     {
@@ -45,7 +45,7 @@ class GetBanned extends \VkApigen\BaseMethod
     /**
      * Number of users to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":200}
+     * {"type":"int","default":20,"minimum":0,"maximum":200}
      */
     public function _count(int $count) : self
     {
@@ -55,7 +55,7 @@ class GetBanned extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
      */
     public function _fields(array $fields) : self
     {
@@ -65,11 +65,11 @@ class GetBanned extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int"}
      */
-    public function _user_id(int $user_id) : self
+    public function _owner_id(int $owner_id) : self
     {
-        $this->params['user_id'] = $user_id;
+        $this->params['owner_id'] = $owner_id;
         return $this;
     }
 }

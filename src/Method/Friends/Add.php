@@ -27,7 +27,7 @@ class Add extends \VkApigen\BaseMethod
      *
      * {"type":"int","minimum":0}
      */
-    public function user_id(int $user_id) : self
+    public function _user_id(int $user_id) : self
     {
         $this->params['user_id'] = $user_id;
         return $this;
@@ -35,7 +35,7 @@ class Add extends \VkApigen\BaseMethod
     /**
      * Text of the message (up to 500 characters) for the friend request, if any.
      *
-     * {"type":"string","maxLength":500}
+     * {"type":"string"}
      */
     public function _text(string $text) : self
     {

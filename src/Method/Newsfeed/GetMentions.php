@@ -65,7 +65,7 @@ class GetMentions extends \VkApigen\BaseMethod
     /**
      * Number of posts to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":50}
+     * {"type":"int","default":20,"minimum":0,"maximum":50}
      */
     public function _count(int $count) : self
     {

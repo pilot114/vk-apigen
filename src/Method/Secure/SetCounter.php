@@ -52,4 +52,14 @@ class SetCounter extends \VkApigen\BaseMethod
         $this->params['counter'] = $counter;
         return $this;
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _increment(bool $increment) : self
+    {
+        $this->params['increment'] = $increment;
+        return $this;
+    }
 }

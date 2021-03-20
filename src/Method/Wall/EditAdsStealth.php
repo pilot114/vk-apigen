@@ -33,9 +33,9 @@ class EditAdsStealth extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Post ID
+     * Post ID. Used for publishing of scheduled and suggested posts.
      *
-     * {"type":"int"}
+     * {"type":"int","minimum":0}
      */
     public function post_id(int $post_id) : self
     {
@@ -75,7 +75,7 @@ class EditAdsStealth extends \VkApigen\BaseMethod
     /**
      * Geographical latitude of a check-in, in degrees (from -90 to 90).
      *
-     * {"type":"float","minimum":-90,"maximum":90}
+     * {"type":"float"}
      */
     public function _lat(float $lat) : self
     {
@@ -85,7 +85,7 @@ class EditAdsStealth extends \VkApigen\BaseMethod
     /**
      * Geographical longitude of a check-in, in degrees (from -180 to 180).
      *
-     * {"type":"float","minimum":-180,"maximum":180}
+     * {"type":"float"}
      */
     public function _long(float $long) : self
     {
@@ -100,16 +100,6 @@ class EditAdsStealth extends \VkApigen\BaseMethod
     public function _place_id(int $place_id) : self
     {
         $this->params['place_id'] = $place_id;
-        return $this;
-    }
-    /**
-     * Post ID. Used for publishing of scheduled and suggested posts.
-     *
-     * {"type":"int","minimum":0}
-     */
-    public function _post_id(int $post_id) : self
-    {
-        $this->params['post_id'] = $post_id;
         return $this;
     }
     /**
@@ -140,6 +130,16 @@ class EditAdsStealth extends \VkApigen\BaseMethod
     public function _link_image(string $link_image) : self
     {
         $this->params['link_image'] = $link_image;
+        return $this;
+    }
+    /**
+     * Link video ID in format "<owner_id>_<media_id>"
+     *
+     * {"type":"string"}
+     */
+    public function _link_video(string $link_video) : self
+    {
+        $this->params['link_video'] = $link_video;
         return $this;
     }
 }

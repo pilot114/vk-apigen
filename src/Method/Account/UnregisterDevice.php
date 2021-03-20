@@ -32,4 +32,14 @@ class UnregisterDevice extends \VkApigen\BaseMethod
         $this->params['device_id'] = $device_id;
         return $this;
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool","default":0}
+     */
+    public function _sandbox(bool $sandbox) : self
+    {
+        $this->params['sandbox'] = $sandbox;
+        return $this;
+    }
 }

@@ -25,7 +25,7 @@ class UnignoreItem extends \VkApigen\BaseMethod
     /**
      * Item type. Possible values: *'wall' – post on the wall,, *'tag' – tag on a photo,, *'profilephoto' – profile photo,, *'video' – video,, *'audio' – audio.
      *
-     * {"type":"string","enum":["wall","tag","profilephoto","video","audio"]}
+     * {"type":"string","$ref":"objects.json#\/definitions\/newsfeed_ignore_item_type"}
      */
     public function type(string $type) : self
     {
@@ -50,6 +50,16 @@ class UnignoreItem extends \VkApigen\BaseMethod
     public function item_id(int $item_id) : self
     {
         $this->params['item_id'] = $item_id;
+        return $this;
+    }
+    /**
+     * Track code of unignored item
+     *
+     * {"type":"string"}
+     */
+    public function _track_code(string $track_code) : self
+    {
+        $this->params['track_code'] = $track_code;
         return $this;
     }
 }

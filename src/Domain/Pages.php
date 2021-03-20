@@ -14,17 +14,13 @@ class Pages
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
+    public function clearCache() : Method\Pages\ClearCache
+    {
+        return new Method\Pages\ClearCache($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
     public function get() : Method\Pages\Get
     {
         return new Method\Pages\Get($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function save() : Method\Pages\Save
-    {
-        return new Method\Pages\Save($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function saveAccess() : Method\Pages\SaveAccess
-    {
-        return new Method\Pages\SaveAccess($this->client, $this->defaultQuery, $this->accessTokenType);
     }
     public function getHistory() : Method\Pages\GetHistory
     {
@@ -42,8 +38,12 @@ class Pages
     {
         return new Method\Pages\ParseWiki($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function clearCache() : Method\Pages\ClearCache
+    public function save() : Method\Pages\Save
     {
-        return new Method\Pages\ClearCache($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Pages\Save($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function saveAccess() : Method\Pages\SaveAccess
+    {
+        return new Method\Pages\SaveAccess($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

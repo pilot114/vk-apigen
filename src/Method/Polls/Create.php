@@ -43,6 +43,26 @@ class Create extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _is_multiple(bool $is_multiple) : self
+    {
+        $this->params['is_multiple'] = $is_multiple;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":1550700000}
+     */
+    public function _end_date(int $end_date) : self
+    {
+        $this->params['end_date'] = $end_date;
+        return $this;
+    }
+    /**
      * If a poll will be added to a communty it is required to send a negative group identifier. Current user by default.
      *
      * {"type":"int"}
@@ -60,6 +80,36 @@ class Create extends \VkApigen\BaseMethod
     public function _add_answers(string $add_answers) : self
     {
         $this->params['add_answers'] = $add_answers;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _photo_id(int $photo_id) : self
+    {
+        $this->params['photo_id'] = $photo_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string","enum":[1,2,3,4,6,8,9]}
+     */
+    public function _background_id(string $background_id) : self
+    {
+        $this->params['background_id'] = $background_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _disable_unvote(bool $disable_unvote) : self
+    {
+        $this->params['disable_unvote'] = $disable_unvote;
         return $this;
     }
 }

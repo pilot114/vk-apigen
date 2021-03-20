@@ -35,7 +35,7 @@ class SetNameInMenu extends \VkApigen\BaseMethod
     /**
      * Application screen name.
      *
-     * {"type":"string","maxLength":17}
+     * {"type":"string"}
      */
     public function _name(string $name) : self
     {

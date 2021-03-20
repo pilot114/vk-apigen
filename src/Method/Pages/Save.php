@@ -45,7 +45,7 @@ class Save extends \VkApigen\BaseMethod
     /**
      * ID of the community that owns the wiki page.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int"}
      */
     public function _group_id(int $group_id) : self
     {
@@ -55,7 +55,7 @@ class Save extends \VkApigen\BaseMethod
     /**
      * User ID
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int"}
      */
     public function _user_id(int $user_id) : self
     {

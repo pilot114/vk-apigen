@@ -25,7 +25,7 @@ class AreFriends extends \VkApigen\BaseMethod
     /**
      * IDs of the users whose friendship status to check.
      *
-     * {"type":"array","items":{"type":"integer"}}
+     * {"type":"array","items":{"type":"integer"},"maxItems":1000}
      */
     public function user_ids(array $user_ids) : self
     {
@@ -40,6 +40,16 @@ class AreFriends extends \VkApigen\BaseMethod
     public function _need_sign(bool $need_sign) : self
     {
         $this->params['need_sign'] = $need_sign;
+        return $this;
+    }
+    /**
+     * Return friend request read_state field
+     *
+     * {"type":"bool"}
+     */
+    public function _extended(bool $extended) : self
+    {
+        $this->params['extended'] = $extended;
         return $this;
     }
 }

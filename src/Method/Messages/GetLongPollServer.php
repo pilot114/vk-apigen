@@ -23,16 +23,6 @@ class GetLongPollServer extends \VkApigen\BaseMethod
         return $this->onCall('messages.getLongPollServer');
     }
     /**
-     * Long poll version
-     *
-     * {"type":"int"}
-     */
-    public function _lp_version(int $lp_version) : self
-    {
-        $this->params['lp_version'] = $lp_version;
-        return $this;
-    }
-    /**
      * '1' — to return the 'pts' field, needed for the [vk.com/dev/messages.getLongPollHistory|messages.getLongPollHistory] method.
      *
      * {"type":"bool"}
@@ -50,6 +40,16 @@ class GetLongPollServer extends \VkApigen\BaseMethod
     public function _group_id(int $group_id) : self
     {
         $this->params['group_id'] = $group_id;
+        return $this;
+    }
+    /**
+     * Long poll version
+     *
+     * {"type":"int","default":0,"minimum":0}
+     */
+    public function _lp_version(int $lp_version) : self
+    {
+        $this->params['lp_version'] = $lp_version;
         return $this;
     }
 }

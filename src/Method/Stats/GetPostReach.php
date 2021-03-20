@@ -25,21 +25,21 @@ class GetPostReach extends \VkApigen\BaseMethod
     /**
      * post owner community id. Specify with "-" sign.
      *
-     * {"type":"int"}
+     * {"type":"string"}
      */
-    public function owner_id(int $owner_id) : self
+    public function owner_id(string $owner_id) : self
     {
         $this->params['owner_id'] = $owner_id;
         return $this;
     }
     /**
-     * wall post id. Note that stats are available only for '300' last (newest) posts on a community wall.
+     * wall posts id
      *
-     * {"type":"int","minimum":0}
+     * {"type":"array","items":{"type":"integer","minimum":0},"maxItems":30}
      */
-    public function post_id(int $post_id) : self
+    public function post_ids(array $post_ids) : self
     {
-        $this->params['post_id'] = $post_id;
+        $this->params['post_ids'] = $post_ids;
         return $this;
     }
 }

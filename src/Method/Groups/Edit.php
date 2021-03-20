@@ -16,7 +16,7 @@ class Edit extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['user', 'group']);
     }
     public function call()
     {
@@ -65,7 +65,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Community type. Possible values: *'0' – open,, *'1' – closed,, *'2' – private.
      *
-     * {"type":"int","minimum":0,"enum":[0,1,2],"enumNames":["open","closed","private"]}
+     * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_access"}
      */
     public function _access(int $access) : self
     {
@@ -85,7 +85,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Community subject. Possible values: , *'1' – auto/moto,, *'2' – activity holidays,, *'3' – business,, *'4' – pets,, *'5' – health,, *'6' – dating and communication, , *'7' – games,, *'8' – IT (computers and software),, *'9' – cinema,, *'10' – beauty and fashion,, *'11' – cooking,, *'12' – art and culture,, *'13' – literature,, *'14' – mobile services and internet,, *'15' – music,, *'16' – science and technology,, *'17' – real estate,, *'18' – news and media,, *'19' – security,, *'20' – education,, *'21' – home and renovations,, *'22' – politics,, *'23' – food,, *'24' – industry,, *'25' – travel,, *'26' – work,, *'27' – entertainment,, *'28' – religion,, *'29' – family,, *'30' – sports,, *'31' – insurance,, *'32' – television,, *'33' – goods and services,, *'34' – hobbies,, *'35' – finance,, *'36' – photo,, *'37' – esoterics,, *'38' – electronics and appliances,, *'39' – erotic,, *'40' – humor,, *'41' – society, humanities,, *'42' – design and graphics.
      *
-     * {"type":"string","enum":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42],"enumNames":["auto","activity holidays","business","pets","health","dating and communication","games","it","cinema","beauty and fashion","cooking","art and culture","literature","mobile services and internet","music","science and technology","real estate","news and media","security","education","home and renovations","politics","food","industry","travel","work","entertainment","religion","family","sports","insurance","television","goods and services","hobbies","finance","photo","esoterics","electronics and appliances","erotic","humor","society, humanities","design and graphics"]}
+     * {"type":"string","$ref":"objects.json#\/definitions\/groups_group_subject"}
      */
     public function _subject(string $subject) : self
     {
@@ -185,7 +185,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Wall settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (groups and events only),, *'3' – closed (groups and events only).
      *
-     * {"type":"int","minimum":0,"enum":[0,1,2,3],"enumNames":["disabled","open","limited","closed"]}
+     * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_wall"}
      */
     public function _wall(int $wall) : self
     {
@@ -195,7 +195,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Board topics settings. Possbile values: , *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
      *
-     * {"type":"int","minimum":0,"enum":[0,1,2],"enumNames":["disabled","open","limited"]}
+     * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_topics"}
      */
     public function _topics(int $topics) : self
     {
@@ -205,7 +205,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Photos settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
      *
-     * {"type":"int","minimum":0,"enum":[0,1,2],"enumNames":["disabled","open","limited"]}
+     * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_photos"}
      */
     public function _photos(int $photos) : self
     {
@@ -215,7 +215,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Video settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
      *
-     * {"type":"int","minimum":0,"enum":[0,1,2],"enumNames":["disabled","open","limited"]}
+     * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_video"}
      */
     public function _video(int $video) : self
     {
@@ -225,7 +225,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Audio settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
      *
-     * {"type":"int","minimum":0,"enum":[0,1,2],"enumNames":["disabled","open","limited"]}
+     * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_audio"}
      */
     public function _audio(int $audio) : self
     {
@@ -275,7 +275,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Documents settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
      *
-     * {"type":"int","minimum":0,"enum":[0,1,2],"enumNames":["disabled","open","limited"]}
+     * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_docs"}
      */
     public function _docs(int $docs) : self
     {
@@ -285,7 +285,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Wiki pages settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
      *
-     * {"type":"int","minimum":0,"enum":[0,1,2],"enumNames":["disabled","open","limited"]}
+     * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_wiki"}
      */
     public function _wiki(int $wiki) : self
     {
@@ -303,9 +303,29 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _articles(bool $articles) : self
+    {
+        $this->params['articles'] = $articles;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _addresses(bool $addresses) : self
+    {
+        $this->params['addresses'] = $addresses;
+        return $this;
+    }
+    /**
      * Community age limits. Possible values: *'1' — no limits,, *'2' — 16+,, *'3' — 18+.
      *
-     * {"type":"int","minimum":0,"default":1,"enum":[1,2,3],"enumNames":["unlimited","16 plus","18 plus"]}
+     * {"type":"int","default":1,"minimum":0,"enum":[1,2,3],"$ref":"objects.json#\/definitions\/groups_group_age_limits"}
      */
     public function _age_limits(int $age_limits) : self
     {
@@ -335,7 +355,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Market delivery countries.
      *
-     * {"type":"array","items":{"type":"integer","minimum":0},"maxItems":10}
+     * {"type":"array","items":{"type":"integer"},"maxItems":10}
      */
     public function _market_country(array $market_country) : self
     {
@@ -355,7 +375,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Market currency settings. Possbile values: , *'643' – Russian rubles,, *'980' – Ukrainian hryvnia,, *'398' – Kazakh tenge,, *'978' – Euro,, *'840' – US dollars
      *
-     * {"type":"int","minimum":0,"enum":[643,980,398,978,840],"enumNames":["russian rubles","ukrainian hryvnia","kazakh tenge","euro","us dollars"]}
+     * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_market_currency"}
      */
     public function _market_currency(int $market_currency) : self
     {
@@ -410,6 +430,46 @@ class Edit extends \VkApigen\BaseMethod
     public function _obscene_words(array $obscene_words) : self
     {
         $this->params['obscene_words'] = $obscene_words;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _main_section(int $main_section) : self
+    {
+        $this->params['main_section'] = $main_section;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _secondary_section(int $secondary_section) : self
+    {
+        $this->params['secondary_section'] = $secondary_section;
+        return $this;
+    }
+    /**
+     * Country of the community.
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _country(int $country) : self
+    {
+        $this->params['country'] = $country;
+        return $this;
+    }
+    /**
+     * City of the community.
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _city(int $city) : self
+    {
+        $this->params['city'] = $city;
         return $this;
     }
 }

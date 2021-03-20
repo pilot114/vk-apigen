@@ -25,7 +25,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Search query string.
      *
-     * {"type":"string"}
+     * {"type":"string","maxLength":9000}
      */
     public function _q(string $q) : self
     {
@@ -55,7 +55,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Number of characters after which to truncate a previewed message. To preview the full message, specify '0'. "NOTE: Messages are not truncated by default. Messages are truncated by words."
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","default":0,"minimum":0}
      */
     public function _preview_length(int $preview_length) : self
     {
@@ -65,7 +65,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Offset needed to return a specific subset of messages.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","default":0,"minimum":0}
      */
     public function _offset(int $offset) : self
     {
@@ -75,11 +75,31 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Number of messages to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":100}
+     * {"type":"int","default":20,"minimum":0,"maximum":100}
      */
     public function _count(int $count) : self
     {
         $this->params['count'] = $count;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _extended(bool $extended) : self
+    {
+        $this->params['extended'] = $extended;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"array","items":{"type":"string"}}
+     */
+    public function _fields(array $fields) : self
+    {
+        $this->params['fields'] = $fields;
         return $this;
     }
     /**

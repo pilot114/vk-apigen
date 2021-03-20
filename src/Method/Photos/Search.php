@@ -16,7 +16,7 @@ class Search extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -35,7 +35,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Geographical latitude, in degrees (from '-90' to '90').
      *
-     * {"type":"float","minimum":-90,"maximum":90}
+     * {"type":"float"}
      */
     public function _lat(float $lat) : self
     {
@@ -45,7 +45,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Geographical longitude, in degrees (from '-180' to '180').
      *
-     * {"type":"float","minimum":-180,"maximum":180}
+     * {"type":"float"}
      */
     public function _long(float $long) : self
     {
@@ -95,7 +95,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Number of photos to return.
      *
-     * {"type":"int","minimum":0,"default":100,"maximum":1000}
+     * {"type":"int","default":100,"minimum":0,"maximum":1000}
      */
     public function _count(int $count) : self
     {
@@ -105,7 +105,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Radius of search in meters (works very approximately). Available values: '10', '100', '800', '6000', '50000'.
      *
-     * {"type":"int","minimum":0,"default":5000}
+     * {"type":"int","default":5000,"minimum":0}
      */
     public function _radius(int $radius) : self
     {

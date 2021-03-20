@@ -35,7 +35,7 @@ class GetById extends \VkApigen\BaseMethod
     /**
      * Number of characters after which to truncate a previewed message. To preview the full message, specify '0'. "NOTE: Messages are not truncated by default. Messages are truncated by words."
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","default":0,"minimum":0}
      */
     public function _preview_length(int $preview_length) : self
     {
@@ -55,7 +55,7 @@ class GetById extends \VkApigen\BaseMethod
     /**
      * Profile fields to return.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {

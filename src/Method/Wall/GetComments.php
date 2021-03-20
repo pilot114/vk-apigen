@@ -16,7 +16,7 @@ class GetComments extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -37,7 +37,7 @@ class GetComments extends \VkApigen\BaseMethod
      *
      * {"type":"int","minimum":0}
      */
-    public function post_id(int $post_id) : self
+    public function _post_id(int $post_id) : self
     {
         $this->params['post_id'] = $post_id;
         return $this;
@@ -75,7 +75,7 @@ class GetComments extends \VkApigen\BaseMethod
     /**
      * Number of comments to return (maximum 100).
      *
-     * {"type":"int","minimum":0,"maximum":100}
+     * {"type":"int","minimum":0}
      */
     public function _count(int $count) : self
     {
@@ -95,7 +95,7 @@ class GetComments extends \VkApigen\BaseMethod
     /**
      * Number of characters at which to truncate comments when previewed. By default, '90'. Specify '0' if you do not want to truncate comments.
      *
-     * {"type":"int","minimum":0,"default":90}
+     * {"type":"int","minimum":0}
      */
     public function _preview_length(int $preview_length) : self
     {
@@ -110,6 +110,36 @@ class GetComments extends \VkApigen\BaseMethod
     public function _extended(bool $extended) : self
     {
         $this->params['extended'] = $extended;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
+     */
+    public function _fields(array $fields) : self
+    {
+        $this->params['fields'] = $fields;
+        return $this;
+    }
+    /**
+     * Comment ID.
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _comment_id(int $comment_id) : self
+    {
+        $this->params['comment_id'] = $comment_id;
+        return $this;
+    }
+    /**
+     * Count items in threads.
+     *
+     * {"type":"int","default":0,"minimum":0,"maximum":10}
+     */
+    public function _thread_items_count(int $thread_items_count) : self
+    {
+        $this->params['thread_items_count'] = $thread_items_count;
         return $this;
     }
 }

@@ -55,7 +55,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Number of posts to return (maximum 100).
      *
-     * {"type":"int","minimum":0,"maximum":100}
+     * {"type":"int","minimum":0}
      */
     public function _count(int $count) : self
     {
@@ -65,7 +65,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Filter to apply: 'owner' — posts by the wall owner, 'others' — posts by someone else, 'all' — posts by the wall owner and others (default), 'postponed' — timed posts (only available for calls with an 'access_token'), 'suggests' — suggested posts on a community wall
      *
-     * {"type":"string","default":"all","enum":["owner","others","all","postponed","suggests"]}
+     * {"type":"string","enum":["owner","others","all","postponed","suggests"]}
      */
     public function _filter(string $filter) : self
     {
@@ -85,7 +85,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
      */
     public function _fields(array $fields) : self
     {

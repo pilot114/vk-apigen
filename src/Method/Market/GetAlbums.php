@@ -3,7 +3,7 @@
 namespace VkApigen\Method\Market;
 
 /**
- * Returns community's collections list.
+ * Returns community's market collections list.
  */
 class GetAlbums extends \VkApigen\BaseMethod
 {
@@ -45,7 +45,7 @@ class GetAlbums extends \VkApigen\BaseMethod
     /**
      * Number of items to return.
      *
-     * {"type":"int","minimum":0,"default":50,"maximum":100}
+     * {"type":"int","default":50,"minimum":0,"maximum":100}
      */
     public function _count(int $count) : self
     {

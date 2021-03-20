@@ -25,7 +25,7 @@ class AddChatUser extends \VkApigen\BaseMethod
     /**
      * Chat ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","minimum":0,"maximum":100000000}
      */
     public function chat_id(int $chat_id) : self
     {
@@ -37,9 +37,19 @@ class AddChatUser extends \VkApigen\BaseMethod
      *
      * {"type":"int","minimum":0}
      */
-    public function user_id(int $user_id) : self
+    public function _user_id(int $user_id) : self
     {
         $this->params['user_id'] = $user_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0,"maximum":1000}
+     */
+    public function _visible_messages_count(int $visible_messages_count) : self
+    {
+        $this->params['visible_messages_count'] = $visible_messages_count;
         return $this;
     }
 }

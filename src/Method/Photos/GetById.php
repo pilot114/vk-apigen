@@ -16,7 +16,7 @@ class GetById extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -25,7 +25,7 @@ class GetById extends \VkApigen\BaseMethod
     /**
      * IDs separated with a comma, that are IDs of users who posted photos and IDs of photos themselves with an underscore character between such IDs. To get information about a photo in the group album, you shall specify group ID instead of user ID. Example: "1_129207899,6492_135055734, , -20629724_271945303"
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"type":"string"},"maxItems":500}
      */
     public function photos(array $photos) : self
     {

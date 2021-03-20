@@ -16,7 +16,7 @@ class GetPages extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -35,7 +35,7 @@ class GetPages extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"string","default":0}
+     * {"type":"string","default":"friend_likes"}
      */
     public function _order(string $order) : self
     {
@@ -45,7 +45,7 @@ class GetPages extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"string","default":0}
+     * {"type":"string","default":"week"}
      */
     public function _period(string $period) : self
     {
@@ -55,7 +55,17 @@ class GetPages extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","minimum":10,"default":10,"maximum":200}
+     * {"type":"int","default":0,"minimum":0}
+     */
+    public function _offset(int $offset) : self
+    {
+        $this->params['offset'] = $offset;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","default":10,"minimum":10,"maximum":200}
      */
     public function _count(int $count) : self
     {

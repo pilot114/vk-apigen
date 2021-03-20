@@ -33,6 +33,26 @@ class GetAds extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Filter by ads. Serialized JSON array with ad IDs. If the parameter is null, all ads will be shown.
+     *
+     * {"type":"string"}
+     */
+    public function _ad_ids(string $ad_ids) : self
+    {
+        $this->params['ad_ids'] = $ad_ids;
+        return $this;
+    }
+    /**
+     * Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
+     *
+     * {"type":"string"}
+     */
+    public function _campaign_ids(string $campaign_ids) : self
+    {
+        $this->params['campaign_ids'] = $campaign_ids;
+        return $this;
+    }
+    /**
      * 'Available and required for advertising agencies.' ID of the client ads are retrieved from.
      *
      * {"type":"int"}
@@ -53,23 +73,13 @@ class GetAds extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
+     * Flag that specifies whether to show only archived ads: *0 — show all ads,, *1 — show only archived ads. Available when include_deleted flag is *1
      *
-     * {"type":"string"}
+     * {"type":"bool"}
      */
-    public function _campaign_ids(string $campaign_ids) : self
+    public function _only_deleted(bool $only_deleted) : self
     {
-        $this->params['campaign_ids'] = $campaign_ids;
-        return $this;
-    }
-    /**
-     * Filter by ads. Serialized JSON array with ad IDs. If the parameter is null, all ads will be shown.
-     *
-     * {"type":"string"}
-     */
-    public function _ad_ids(string $ad_ids) : self
-    {
-        $this->params['ad_ids'] = $ad_ids;
+        $this->params['only_deleted'] = $only_deleted;
         return $this;
     }
     /**

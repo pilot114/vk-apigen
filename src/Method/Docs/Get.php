@@ -43,6 +43,16 @@ class Get extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"int","default":0,"minimum":0,"enum":[0,1,2,3,4,5,6,7,8],"enumNames":["all","text","archive","gif","image","audio","video","ebook","default"]}
+     */
+    public function _type(int $type) : self
+    {
+        $this->params['type'] = $type;
+        return $this;
+    }
+    /**
      * ID of the user or community that owns the documents. Use a negative value to designate a community ID.
      *
      * {"type":"int"}
@@ -50,6 +60,16 @@ class Get extends \VkApigen\BaseMethod
     public function _owner_id(int $owner_id) : self
     {
         $this->params['owner_id'] = $owner_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool","default":false}
+     */
+    public function _return_tags(bool $return_tags) : self
+    {
+        $this->params['return_tags'] = $return_tags;
         return $this;
     }
 }

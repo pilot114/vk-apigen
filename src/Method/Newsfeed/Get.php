@@ -23,9 +23,9 @@ class Get extends \VkApigen\BaseMethod
         return $this->onCall('newsfeed.get');
     }
     /**
-     * Filters to apply: 'post' — new wall posts, 'photo' — new photos, 'photo_tag' — new photo tags, 'wall_photo' — new wall photos, 'friend' — new friends, 'note' — new notes
+     * Filters to apply: 'post' — new wall posts, 'photo' — new photos, 'photo_tag' — new photo tags, 'wall_photo' — new wall photos, 'friend' — new friends
      *
-     * {"type":"array","items":{"type":"string","enum":["post","photo","photo_tag","wall_photo","friend","note"]}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/newsfeed_filters"}}
      */
     public function _filters(array $filters) : self
     {
@@ -65,7 +65,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Maximum number of photos to return. By default, '5'.
      *
-     * {"type":"int","minimum":0,"default":5}
+     * {"type":"int","minimum":0}
      */
     public function _max_photos(int $max_photos) : self
     {
@@ -75,9 +75,9 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Sources to obtain news from, separated by commas. User IDs can be specified in formats '' or 'u' , where '' is the user's friend ID. Community IDs can be specified in formats '-' or 'g' , where '' is the community ID. If the parameter is not set, all of the user's friends and communities are returned, except for banned sources, which can be obtained with the [vk.com/dev/newsfeed.getBanned|newsfeed.getBanned] method.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"string"}
      */
-    public function _source_ids(array $source_ids) : self
+    public function _source_ids(string $source_ids) : self
     {
         $this->params['source_ids'] = $source_ids;
         return $this;
@@ -95,7 +95,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Number of news items to return (default 50, maximum 100). For auto feed, you can use the 'new_offset' parameter returned by this method.
      *
-     * {"type":"int","minimum":0,"maximum":100,"default":50}
+     * {"type":"int","minimum":0}
      */
     public function _count(int $count) : self
     {
@@ -105,11 +105,21 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
      */
     public function _fields(array $fields) : self
     {
         $this->params['fields'] = $fields;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _section(string $section) : self
+    {
+        $this->params['section'] = $section;
         return $this;
     }
 }

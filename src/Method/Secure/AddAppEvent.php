@@ -16,7 +16,7 @@ class AddAppEvent extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['service']);
     }
     public function call()
     {
@@ -45,7 +45,7 @@ class AddAppEvent extends \VkApigen\BaseMethod
     /**
      * depends on activity_id: * 1 – number, current level number,, * 2 – number, current user's points amount, , Any other value is ignored
      *
-     * {"type":"int","minimum":0,"maximum":10000}
+     * {"type":"int","minimum":0}
      */
     public function _value(int $value) : self
     {

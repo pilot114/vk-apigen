@@ -55,7 +55,7 @@ class GetVideoUploadServer extends \VkApigen\BaseMethod
     /**
      * Link text (for community's stories only).
      *
-     * {"type":"string"}
+     * {"type":"string","$ref":"objects.json#\/definitions\/stories_upload_link_text"}
      */
     public function _link_text(string $link_text) : self
     {
@@ -65,7 +65,7 @@ class GetVideoUploadServer extends \VkApigen\BaseMethod
     /**
      * Link URL. Internal links on https://vk.com only.
      *
-     * {"type":"string"}
+     * {"type":"string","maxLength":2048}
      */
     public function _link_url(string $link_url) : self
     {
@@ -80,6 +80,16 @@ class GetVideoUploadServer extends \VkApigen\BaseMethod
     public function _group_id(int $group_id) : self
     {
         $this->params['group_id'] = $group_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _clickable_stickers(string $clickable_stickers) : self
+    {
+        $this->params['clickable_stickers'] = $clickable_stickers;
         return $this;
     }
 }

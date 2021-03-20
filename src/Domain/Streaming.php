@@ -18,4 +18,8 @@ class Streaming
     {
         return new Method\Streaming\GetServerUrl($this->client, $this->defaultQuery, $this->accessTokenType);
     }
+    public function setSettings() : Method\Streaming\SetSettings
+    {
+        return new Method\Streaming\SetSettings($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
 }

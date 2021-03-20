@@ -23,9 +23,19 @@ class GetFriendsList extends \VkApigen\BaseMethod
         return $this->onCall('apps.getFriendsList');
     }
     /**
+     * Нет описания
+     *
+     * {"type":"bool","default":0}
+     */
+    public function _extended(bool $extended) : self
+    {
+        $this->params['extended'] = $extended;
+        return $this;
+    }
+    /**
      * List size.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":5000}
+     * {"type":"int","default":20,"minimum":0,"maximum":5000}
      */
     public function _count(int $count) : self
     {
@@ -33,9 +43,19 @@ class GetFriendsList extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"int","default":0,"minimum":0}
+     */
+    public function _offset(int $offset) : self
+    {
+        $this->params['offset'] = $offset;
+        return $this;
+    }
+    /**
      * List type. Possible values: * 'invite' — available for invites (don't play the game),, * 'request' — available for request (play the game). By default: 'invite'.
      *
-     * {"type":"string","default":"invite","enum":["request","invite"]}
+     * {"type":"string","default":"invite","enum":["invite","request"]}
      */
     public function _type(string $type) : self
     {
@@ -45,7 +65,7 @@ class GetFriendsList extends \VkApigen\BaseMethod
     /**
      * Additional profile fields, see [vk.com/dev/fields|description].
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {

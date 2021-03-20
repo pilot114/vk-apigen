@@ -16,7 +16,7 @@ class GetChatUploadServer extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['user', 'group']);
     }
     public function call()
     {

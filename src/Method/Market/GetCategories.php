@@ -25,7 +25,7 @@ class GetCategories extends \VkApigen\BaseMethod
     /**
      * Number of results to return.
      *
-     * {"type":"int","minimum":0,"maximum":1000,"default":10}
+     * {"type":"int","default":10,"minimum":0,"maximum":1000}
      */
     public function _count(int $count) : self
     {

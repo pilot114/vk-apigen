@@ -45,7 +45,7 @@ class GetViewers extends \VkApigen\BaseMethod
     /**
      * Maximum number of results.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","default":100,"minimum":0}
      */
     public function _count(int $count) : self
     {
@@ -55,7 +55,7 @@ class GetViewers extends \VkApigen\BaseMethod
     /**
      * Offset needed to return a specific subset of results.
      *
-     * {"type":"int"}
+     * {"type":"int","default":0,"minimum":0}
      */
     public function _offset(int $offset) : self
     {
@@ -65,7 +65,7 @@ class GetViewers extends \VkApigen\BaseMethod
     /**
      * '1' — to return detailed information about photos
      *
-     * {"type":"bool"}
+     * {"type":"bool","default":0}
      */
     public function _extended(bool $extended) : self
     {

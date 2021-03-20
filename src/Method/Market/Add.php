@@ -65,11 +65,21 @@ class Add extends \VkApigen\BaseMethod
     /**
      * Item price.
      *
-     * {"type":"float","minimum":0}
+     * {"type":"float","minimum":0.01}
      */
-    public function price(float $price) : self
+    public function _price(float $price) : self
     {
         $this->params['price'] = $price;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"float","minimum":0.01}
+     */
+    public function _old_price(float $old_price) : self
+    {
+        $this->params['old_price'] = $old_price;
         return $this;
     }
     /**
@@ -87,7 +97,7 @@ class Add extends \VkApigen\BaseMethod
      *
      * {"type":"int","minimum":0}
      */
-    public function main_photo_id(int $main_photo_id) : self
+    public function _main_photo_id(int $main_photo_id) : self
     {
         $this->params['main_photo_id'] = $main_photo_id;
         return $this;
@@ -100,6 +110,56 @@ class Add extends \VkApigen\BaseMethod
     public function _photo_ids(array $photo_ids) : self
     {
         $this->params['photo_ids'] = $photo_ids;
+        return $this;
+    }
+    /**
+     * Url for button in market item.
+     *
+     * {"type":"string","minLength":0,"maxLength":320}
+     */
+    public function _url(string $url) : self
+    {
+        $this->params['url'] = $url;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0,"maximum":100000}
+     */
+    public function _dimension_width(int $dimension_width) : self
+    {
+        $this->params['dimension_width'] = $dimension_width;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0,"maximum":100000}
+     */
+    public function _dimension_height(int $dimension_height) : self
+    {
+        $this->params['dimension_height'] = $dimension_height;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0,"maximum":100000}
+     */
+    public function _dimension_length(int $dimension_length) : self
+    {
+        $this->params['dimension_length'] = $dimension_length;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0,"maximum":100000000}
+     */
+    public function _weight(int $weight) : self
+    {
+        $this->params['weight'] = $weight;
         return $this;
     }
 }

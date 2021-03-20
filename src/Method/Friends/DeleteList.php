@@ -25,7 +25,7 @@ class DeleteList extends \VkApigen\BaseMethod
     /**
      * ID of the friend list to delete.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","minimum":0,"maximum":24}
      */
     public function list_id(int $list_id) : self
     {

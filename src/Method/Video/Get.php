@@ -55,7 +55,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Number of videos to return.
      *
-     * {"type":"int","minimum":0,"maximum":200,"default":100}
+     * {"type":"int","default":100,"minimum":0,"maximum":200}
      */
     public function _count(int $count) : self
     {

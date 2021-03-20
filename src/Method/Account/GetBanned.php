@@ -35,7 +35,7 @@ class GetBanned extends \VkApigen\BaseMethod
     /**
      * Number of results to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":200}
+     * {"type":"int","default":20,"minimum":0,"maximum":200}
      */
     public function _count(int $count) : self
     {

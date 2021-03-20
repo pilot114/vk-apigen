@@ -45,7 +45,7 @@ class GetLeaderboard extends \VkApigen\BaseMethod
     /**
      * 1 — to return additional info about users
      *
-     * {"type":"bool"}
+     * {"type":"bool","default":0}
      */
     public function _extended(bool $extended) : self
     {

@@ -45,7 +45,7 @@ class CreateTargetGroup extends \VkApigen\BaseMethod
     /**
      * Name of the target group — a string up to 64 characters long.
      *
-     * {"type":"string","maxLength":64}
+     * {"type":"string"}
      */
     public function name(string $name) : self
     {
@@ -53,23 +53,33 @@ class CreateTargetGroup extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Domain of the site where user accounting code will be placed.
+     * 'For groups with auditory created with pixel code only.', , Number of days after that users will be automatically removed from the group.
      *
-     * {"type":"string"}
+     * {"type":"int","minimum":1,"maximum":720}
      */
-    public function _domain(string $domain) : self
+    public function lifetime(int $lifetime) : self
     {
-        $this->params['domain'] = $domain;
+        $this->params['lifetime'] = $lifetime;
         return $this;
     }
     /**
-     * 'For groups with auditory created with pixel code only.', , Number of days after that users will be automatically removed from the group. '0' — not to remove users.
+     * Нет описания
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int"}
      */
-    public function _lifetime(int $lifetime) : self
+    public function _target_pixel_id(int $target_pixel_id) : self
     {
-        $this->params['lifetime'] = $lifetime;
+        $this->params['target_pixel_id'] = $target_pixel_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _target_pixel_rules(string $target_pixel_rules) : self
+    {
+        $this->params['target_pixel_rules'] = $target_pixel_rules;
         return $this;
     }
 }

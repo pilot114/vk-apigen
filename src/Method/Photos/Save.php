@@ -75,7 +75,7 @@ class Save extends \VkApigen\BaseMethod
     /**
      * Geographical latitude, in degrees (from '-90' to '90').
      *
-     * {"type":"float","minimum":-90,"maximum":90}
+     * {"type":"float"}
      */
     public function _latitude(float $latitude) : self
     {
@@ -85,7 +85,7 @@ class Save extends \VkApigen\BaseMethod
     /**
      * Geographical longitude, in degrees (from '-180' to '180').
      *
-     * {"type":"float","minimum":-180,"maximum":180}
+     * {"type":"float"}
      */
     public function _longitude(float $longitude) : self
     {
@@ -95,7 +95,7 @@ class Save extends \VkApigen\BaseMethod
     /**
      * Text describing the photo. 2048 digits max.
      *
-     * {"type":"string","maxLength":2048}
+     * {"type":"string"}
      */
     public function _caption(string $caption) : self
     {

@@ -35,7 +35,7 @@ class GetSuggestedSources extends \VkApigen\BaseMethod
     /**
      * amount of communities or users to return.
      *
-     * {"type":"int","minimum":0,"maximum":1000,"default":20}
+     * {"type":"int","default":20,"minimum":0,"maximum":1000}
      */
     public function _count(int $count) : self
     {
@@ -55,7 +55,7 @@ class GetSuggestedSources extends \VkApigen\BaseMethod
     /**
      * list of extra fields to be returned. See available fields for [vk.com/dev/fields|users] and [vk.com/dev/fields_groups|communities].
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
      */
     public function _fields(array $fields) : self
     {

@@ -16,7 +16,7 @@ class GetCatalog extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -25,7 +25,7 @@ class GetCatalog extends \VkApigen\BaseMethod
     /**
      * Sort order: 'popular_today' — popular for one day (default), 'visitors' — by visitors number , 'create_date' — by creation date, 'growth_rate' — by growth rate, 'popular_week' — popular for one week
      *
-     * {"type":"string","default":"popular_today","enum":["popular_today","visitors","create_date","growth_rate","popular_week"]}
+     * {"type":"string","enum":["popular_today","visitors","create_date","growth_rate","popular_week"]}
      */
     public function _sort(string $sort) : self
     {
@@ -45,7 +45,7 @@ class GetCatalog extends \VkApigen\BaseMethod
     /**
      * Number of apps to return.
      *
-     * {"type":"int","minimum":0,"default":100}
+     * {"type":"int","default":100,"minimum":0}
      */
     public function count(int $count) : self
     {
@@ -85,7 +85,7 @@ class GetCatalog extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {
@@ -125,7 +125,7 @@ class GetCatalog extends \VkApigen\BaseMethod
     /**
      * 'installed' — to return list of installed apps (only for mobile platform).
      *
-     * {"type":"string"}
+     * {"type":"string","enum":["favorite","featured","installed","new"]}
      */
     public function _filter(string $filter) : self
     {

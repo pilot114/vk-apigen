@@ -45,7 +45,7 @@ class DeleteTargetGroup extends \VkApigen\BaseMethod
     /**
      * Group ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int"}
      */
     public function target_group_id(int $target_group_id) : self
     {

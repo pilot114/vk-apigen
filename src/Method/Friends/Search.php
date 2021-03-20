@@ -45,7 +45,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online',
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {
@@ -55,7 +55,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Case for declension of user name and surname: 'nom' — nominative (default), 'gen' — genitive , 'dat' — dative, 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
      *
-     * {"type":"string","default":0,"enum":["nom","gen","dat","acc","ins","abl"],"enumNames":["nominative","genitive","dative","accusative","instrumental","prepositional"]}
+     * {"type":"string","default":"Nom","enum":["Nom","Gen","Dat","Acc","Ins","Abl"],"enumNames":["nominative","genitive","dative","accusative","instrumental","prepositional"]}
      */
     public function _name_case(string $name_case) : self
     {
@@ -75,7 +75,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Number of friends to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":1000}
+     * {"type":"int","default":20,"minimum":0,"maximum":1000}
      */
     public function _count(int $count) : self
     {

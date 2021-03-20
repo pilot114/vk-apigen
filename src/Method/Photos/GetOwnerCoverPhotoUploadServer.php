@@ -27,7 +27,7 @@ class GetOwnerCoverPhotoUploadServer extends \VkApigen\BaseMethod
      *
      * {"type":"int","minimum":0}
      */
-    public function _group_id(int $group_id) : self
+    public function group_id(int $group_id) : self
     {
         $this->params['group_id'] = $group_id;
         return $this;
@@ -35,7 +35,7 @@ class GetOwnerCoverPhotoUploadServer extends \VkApigen\BaseMethod
     /**
      * X coordinate of the left-upper corner
      *
-     * {"type":"int","default":0}
+     * {"type":"int","default":0,"minimum":0}
      */
     public function _crop_x(int $crop_x) : self
     {
@@ -45,7 +45,7 @@ class GetOwnerCoverPhotoUploadServer extends \VkApigen\BaseMethod
     /**
      * Y coordinate of the left-upper corner
      *
-     * {"type":"int","default":0}
+     * {"type":"int","default":0,"minimum":0}
      */
     public function _crop_y(int $crop_y) : self
     {
@@ -55,7 +55,7 @@ class GetOwnerCoverPhotoUploadServer extends \VkApigen\BaseMethod
     /**
      * X coordinate of the right-bottom corner
      *
-     * {"type":"int","default":785}
+     * {"type":"int","default":795,"minimum":0}
      */
     public function _crop_x2(int $crop_x2) : self
     {
@@ -65,7 +65,7 @@ class GetOwnerCoverPhotoUploadServer extends \VkApigen\BaseMethod
     /**
      * Y coordinate of the right-bottom corner
      *
-     * {"type":"int","default":200}
+     * {"type":"int","default":200,"minimum":0}
      */
     public function _crop_y2(int $crop_y2) : self
     {

@@ -23,16 +23,6 @@ class MarkAsAnsweredConversation extends \VkApigen\BaseMethod
         return $this->onCall('messages.markAsAnsweredConversation');
     }
     /**
-     * Group ID (for group messages with group access token)
-     *
-     * {"type":"int","minimum":0}
-     */
-    public function _group_id(int $group_id) : self
-    {
-        $this->params['group_id'] = $group_id;
-        return $this;
-    }
-    /**
      * ID of conversation to mark as important.
      *
      * {"type":"int"}
@@ -50,6 +40,16 @@ class MarkAsAnsweredConversation extends \VkApigen\BaseMethod
     public function _answered(bool $answered) : self
     {
         $this->params['answered'] = $answered;
+        return $this;
+    }
+    /**
+     * Group ID (for group messages with group access token)
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _group_id(int $group_id) : self
+    {
+        $this->params['group_id'] = $group_id;
         return $this;
     }
 }

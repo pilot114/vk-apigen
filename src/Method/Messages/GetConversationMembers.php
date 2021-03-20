@@ -23,21 +23,11 @@ class GetConversationMembers extends \VkApigen\BaseMethod
         return $this->onCall('messages.getConversationMembers');
     }
     /**
-     * Group ID (for group messages with group access token)
-     *
-     * {"type":"int","minimum":0}
-     */
-    public function _group_id(int $group_id) : self
-    {
-        $this->params['group_id'] = $group_id;
-        return $this;
-    }
-    /**
      * Peer ID.
      *
      * {"type":"int"}
      */
-    public function _peer_id(int $peer_id) : self
+    public function peer_id(int $peer_id) : self
     {
         $this->params['peer_id'] = $peer_id;
         return $this;
@@ -45,7 +35,7 @@ class GetConversationMembers extends \VkApigen\BaseMethod
     /**
      * Profile fields to return.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {
@@ -53,13 +43,13 @@ class GetConversationMembers extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Case for declension of user name and surname: 'nom' — nominative (default), 'gen' — genitive, 'dat' — dative, 'acc' — accusative, 'ins' — instrumental, 'abl' — prepositional
+     * Group ID (for group messages with group access token)
      *
-     * {"type":"string","enum":["nom","gen","dat","acc","ins","abl"],"enumNames":["nominative","genitive","dative","accusative","instrumental","prepositional"]}
+     * {"type":"int","minimum":0}
      */
-    public function _name_case(string $name_case) : self
+    public function _group_id(int $group_id) : self
     {
-        $this->params['name_case'] = $name_case;
+        $this->params['group_id'] = $group_id;
         return $this;
     }
 }

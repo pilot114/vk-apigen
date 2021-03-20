@@ -75,7 +75,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Item price.
      *
-     * {"type":"float","minimum":0}
+     * {"type":"float","minimum":0.01}
      */
     public function price(float $price) : self
     {
@@ -110,6 +110,16 @@ class Edit extends \VkApigen\BaseMethod
     public function _photo_ids(array $photo_ids) : self
     {
         $this->params['photo_ids'] = $photo_ids;
+        return $this;
+    }
+    /**
+     * Url for button in market item.
+     *
+     * {"type":"string","minLength":0,"maxLength":320}
+     */
+    public function _url(string $url) : self
+    {
+        $this->params['url'] = $url;
         return $this;
     }
 }

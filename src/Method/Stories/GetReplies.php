@@ -25,7 +25,7 @@ class GetReplies extends \VkApigen\BaseMethod
     /**
      * Story owner ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int"}
      */
     public function owner_id(int $owner_id) : self
     {
@@ -55,7 +55,7 @@ class GetReplies extends \VkApigen\BaseMethod
     /**
      * '1' — to return additional fields for users and communities. Default value is 0.
      *
-     * {"type":"bool"}
+     * {"type":"bool","default":false}
      */
     public function _extended(bool $extended) : self
     {
@@ -65,7 +65,7 @@ class GetReplies extends \VkApigen\BaseMethod
     /**
      * Additional fields to return
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
      */
     public function _fields(array $fields) : self
     {

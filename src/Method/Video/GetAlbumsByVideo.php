@@ -16,7 +16,7 @@ class GetAlbumsByVideo extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return 1;
+        return in_array($this->accessTokenType, ['user']);
     }
     public function call()
     {
@@ -55,7 +55,7 @@ class GetAlbumsByVideo extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"bool"}
+     * {"type":"bool","default":0}
      */
     public function _extended(bool $extended) : self
     {

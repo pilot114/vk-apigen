@@ -16,7 +16,7 @@ class GetReposts extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -55,7 +55,7 @@ class GetReposts extends \VkApigen\BaseMethod
     /**
      * Number of reposts to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":1000}
+     * {"type":"int","default":20,"minimum":0,"maximum":1000}
      */
     public function _count(int $count) : self
     {

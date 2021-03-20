@@ -14,33 +14,25 @@ class Wall
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function get() : Method\Wall\Get
+    public function checkCopyrightLink() : Method\Wall\CheckCopyrightLink
     {
-        return new Method\Wall\Get($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\CheckCopyrightLink($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function search() : Method\Wall\Search
+    public function closeComments() : Method\Wall\CloseComments
     {
-        return new Method\Wall\Search($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\CloseComments($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getById() : Method\Wall\GetById
+    public function createComment() : Method\Wall\CreateComment
     {
-        return new Method\Wall\GetById($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\CreateComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function post() : Method\Wall\Post
+    public function delete() : Method\Wall\Delete
     {
-        return new Method\Wall\Post($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\Delete($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function postAdsStealth() : Method\Wall\PostAdsStealth
+    public function deleteComment() : Method\Wall\DeleteComment
     {
-        return new Method\Wall\PostAdsStealth($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function repost() : Method\Wall\Repost
-    {
-        return new Method\Wall\Repost($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function getReposts() : Method\Wall\GetReposts
-    {
-        return new Method\Wall\GetReposts($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\DeleteComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
     public function edit() : Method\Wall\Edit
     {
@@ -50,48 +42,72 @@ class Wall
     {
         return new Method\Wall\EditAdsStealth($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function delete() : Method\Wall\Delete
+    public function editComment() : Method\Wall\EditComment
     {
-        return new Method\Wall\Delete($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\EditComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function restore() : Method\Wall\Restore
+    public function get() : Method\Wall\Get
     {
-        return new Method\Wall\Restore($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\Get($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function pin() : Method\Wall\Pin
+    public function getById() : Method\Wall\GetById
     {
-        return new Method\Wall\Pin($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\GetById($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function unpin() : Method\Wall\Unpin
+    public function getComment() : Method\Wall\GetComment
     {
-        return new Method\Wall\Unpin($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\GetComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
     public function getComments() : Method\Wall\GetComments
     {
         return new Method\Wall\GetComments($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function createComment() : Method\Wall\CreateComment
+    public function getReposts() : Method\Wall\GetReposts
     {
-        return new Method\Wall\CreateComment($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\GetReposts($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function editComment() : Method\Wall\EditComment
+    public function openComments() : Method\Wall\OpenComments
     {
-        return new Method\Wall\EditComment($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\OpenComments($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteComment() : Method\Wall\DeleteComment
+    public function pin() : Method\Wall\Pin
     {
-        return new Method\Wall\DeleteComment($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\Pin($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function restoreComment() : Method\Wall\RestoreComment
+    public function post() : Method\Wall\Post
     {
-        return new Method\Wall\RestoreComment($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\Post($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function postAdsStealth() : Method\Wall\PostAdsStealth
+    {
+        return new Method\Wall\PostAdsStealth($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function reportComment() : Method\Wall\ReportComment
+    {
+        return new Method\Wall\ReportComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
     public function reportPost() : Method\Wall\ReportPost
     {
         return new Method\Wall\ReportPost($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function reportComment() : Method\Wall\ReportComment
+    public function repost() : Method\Wall\Repost
     {
-        return new Method\Wall\ReportComment($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Wall\Repost($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function restore() : Method\Wall\Restore
+    {
+        return new Method\Wall\Restore($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function restoreComment() : Method\Wall\RestoreComment
+    {
+        return new Method\Wall\RestoreComment($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function search() : Method\Wall\Search
+    {
+        return new Method\Wall\Search($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function unpin() : Method\Wall\Unpin
+    {
+        return new Method\Wall\Unpin($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

@@ -105,7 +105,7 @@ class Post extends \VkApigen\BaseMethod
     /**
      * Geographical latitude of a check-in, in degrees (from -90 to 90).
      *
-     * {"type":"float","minimum":-90,"maximum":90}
+     * {"type":"float"}
      */
     public function _lat(float $lat) : self
     {
@@ -115,7 +115,7 @@ class Post extends \VkApigen\BaseMethod
     /**
      * Geographical longitude of a check-in, in degrees (from -180 to 180).
      *
-     * {"type":"float","minimum":-180,"maximum":180}
+     * {"type":"float"}
      */
     public function _long(float $long) : self
     {
@@ -155,11 +155,51 @@ class Post extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"bool","default":0}
+     * {"type":"bool","default":false}
      */
     public function _mark_as_ads(bool $mark_as_ads) : self
     {
         $this->params['mark_as_ads'] = $mark_as_ads;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _close_comments(bool $close_comments) : self
+    {
+        $this->params['close_comments'] = $close_comments;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int"}
+     */
+    public function _donut_paid_duration(int $donut_paid_duration) : self
+    {
+        $this->params['donut_paid_duration'] = $donut_paid_duration;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _mute_notifications(bool $mute_notifications) : self
+    {
+        $this->params['mute_notifications'] = $mute_notifications;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _copyright(string $copyright) : self
+    {
+        $this->params['copyright'] = $copyright;
         return $this;
     }
 }

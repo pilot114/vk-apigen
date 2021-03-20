@@ -33,6 +33,16 @@ class GetTargetingStats extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"int"}
+     */
+    public function _client_id(int $client_id) : self
+    {
+        $this->params['client_id'] = $client_id;
+        return $this;
+    }
+    /**
      * Serialized JSON object that describes targeting parameters. Description of 'criteria' object see below.
      *
      * {"type":"string"}
@@ -73,6 +83,26 @@ class GetTargetingStats extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _ad_platform_no_wall(string $ad_platform_no_wall) : self
+    {
+        $this->params['ad_platform_no_wall'] = $ad_platform_no_wall;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _ad_platform_no_ad_network(string $ad_platform_no_ad_network) : self
+    {
+        $this->params['ad_platform_no_ad_network'] = $ad_platform_no_ad_network;
+        return $this;
+    }
+    /**
      * URL for the advertised object.
      *
      * {"type":"string"}
@@ -90,6 +120,26 @@ class GetTargetingStats extends \VkApigen\BaseMethod
     public function _link_domain(string $link_domain) : self
     {
         $this->params['link_domain'] = $link_domain;
+        return $this;
+    }
+    /**
+     * Additionally return recommended cpc and cpm to reach 5,10..95 percents of audience.
+     *
+     * {"type":"bool"}
+     */
+    public function _need_precise(bool $need_precise) : self
+    {
+        $this->params['need_precise'] = $need_precise;
+        return $this;
+    }
+    /**
+     * Impressions limit period in seconds, must be a multiple of 86400(day)
+     *
+     * {"type":"int"}
+     */
+    public function _impressions_limit_period(int $impressions_limit_period) : self
+    {
+        $this->params['impressions_limit_period'] = $impressions_limit_period;
         return $this;
     }
 }

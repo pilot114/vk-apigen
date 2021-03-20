@@ -23,19 +23,9 @@ class GetConversations extends \VkApigen\BaseMethod
         return $this->onCall('messages.getConversations');
     }
     /**
-     * Group ID (for group messages with group access token)
-     *
-     * {"type":"int","minimum":0}
-     */
-    public function _group_id(int $group_id) : self
-    {
-        $this->params['group_id'] = $group_id;
-        return $this;
-    }
-    /**
      * Offset needed to return a specific subset of conversations.
      *
-     * {"type":"int"}
+     * {"type":"int","default":0,"minimum":0}
      */
     public function _offset(int $offset) : self
     {
@@ -45,7 +35,7 @@ class GetConversations extends \VkApigen\BaseMethod
     /**
      * Number of conversations to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":200}
+     * {"type":"int","default":20,"minimum":0,"maximum":200}
      */
     public function _count(int $count) : self
     {
@@ -55,7 +45,7 @@ class GetConversations extends \VkApigen\BaseMethod
     /**
      * Filter to apply: 'all' — all conversations, 'unread' — conversations with unread messages, 'important' — conversations, marked as important (only for community messages), 'unanswered' — conversations, marked as unanswered (only for community messages)
      *
-     * {"type":"string","default":"all","enum":["all","unread","important","unanswered"]}
+     * {"type":"string","default":"all","enum":["all","important","unanswered","unread"]}
      */
     public function _filter(string $filter) : self
     {
@@ -85,11 +75,21 @@ class GetConversations extends \VkApigen\BaseMethod
     /**
      * Profile and communities fields to return.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
      */
     public function _fields(array $fields) : self
     {
         $this->params['fields'] = $fields;
+        return $this;
+    }
+    /**
+     * Group ID (for group messages with group access token)
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _group_id(int $group_id) : self
+    {
+        $this->params['group_id'] = $group_id;
         return $this;
     }
 }

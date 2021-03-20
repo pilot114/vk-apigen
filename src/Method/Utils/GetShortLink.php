@@ -16,7 +16,7 @@ class GetShortLink extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'group', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'group', 'service']);
     }
     public function call()
     {
@@ -35,7 +35,7 @@ class GetShortLink extends \VkApigen\BaseMethod
     /**
      * 1 — private stats, 0 — public stats.
      *
-     * {"type":"bool","default":0}
+     * {"type":"bool","default":false}
      */
     public function _private(bool $private) : self
     {

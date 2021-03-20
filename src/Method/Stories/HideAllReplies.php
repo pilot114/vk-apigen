@@ -32,4 +32,14 @@ class HideAllReplies extends \VkApigen\BaseMethod
         $this->params['owner_id'] = $owner_id;
         return $this;
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _group_id(int $group_id) : self
+    {
+        $this->params['group_id'] = $group_id;
+        return $this;
+    }
 }

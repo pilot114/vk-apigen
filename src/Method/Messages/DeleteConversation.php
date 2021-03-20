@@ -25,21 +25,11 @@ class DeleteConversation extends \VkApigen\BaseMethod
     /**
      * User ID. To clear a chat history use 'chat_id'
      *
-     * {"type":"string"}
+     * {"type":"int"}
      */
-    public function _user_id(string $user_id) : self
+    public function _user_id(int $user_id) : self
     {
         $this->params['user_id'] = $user_id;
-        return $this;
-    }
-    /**
-     * Group ID (for group messages with user access token)
-     *
-     * {"type":"int","minimum":0}
-     */
-    public function _group_id(int $group_id) : self
-    {
-        $this->params['group_id'] = $group_id;
         return $this;
     }
     /**
@@ -53,23 +43,13 @@ class DeleteConversation extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Offset needed to delete a specific subset of conversations.
+     * Group ID (for group messages with user access token)
      *
      * {"type":"int","minimum":0}
      */
-    public function _offset(int $offset) : self
+    public function _group_id(int $group_id) : self
     {
-        $this->params['offset'] = $offset;
-        return $this;
-    }
-    /**
-     * Number of conversations to delete. "NOTE: If the number of messages exceeds the maximum, the method shall be called several times."
-     *
-     * {"type":"int","minimum":0,"maximum":10000}
-     */
-    public function _count(int $count) : self
-    {
-        $this->params['count'] = $count;
+        $this->params['group_id'] = $group_id;
         return $this;
     }
 }

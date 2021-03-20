@@ -62,6 +62,18 @@ class Stories
     {
         return new Method\Stories\HideReply($this->client, $this->defaultQuery, $this->accessTokenType);
     }
+    public function save() : Method\Stories\Save
+    {
+        return new Method\Stories\Save($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function search() : Method\Stories\Search
+    {
+        return new Method\Stories\Search($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function sendInteraction() : Method\Stories\SendInteraction
+    {
+        return new Method\Stories\SendInteraction($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
     public function unbanOwner() : Method\Stories\UnbanOwner
     {
         return new Method\Stories\UnbanOwner($this->client, $this->defaultQuery, $this->accessTokenType);

@@ -25,7 +25,7 @@ class GetRecent extends \VkApigen\BaseMethod
     /**
      * Number of recently added friends to return.
      *
-     * {"type":"int","minimum":0,"default":100,"maximum":1000}
+     * {"type":"int","default":100,"minimum":0,"maximum":1000}
      */
     public function _count(int $count) : self
     {

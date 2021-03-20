@@ -25,7 +25,7 @@ class GetMessagesUploadServer extends \VkApigen\BaseMethod
     /**
      * Document type.
      *
-     * {"type":"string","enum":["doc","audio_message"]}
+     * {"type":"string","default":"doc","enum":["audio_message","doc","graffiti"]}
      */
     public function _type(string $type) : self
     {

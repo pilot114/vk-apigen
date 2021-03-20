@@ -27,7 +27,7 @@ class Delete extends \VkApigen\BaseMethod
      *
      * {"type":"int"}
      */
-    public function owner_id(int $owner_id) : self
+    public function _owner_id(int $owner_id) : self
     {
         $this->params['owner_id'] = $owner_id;
         return $this;
@@ -37,9 +37,19 @@ class Delete extends \VkApigen\BaseMethod
      *
      * {"type":"int","minimum":0}
      */
-    public function story_id(int $story_id) : self
+    public function _story_id(int $story_id) : self
     {
         $this->params['story_id'] = $story_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"array","items":{"type":"string"},"maxItems":100}
+     */
+    public function _stories(array $stories) : self
+    {
+        $this->params['stories'] = $stories;
         return $this;
     }
 }

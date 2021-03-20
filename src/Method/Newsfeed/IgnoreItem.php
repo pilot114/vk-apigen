@@ -25,7 +25,7 @@ class IgnoreItem extends \VkApigen\BaseMethod
     /**
      * Item type. Possible values: *'wall' – post on the wall,, *'tag' – tag on a photo,, *'profilephoto' – profile photo,, *'video' – video,, *'audio' – audio.
      *
-     * {"type":"string","enum":["wall","tag","profilephoto","video","audio"],"enumNames":["post on the wall","tag on a photo","profile photo","video","audio"]}
+     * {"type":"string","$ref":"objects.json#\/definitions\/newsfeed_ignore_item_type"}
      */
     public function type(string $type) : self
     {
@@ -35,9 +35,9 @@ class IgnoreItem extends \VkApigen\BaseMethod
     /**
      * Item owner's identifier (user or community), "Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community "
      *
-     * {"type":"int"}
+     * {"type":"int","default":0}
      */
-    public function owner_id(int $owner_id) : self
+    public function _owner_id(int $owner_id) : self
     {
         $this->params['owner_id'] = $owner_id;
         return $this;
@@ -45,9 +45,9 @@ class IgnoreItem extends \VkApigen\BaseMethod
     /**
      * Item identifier
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","default":0,"minimum":0}
      */
-    public function item_id(int $item_id) : self
+    public function _item_id(int $item_id) : self
     {
         $this->params['item_id'] = $item_id;
         return $this;

@@ -43,13 +43,13 @@ class AddVote extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Answer ID.
+     * Нет описания
      *
-     * {"type":"int","minimum":0}
+     * {"type":"array","items":{"type":"integer","minimum":0}}
      */
-    public function answer_id(int $answer_id) : self
+    public function answer_ids(array $answer_ids) : self
     {
-        $this->params['answer_id'] = $answer_id;
+        $this->params['answer_ids'] = $answer_ids;
         return $this;
     }
     /**

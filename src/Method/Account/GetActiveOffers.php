@@ -23,9 +23,19 @@ class GetActiveOffers extends \VkApigen\BaseMethod
         return $this->onCall('account.getActiveOffers');
     }
     /**
+     * Нет описания
+     *
+     * {"type":"int","default":0,"minimum":0}
+     */
+    public function _offset(int $offset) : self
+    {
+        $this->params['offset'] = $offset;
+        return $this;
+    }
+    /**
      * Number of results to return.
      *
-     * {"type":"int","minimum":0,"default":100,"maximum":100}
+     * {"type":"int","default":100,"minimum":0,"maximum":100}
      */
     public function _count(int $count) : self
     {

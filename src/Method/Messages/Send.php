@@ -53,6 +53,16 @@ class Send extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * IDs of message recipients. (See peer_id)
+     *
+     * {"type":"array","items":{"type":"integer"},"maxItems":100}
+     */
+    public function _peer_ids(array $peer_ids) : self
+    {
+        $this->params['peer_ids'] = $peer_ids;
+        return $this;
+    }
+    /**
      * User's short address (for example, 'illarionov').
      *
      * {"type":"string"}
@@ -65,7 +75,7 @@ class Send extends \VkApigen\BaseMethod
     /**
      * ID of conversation the message will relate to.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","minimum":0,"maximum":100000000}
      */
     public function _chat_id(int $chat_id) : self
     {
@@ -75,7 +85,7 @@ class Send extends \VkApigen\BaseMethod
     /**
      * IDs of message recipients (if new conversation shall be started).
      *
-     * {"type":"array","items":{"type":"integer"}}
+     * {"type":"array","items":{"type":"integer"},"maxItems":100}
      */
     public function _user_ids(array $user_ids) : self
     {
@@ -85,7 +95,7 @@ class Send extends \VkApigen\BaseMethod
     /**
      * (Required if 'attachments' is not set.) Text of the message.
      *
-     * {"type":"string"}
+     * {"type":"string","maxLength":9000}
      */
     public function _message(string $message) : self
     {
@@ -95,7 +105,7 @@ class Send extends \VkApigen\BaseMethod
     /**
      * Geographical latitude of a check-in, in degrees (from -90 to 90).
      *
-     * {"type":"float","minimum":-90,"maximum":90}
+     * {"type":"float"}
      */
     public function _lat(float $lat) : self
     {
@@ -105,7 +115,7 @@ class Send extends \VkApigen\BaseMethod
     /**
      * Geographical longitude of a check-in, in degrees (from -180 to 180).
      *
-     * {"type":"float","minimum":-180,"maximum":180}
+     * {"type":"float"}
      */
     public function _long(float $long) : self
     {
@@ -115,21 +125,41 @@ class Send extends \VkApigen\BaseMethod
     /**
      * (Required if 'message' is not set.) List of objects attached to the message, separated by commas, in the following format: "<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, 'wall' — wall post, '<owner_id>' — ID of the media attachment owner. '<media_id>' — media attachment ID. Example: "photo100172_166443618"
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"string","maxLength":9000}
      */
-    public function _attachment(array $attachment) : self
+    public function _attachment(string $attachment) : self
     {
         $this->params['attachment'] = $attachment;
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"int"}
+     */
+    public function _reply_to(int $reply_to) : self
+    {
+        $this->params['reply_to'] = $reply_to;
+        return $this;
+    }
+    /**
      * ID of forwarded messages, separated with a comma. Listed messages of the sender will be shown in the message body at the recipient's. Example: "123,431,544"
      *
-     * {"type":"string"}
+     * {"type":"array","items":{"type":"integer"},"maxItems":1000}
      */
-    public function _forward_messages(string $forward_messages) : self
+    public function _forward_messages(array $forward_messages) : self
     {
         $this->params['forward_messages'] = $forward_messages;
+        return $this;
+    }
+    /**
+     * JSON describing the forwarded message or reply
+     *
+     * {"type":"string","$ref":"objects.json#\/definitions\/messages_forward"}
+     */
+    public function _forward(string $forward) : self
+    {
+        $this->params['forward'] = $forward;
         return $this;
     }
     /**
@@ -143,16 +173,6 @@ class Send extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * '1' if the message is a notification (for community messages).
-     *
-     * {"type":"bool"}
-     */
-    public function _notification(bool $notification) : self
-    {
-        $this->params['notification'] = $notification;
-        return $this;
-    }
-    /**
      * Group ID (for group messages with group access token)
      *
      * {"type":"int","minimum":0}
@@ -160,6 +180,86 @@ class Send extends \VkApigen\BaseMethod
     public function _group_id(int $group_id) : self
     {
         $this->params['group_id'] = $group_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string","$ref":"objects.json#\/definitions\/messages_keyboard"}
+     */
+    public function _keyboard(string $keyboard) : self
+    {
+        $this->params['keyboard'] = $keyboard;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _template(string $template) : self
+    {
+        $this->params['template'] = $template;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string","maxLength":1000}
+     */
+    public function _payload(string $payload) : self
+    {
+        $this->params['payload'] = $payload;
+        return $this;
+    }
+    /**
+     * JSON describing the content source in the message
+     *
+     * {"type":"string"}
+     */
+    public function _content_source(string $content_source) : self
+    {
+        $this->params['content_source'] = $content_source;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool","default":false}
+     */
+    public function _dont_parse_links(bool $dont_parse_links) : self
+    {
+        $this->params['dont_parse_links'] = $dont_parse_links;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool","default":false}
+     */
+    public function _disable_mentions(bool $disable_mentions) : self
+    {
+        $this->params['disable_mentions'] = $disable_mentions;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string","default":"default","enum":["account_update","bot_ad_invite","bot_ad_promo","confirmed_notification","customer_support","default","game_notification","moderated_newsletter","non_promo_newsletter","promo_newsletter","purchase_update"]}
+     */
+    public function _intent(string $intent) : self
+    {
+        $this->params['intent'] = $intent;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0,"maximum":100}
+     */
+    public function _subscribe_id(int $subscribe_id) : self
+    {
+        $this->params['subscribe_id'] = $subscribe_id;
         return $this;
     }
 }

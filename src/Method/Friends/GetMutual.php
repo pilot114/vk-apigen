@@ -45,7 +45,7 @@ class GetMutual extends \VkApigen\BaseMethod
     /**
      * IDs of the users whose friends will be checked against the friends of the user specified in 'source_uid'.
      *
-     * {"type":"array","items":{"type":"integer","minimum":0}}
+     * {"type":"array","items":{"type":"integer","minimum":0},"maxItems":100}
      */
     public function _target_uids(array $target_uids) : self
     {

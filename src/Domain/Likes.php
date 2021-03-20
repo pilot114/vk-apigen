@@ -14,10 +14,6 @@ class Likes
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function getList() : Method\Likes\GetList
-    {
-        return new Method\Likes\GetList($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
     public function add() : Method\Likes\Add
     {
         return new Method\Likes\Add($this->client, $this->defaultQuery, $this->accessTokenType);
@@ -25,6 +21,10 @@ class Likes
     public function delete() : Method\Likes\Delete
     {
         return new Method\Likes\Delete($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function getList() : Method\Likes\GetList
+    {
+        return new Method\Likes\GetList($this->client, $this->defaultQuery, $this->accessTokenType);
     }
     public function isLiked() : Method\Likes\IsLiked
     {

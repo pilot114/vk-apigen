@@ -27,7 +27,7 @@ class Delete extends \VkApigen\BaseMethod
      *
      * {"type":"int","minimum":0}
      */
-    public function user_id(int $user_id) : self
+    public function _user_id(int $user_id) : self
     {
         $this->params['user_id'] = $user_id;
         return $this;

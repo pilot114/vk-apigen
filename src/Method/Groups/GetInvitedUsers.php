@@ -45,7 +45,7 @@ class GetInvitedUsers extends \VkApigen\BaseMethod
     /**
      * Number of results to return.
      *
-     * {"type":"int","minimum":0,"default":20}
+     * {"type":"int","default":20,"minimum":0}
      */
     public function _count(int $count) : self
     {
@@ -55,7 +55,7 @@ class GetInvitedUsers extends \VkApigen\BaseMethod
     /**
      * List of additional fields to be returned. Available values: 'sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, lists, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters'.
      *
-     * {"type":"array","items":{"type":"string","enum":["sex","bdate","city","country","photo_50","photo_100","photo_200_orig","photo_200","photo_400_orig","photo_max","photo_max_orig","online","online_mobile","lists","domain","has_mobile","contacts","connections","site","education","universities","schools","can_post","can_see_all_posts","can_see_audio","can_write_private_message","status","last_seen","common_count","relation","relatives","counters"]}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {

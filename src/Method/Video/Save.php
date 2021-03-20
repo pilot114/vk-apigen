@@ -132,4 +132,14 @@ class Save extends \VkApigen\BaseMethod
         $this->params['repeat'] = $repeat;
         return $this;
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _compression(bool $compression) : self
+    {
+        $this->params['compression'] = $compression;
+        return $this;
+    }
 }

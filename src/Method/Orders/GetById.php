@@ -16,7 +16,7 @@ class GetById extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['service']);
     }
     public function call()
     {
@@ -35,7 +35,7 @@ class GetById extends \VkApigen\BaseMethod
     /**
      * order IDs (when information about several orders is requested).
      *
-     * {"type":"array","items":{"type":"integer","minimum":0}}
+     * {"type":"array","items":{"type":"integer"}}
      */
     public function _order_ids(array $order_ids) : self
     {

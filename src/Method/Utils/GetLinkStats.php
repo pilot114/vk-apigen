@@ -16,7 +16,7 @@ class GetLinkStats extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'group', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'group', 'service']);
     }
     public function call()
     {
@@ -33,6 +33,16 @@ class GetLinkStats extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Source of scope
+     *
+     * {"type":"string","default":"vk_cc","enum":["vk_cc","vk_link"]}
+     */
+    public function _source(string $source) : self
+    {
+        $this->params['source'] = $source;
+        return $this;
+    }
+    /**
      * Access key for private link stats.
      *
      * {"type":"string"}
@@ -45,7 +55,7 @@ class GetLinkStats extends \VkApigen\BaseMethod
     /**
      * Interval.
      *
-     * {"type":"string","enum":["hour","day","week","month","forever"]}
+     * {"type":"string","default":"day","enum":["day","forever","hour","month","week"]}
      */
     public function _interval(string $interval) : self
     {
@@ -55,7 +65,7 @@ class GetLinkStats extends \VkApigen\BaseMethod
     /**
      * Number of intervals to return.
      *
-     * {"type":"int","minimum":0,"maximum":100,"default":1}
+     * {"type":"int","default":1,"minimum":0,"maximum":100}
      */
     public function _intervals_count(int $intervals_count) : self
     {
@@ -65,7 +75,7 @@ class GetLinkStats extends \VkApigen\BaseMethod
     /**
      * 1 — to return extended stats data (sex, age, geo). 0 — to return views number only.
      *
-     * {"type":"bool","default":0}
+     * {"type":"bool","default":false}
      */
     public function _extended(bool $extended) : self
     {

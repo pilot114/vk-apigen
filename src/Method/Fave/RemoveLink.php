@@ -27,9 +27,19 @@ class RemoveLink extends \VkApigen\BaseMethod
      *
      * {"type":"string"}
      */
-    public function link_id(string $link_id) : self
+    public function _link_id(string $link_id) : self
     {
         $this->params['link_id'] = $link_id;
+        return $this;
+    }
+    /**
+     * Link URL
+     *
+     * {"type":"string"}
+     */
+    public function _link(string $link) : self
+    {
+        $this->params['link'] = $link;
         return $this;
     }
 }

@@ -16,7 +16,7 @@ class Get extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -35,7 +35,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Sort order: , 'name' — by name (enabled only if the 'fields' parameter is used), 'hints' — by rating, similar to how friends are sorted in My friends section, , This parameter is available only for [vk.com/dev/standalone|desktop applications].
      *
-     * {"type":"string","enum":["name","hints"]}
+     * {"type":"string","enum":["hints","random","mobile","name","smart"]}
      */
     public function _order(string $order) : self
     {
@@ -55,7 +55,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Number of friends to return.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","default":5000,"minimum":0}
      */
     public function _count(int $count) : self
     {
@@ -75,7 +75,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Profile fields to return. Sample values: 'uid', 'first_name', 'last_name', 'nickname', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'domain', 'has_mobile', 'rate', 'contacts', 'education'.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {
@@ -90,6 +90,16 @@ class Get extends \VkApigen\BaseMethod
     public function _name_case(string $name_case) : self
     {
         $this->params['name_case'] = $name_case;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string","maxLength":255}
+     */
+    public function _ref(string $ref) : self
+    {
+        $this->params['ref'] = $ref;
         return $this;
     }
 }

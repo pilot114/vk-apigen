@@ -55,7 +55,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"array","items":{"type":"string"},"default":0}
+     * {"type":"array","default":"all","items":{"type":"string"}}
      */
     public function _privacy_view(array $privacy_view) : self
     {
@@ -65,7 +65,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"array","items":{"type":"string"},"default":0}
+     * {"type":"array","default":"all","items":{"type":"string"}}
      */
     public function _privacy_comment(array $privacy_comment) : self
     {

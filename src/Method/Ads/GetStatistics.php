@@ -82,4 +82,14 @@ class GetStatistics extends \VkApigen\BaseMethod
         $this->params['date_to'] = $date_to;
         return $this;
     }
+    /**
+     * Additional fields to add to statistics
+     *
+     * {"type":"array","items":{"type":"string","enum":["views_times"]}}
+     */
+    public function _stats_fields(array $stats_fields) : self
+    {
+        $this->params['stats_fields'] = $stats_fields;
+        return $this;
+    }
 }

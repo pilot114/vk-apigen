@@ -35,9 +35,9 @@ class AddOfficeUsers extends \VkApigen\BaseMethod
     /**
      * Serialized JSON array of objects that describe added managers. Description of 'user_specification' objects see below.
      *
-     * {"type":"string"}
+     * {"type":"array","format":"json","items":{"$ref":"objects.json#\/definitions\/ads_user_specification_cutted"},"minItems":1,"maxItems":10}
      */
-    public function data(string $data) : self
+    public function data(array $data) : self
     {
         $this->params['data'] = $data;
         return $this;

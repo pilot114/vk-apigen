@@ -22,4 +22,8 @@ class Notifications
     {
         return new Method\Notifications\MarkAsViewed($this->client, $this->defaultQuery, $this->accessTokenType);
     }
+    public function sendMessage() : Method\Notifications\SendMessage
+    {
+        return new Method\Notifications\SendMessage($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
 }

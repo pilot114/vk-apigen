@@ -43,9 +43,9 @@ class EditManager extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Manager role. Possible values: *'moderator',, *'editor',, *'administrator'.
+     * Manager role. Possible values: *'moderator',, *'editor',, *'administrator',, *'advertiser'.
      *
-     * {"type":"string","enum":["moderator","editor","administrator"]}
+     * {"type":"string","$ref":"objects.json#\/definitions\/groups_group_role"}
      */
     public function _role(string $role) : self
     {

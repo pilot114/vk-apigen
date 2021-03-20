@@ -35,7 +35,7 @@ class GetInvites extends \VkApigen\BaseMethod
     /**
      * Number of invitations to return.
      *
-     * {"type":"int","minimum":0,"default":20}
+     * {"type":"int","default":20,"minimum":0}
      */
     public function _count(int $count) : self
     {

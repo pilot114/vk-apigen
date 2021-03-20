@@ -105,7 +105,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Number of communities to return. "Note that you can not receive more than first thousand of results, regardless of 'count' and 'offset' values."
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":1000}
+     * {"type":"int","default":20,"minimum":0,"maximum":1000}
      */
     public function _count(int $count) : self
     {

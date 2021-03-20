@@ -16,7 +16,7 @@ class EditChat extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['user', 'group']);
     }
     public function call()
     {
@@ -25,7 +25,7 @@ class EditChat extends \VkApigen\BaseMethod
     /**
      * Chat ID.
      *
-     * {"type":"int"}
+     * {"type":"int","minimum":0,"maximum":100000000}
      */
     public function chat_id(int $chat_id) : self
     {
@@ -37,7 +37,7 @@ class EditChat extends \VkApigen\BaseMethod
      *
      * {"type":"string"}
      */
-    public function title(string $title) : self
+    public function _title(string $title) : self
     {
         $this->params['title'] = $title;
         return $this;

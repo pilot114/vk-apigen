@@ -22,4 +22,14 @@ class TrackVisitor extends \VkApigen\BaseMethod
     {
         return $this->onCall('stats.trackVisitor');
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function id(string $id) : self
+    {
+        $this->params['id'] = $id;
+        return $this;
+    }
 }

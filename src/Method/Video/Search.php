@@ -115,7 +115,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Number of videos to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":200}
+     * {"type":"int","default":20,"minimum":0,"maximum":200}
      */
     public function _count(int $count) : self
     {
@@ -125,7 +125,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"bool"}
+     * {"type":"bool","default":0}
      */
     public function _extended(bool $extended) : self
     {

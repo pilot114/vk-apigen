@@ -25,7 +25,7 @@ class GetCatalogInfo extends \VkApigen\BaseMethod
     /**
      * 1 – to return communities count and three communities for preview. By default: 0.
      *
-     * {"type":"bool"}
+     * {"type":"bool","default":0}
      */
     public function _extended(bool $extended) : self
     {
@@ -35,7 +35,7 @@ class GetCatalogInfo extends \VkApigen\BaseMethod
     /**
      * 1 – to return subcategories info. By default: 0.
      *
-     * {"type":"bool"}
+     * {"type":"bool","default":0}
      */
     public function _subcategories(bool $subcategories) : self
     {

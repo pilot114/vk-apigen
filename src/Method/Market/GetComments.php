@@ -63,9 +63,19 @@ class GetComments extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"int","default":0,"minimum":0}
+     */
+    public function _offset(int $offset) : self
+    {
+        $this->params['offset'] = $offset;
+        return $this;
+    }
+    /**
      * Number of results to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":100}
+     * {"type":"int","default":20,"minimum":0,"maximum":100}
      */
     public function _count(int $count) : self
     {
@@ -75,7 +85,7 @@ class GetComments extends \VkApigen\BaseMethod
     /**
      * Sort order ('asc' — from old to new, 'desc' — from new to old)
      *
-     * {"type":"string","default":0,"enum":["asc","desc"],"enumNames":["old to new","new to old"]}
+     * {"type":"string","default":"asc","enum":["asc","desc"],"enumNames":["old to new","new to old"]}
      */
     public function _sort(string $sort) : self
     {
@@ -95,7 +105,7 @@ class GetComments extends \VkApigen\BaseMethod
     /**
      * List of additional profile fields to return. See the [vk.com/dev/fields|details]
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {

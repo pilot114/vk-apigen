@@ -32,4 +32,14 @@ class AllowMessagesFromGroup extends \VkApigen\BaseMethod
         $this->params['group_id'] = $group_id;
         return $this;
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"string","maxLength":256}
+     */
+    public function _key(string $key) : self
+    {
+        $this->params['key'] = $key;
+        return $this;
+    }
 }

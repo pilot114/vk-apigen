@@ -16,7 +16,7 @@ class ChangeState extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['service']);
     }
     public function call()
     {

@@ -16,7 +16,7 @@ class CreateChat extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['user', 'group']);
     }
     public function call()
     {
@@ -27,7 +27,7 @@ class CreateChat extends \VkApigen\BaseMethod
      *
      * {"type":"array","items":{"type":"integer","minimum":0}}
      */
-    public function user_ids(array $user_ids) : self
+    public function _user_ids(array $user_ids) : self
     {
         $this->params['user_ids'] = $user_ids;
         return $this;
@@ -40,6 +40,16 @@ class CreateChat extends \VkApigen\BaseMethod
     public function _title(string $title) : self
     {
         $this->params['title'] = $title;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _group_id(int $group_id) : self
+    {
+        $this->params['group_id'] = $group_id;
         return $this;
     }
 }

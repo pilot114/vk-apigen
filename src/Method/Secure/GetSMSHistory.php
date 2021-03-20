@@ -55,7 +55,7 @@ class GetSMSHistory extends \VkApigen\BaseMethod
     /**
      * number of returned posts. By default — 1000.
      *
-     * {"type":"int","minimum":0,"default":1000,"maximum":1000}
+     * {"type":"int","default":1000,"minimum":0,"maximum":1000}
      */
     public function _limit(int $limit) : self
     {

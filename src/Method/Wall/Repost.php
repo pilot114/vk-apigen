@@ -55,11 +55,21 @@ class Repost extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"bool","default":0}
+     * {"type":"bool","default":false}
      */
     public function _mark_as_ads(bool $mark_as_ads) : self
     {
         $this->params['mark_as_ads'] = $mark_as_ads;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _mute_notifications(bool $mute_notifications) : self
+    {
+        $this->params['mute_notifications'] = $mute_notifications;
         return $this;
     }
 }

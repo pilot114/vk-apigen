@@ -30,6 +30,10 @@ class Utils
     {
         return new Method\Utils\GetLinkStats($this->client, $this->defaultQuery, $this->accessTokenType);
     }
+    public function getServerTime() : Method\Utils\GetServerTime
+    {
+        return new Method\Utils\GetServerTime($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
     public function getShortLink() : Method\Utils\GetShortLink
     {
         return new Method\Utils\GetShortLink($this->client, $this->defaultQuery, $this->accessTokenType);
@@ -37,9 +41,5 @@ class Utils
     public function resolveScreenName() : Method\Utils\ResolveScreenName
     {
         return new Method\Utils\ResolveScreenName($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function getServerTime() : Method\Utils\GetServerTime
-    {
-        return new Method\Utils\GetServerTime($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

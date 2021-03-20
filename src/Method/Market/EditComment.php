@@ -45,7 +45,7 @@ class EditComment extends \VkApigen\BaseMethod
     /**
      * New comment text (required if 'attachments' are not specified), , 2048 symbols maximum.
      *
-     * {"type":"string","maxLength":2048}
+     * {"type":"string"}
      */
     public function _message(string $message) : self
     {

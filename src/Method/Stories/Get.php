@@ -35,11 +35,21 @@ class Get extends \VkApigen\BaseMethod
     /**
      * '1' — to return additional fields for users and communities. Default value is 0.
      *
-     * {"type":"bool"}
+     * {"type":"bool","default":false}
      */
     public function _extended(bool $extended) : self
     {
         $this->params['extended'] = $extended;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
+     */
+    public function _fields(array $fields) : self
+    {
+        $this->params['fields'] = $fields;
         return $this;
     }
 }

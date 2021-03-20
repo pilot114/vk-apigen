@@ -35,7 +35,7 @@ class GetLists extends \VkApigen\BaseMethod
     /**
      * Return additional list info
      *
-     * {"type":"bool"}
+     * {"type":"bool","default":0}
      */
     public function _extended(bool $extended) : self
     {

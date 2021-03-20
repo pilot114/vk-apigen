@@ -27,7 +27,7 @@ class Edit extends \VkApigen\BaseMethod
      *
      * {"type":"int"}
      */
-    public function owner_id(int $owner_id) : self
+    public function _owner_id(int $owner_id) : self
     {
         $this->params['owner_id'] = $owner_id;
         return $this;
@@ -80,6 +80,36 @@ class Edit extends \VkApigen\BaseMethod
     public function _delete_answers(string $delete_answers) : self
     {
         $this->params['delete_answers'] = $delete_answers;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _end_date(int $end_date) : self
+    {
+        $this->params['end_date'] = $end_date;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _photo_id(int $photo_id) : self
+    {
+        $this->params['photo_id'] = $photo_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string","enum":[0,1,2,3,4,6,8,9]}
+     */
+    public function _background_id(string $background_id) : self
+    {
+        $this->params['background_id'] = $background_id;
         return $this;
     }
 }

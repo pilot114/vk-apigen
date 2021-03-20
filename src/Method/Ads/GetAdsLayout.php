@@ -33,6 +33,26 @@ class GetAdsLayout extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Filter by ads. Serialized JSON array with ad IDs. If the parameter is null, all ads will be shown.
+     *
+     * {"type":"string"}
+     */
+    public function _ad_ids(string $ad_ids) : self
+    {
+        $this->params['ad_ids'] = $ad_ids;
+        return $this;
+    }
+    /**
+     * Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
+     *
+     * {"type":"string"}
+     */
+    public function _campaign_ids(string $campaign_ids) : self
+    {
+        $this->params['campaign_ids'] = $campaign_ids;
+        return $this;
+    }
+    /**
      * 'For advertising agencies.' ID of the client ads are retrieved from.
      *
      * {"type":"int"}
@@ -50,26 +70,6 @@ class GetAdsLayout extends \VkApigen\BaseMethod
     public function _include_deleted(bool $include_deleted) : self
     {
         $this->params['include_deleted'] = $include_deleted;
-        return $this;
-    }
-    /**
-     * Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
-     *
-     * {"type":"string"}
-     */
-    public function _campaign_ids(string $campaign_ids) : self
-    {
-        $this->params['campaign_ids'] = $campaign_ids;
-        return $this;
-    }
-    /**
-     * Filter by ads. Serialized JSON array with ad IDs. If the parameter is null, all ads will be shown.
-     *
-     * {"type":"string"}
-     */
-    public function _ad_ids(string $ad_ids) : self
-    {
-        $this->params['ad_ids'] = $ad_ids;
         return $this;
     }
     /**

@@ -43,13 +43,33 @@ class Get extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"int","default":0,"minimum":0}
+     */
+    public function _offset(int $offset) : self
+    {
+        $this->params['offset'] = $offset;
+        return $this;
+    }
+    /**
      * Number of notes to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":100}
+     * {"type":"int","default":20,"minimum":0,"maximum":100}
      */
     public function _count(int $count) : self
     {
         $this->params['count'] = $count;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","default":0,"minimum":0,"enum":[0,1]}
+     */
+    public function _sort(int $sort) : self
+    {
+        $this->params['sort'] = $sort;
         return $this;
     }
 }

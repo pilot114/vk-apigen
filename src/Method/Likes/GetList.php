@@ -16,7 +16,7 @@ class GetList extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -25,7 +25,7 @@ class GetList extends \VkApigen\BaseMethod
     /**
      * , Object type: 'post' — post on user or community wall, 'comment' — comment on a wall post, 'photo' — photo, 'audio' — audio, 'video' — video, 'note' — note, 'photo_comment' — comment on the photo, 'video_comment' — comment on the video, 'topic_comment' — comment in the discussion, 'sitepage' — page of the site where the [vk.com/dev/Like|Like widget] is installed
      *
-     * {"type":"string","enum":["post","comment","photo","audio","video","note","photo_comment","video_comment","topic_comment","sitepage"]}
+     * {"type":"string","$ref":"objects.json#\/definitions\/likes_type"}
      */
     public function type(string $type) : self
     {
@@ -65,7 +65,7 @@ class GetList extends \VkApigen\BaseMethod
     /**
      * Filters to apply: 'likes' — returns information about all users who liked the object (default), 'copies' — returns information only about users who told their friends about the object
      *
-     * {"type":"string","default":"likes","enum":["likes","copies"]}
+     * {"type":"string","enum":["likes","copies"]}
      */
     public function _filter(string $filter) : self
     {
@@ -75,9 +75,9 @@ class GetList extends \VkApigen\BaseMethod
     /**
      * Specifies which users are returned: '1' — to return only the current user's friends, '0' — to return all users (default)
      *
-     * {"type":"bool"}
+     * {"type":"int","default":0,"enum":[0,1,2,3]}
      */
-    public function _friends_only(bool $friends_only) : self
+    public function _friends_only(int $friends_only) : self
     {
         $this->params['friends_only'] = $friends_only;
         return $this;

@@ -16,7 +16,7 @@ class RemoveChatUser extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['user', 'group']);
     }
     public function call()
     {
@@ -25,7 +25,7 @@ class RemoveChatUser extends \VkApigen\BaseMethod
     /**
      * Chat ID.
      *
-     * {"type":"int"}
+     * {"type":"int","minimum":0,"maximum":100000000}
      */
     public function chat_id(int $chat_id) : self
     {
@@ -35,11 +35,21 @@ class RemoveChatUser extends \VkApigen\BaseMethod
     /**
      * ID of the user to be removed from the chat.
      *
-     * {"type":"string"}
+     * {"type":"int"}
      */
-    public function user_id(string $user_id) : self
+    public function _user_id(int $user_id) : self
     {
         $this->params['user_id'] = $user_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int"}
+     */
+    public function _member_id(int $member_id) : self
+    {
+        $this->params['member_id'] = $member_id;
         return $this;
     }
 }

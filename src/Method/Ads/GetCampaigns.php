@@ -62,4 +62,14 @@ class GetCampaigns extends \VkApigen\BaseMethod
         $this->params['campaign_ids'] = $campaign_ids;
         return $this;
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"array","items":{"type":"string","enum":["ads_count"]}}
+     */
+    public function _fields(array $fields) : self
+    {
+        $this->params['fields'] = $fields;
+        return $this;
+    }
 }

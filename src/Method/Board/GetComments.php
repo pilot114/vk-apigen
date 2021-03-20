@@ -16,7 +16,7 @@ class GetComments extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -75,7 +75,7 @@ class GetComments extends \VkApigen\BaseMethod
     /**
      * Number of comments to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":100}
+     * {"type":"int","default":20,"minimum":0,"maximum":100}
      */
     public function _count(int $count) : self
     {

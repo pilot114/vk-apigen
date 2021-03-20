@@ -45,7 +45,7 @@ class SendRequest extends \VkApigen\BaseMethod
     /**
      * request type. Values: 'invite' – if the request is sent to a user who does not have the app installed,, 'request' – if a user has already installed the app
      *
-     * {"type":"string","default":0,"enum":["request","invite"]}
+     * {"type":"string","default":"request","enum":["invite","request"]}
      */
     public function _type(string $type) : self
     {

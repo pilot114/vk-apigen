@@ -43,6 +43,16 @@ class SetLongPollSettings extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _api_version(string $api_version) : self
+    {
+        $this->params['api_version'] = $api_version;
+        return $this;
+    }
+    /**
      * A new incoming message has been received ('0' — disabled, '1' — enabled).
      *
      * {"type":"bool"}
@@ -63,16 +73,6 @@ class SetLongPollSettings extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * A message has been edited ('0' — disabled, '1' — enabled).
-     *
-     * {"type":"bool"}
-     */
-    public function _message_edit(bool $message_edit) : self
-    {
-        $this->params['message_edit'] = $message_edit;
-        return $this;
-    }
-    /**
      * Allowed messages notifications ('0' — disabled, '1' — enabled).
      *
      * {"type":"bool"}
@@ -90,6 +90,26 @@ class SetLongPollSettings extends \VkApigen\BaseMethod
     public function _message_deny(bool $message_deny) : self
     {
         $this->params['message_deny'] = $message_deny;
+        return $this;
+    }
+    /**
+     * A message has been edited ('0' — disabled, '1' — enabled).
+     *
+     * {"type":"bool"}
+     */
+    public function _message_edit(bool $message_edit) : self
+    {
+        $this->params['message_edit'] = $message_edit;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _message_typing_state(bool $message_typing_state) : self
+    {
+        $this->params['message_typing_state'] = $message_typing_state;
         return $this;
     }
     /**
@@ -373,6 +393,36 @@ class SetLongPollSettings extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _group_change_settings(bool $group_change_settings) : self
+    {
+        $this->params['group_change_settings'] = $group_change_settings;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _group_change_photo(bool $group_change_photo) : self
+    {
+        $this->params['group_change_photo'] = $group_change_photo;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _group_officers_edit(bool $group_officers_edit) : self
+    {
+        $this->params['group_officers_edit'] = $group_officers_edit;
+        return $this;
+    }
+    /**
      * User added to community blacklist
      *
      * {"type":"bool"}
@@ -390,6 +440,106 @@ class SetLongPollSettings extends \VkApigen\BaseMethod
     public function _user_unblock(bool $user_unblock) : self
     {
         $this->params['user_unblock'] = $user_unblock;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _like_add(bool $like_add) : self
+    {
+        $this->params['like_add'] = $like_add;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _like_remove(bool $like_remove) : self
+    {
+        $this->params['like_remove'] = $like_remove;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _message_event(bool $message_event) : self
+    {
+        $this->params['message_event'] = $message_event;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _donut_subscription_create(bool $donut_subscription_create) : self
+    {
+        $this->params['donut_subscription_create'] = $donut_subscription_create;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _donut_subscription_prolonged(bool $donut_subscription_prolonged) : self
+    {
+        $this->params['donut_subscription_prolonged'] = $donut_subscription_prolonged;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _donut_subscription_cancelled(bool $donut_subscription_cancelled) : self
+    {
+        $this->params['donut_subscription_cancelled'] = $donut_subscription_cancelled;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _donut_subscription_price_changed(bool $donut_subscription_price_changed) : self
+    {
+        $this->params['donut_subscription_price_changed'] = $donut_subscription_price_changed;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _donut_subscription_expired(bool $donut_subscription_expired) : self
+    {
+        $this->params['donut_subscription_expired'] = $donut_subscription_expired;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _donut_money_withdraw(bool $donut_money_withdraw) : self
+    {
+        $this->params['donut_money_withdraw'] = $donut_money_withdraw;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _donut_money_withdraw_error(bool $donut_money_withdraw_error) : self
+    {
+        $this->params['donut_money_withdraw_error'] = $donut_money_withdraw_error;
         return $this;
     }
 }

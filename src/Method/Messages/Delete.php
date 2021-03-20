@@ -25,7 +25,7 @@ class Delete extends \VkApigen\BaseMethod
     /**
      * Message IDs.
      *
-     * {"type":"array","items":{"type":"integer","minimum":0}}
+     * {"type":"array","items":{"type":"integer","minimum":0},"maxItems":1000}
      */
     public function _message_ids(array $message_ids) : self
     {
@@ -43,16 +43,6 @@ class Delete extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * '1' — delete message for for all.
-     *
-     * {"type":"bool"}
-     */
-    public function _delete_for_all(bool $delete_for_all) : self
-    {
-        $this->params['delete_for_all'] = $delete_for_all;
-        return $this;
-    }
-    /**
      * Group ID (for group messages with user access token)
      *
      * {"type":"int","minimum":0}
@@ -60,6 +50,16 @@ class Delete extends \VkApigen\BaseMethod
     public function _group_id(int $group_id) : self
     {
         $this->params['group_id'] = $group_id;
+        return $this;
+    }
+    /**
+     * '1' — delete message for for all.
+     *
+     * {"type":"bool","default":false}
+     */
+    public function _delete_for_all(bool $delete_for_all) : self
+    {
+        $this->params['delete_for_all'] = $delete_for_all;
         return $this;
     }
 }

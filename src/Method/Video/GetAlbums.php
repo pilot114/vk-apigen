@@ -45,7 +45,7 @@ class GetAlbums extends \VkApigen\BaseMethod
     /**
      * Number of video albums to return.
      *
-     * {"type":"int","minimum":0,"default":50,"maximum":100}
+     * {"type":"int","default":50,"minimum":0,"maximum":100}
      */
     public function _count(int $count) : self
     {
@@ -60,6 +60,16 @@ class GetAlbums extends \VkApigen\BaseMethod
     public function _extended(bool $extended) : self
     {
         $this->params['extended'] = $extended;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool","default":0}
+     */
+    public function _need_system(bool $need_system) : self
+    {
+        $this->params['need_system'] = $need_system;
         return $this;
     }
 }

@@ -16,7 +16,7 @@ class GetById extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'group', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'group', 'service']);
     }
     public function call()
     {
@@ -45,7 +45,7 @@ class GetById extends \VkApigen\BaseMethod
     /**
      * Group fields to return.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/groups_fields"}}
      */
     public function _fields(array $fields) : self
     {

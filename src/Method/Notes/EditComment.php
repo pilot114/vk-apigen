@@ -47,7 +47,7 @@ class EditComment extends \VkApigen\BaseMethod
      *
      * {"type":"string","minLength":2}
      */
-    public function _message(string $message) : self
+    public function message(string $message) : self
     {
         $this->params['message'] = $message;
         return $this;

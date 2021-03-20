@@ -65,7 +65,7 @@ class GetAllComments extends \VkApigen\BaseMethod
     /**
      * Number of comments to return. By default, '20'. Maximum value, '100'.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":100}
+     * {"type":"int","minimum":0}
      */
     public function _count(int $count) : self
     {

@@ -14,73 +14,57 @@ class Video
         $this->client = $client;
         $this->defaultQuery = $defaultQuery;
     }
-    public function get() : Method\Video\Get
-    {
-        return new Method\Video\Get($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function edit() : Method\Video\Edit
-    {
-        return new Method\Video\Edit($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
     public function add() : Method\Video\Add
     {
         return new Method\Video\Add($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function save() : Method\Video\Save
-    {
-        return new Method\Video\Save($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function delete() : Method\Video\Delete
-    {
-        return new Method\Video\Delete($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function restore() : Method\Video\Restore
-    {
-        return new Method\Video\Restore($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function search() : Method\Video\Search
-    {
-        return new Method\Video\Search($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function getUserVideos() : Method\Video\GetUserVideos
-    {
-        return new Method\Video\GetUserVideos($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function getAlbums() : Method\Video\GetAlbums
-    {
-        return new Method\Video\GetAlbums($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function getAlbumById() : Method\Video\GetAlbumById
-    {
-        return new Method\Video\GetAlbumById($this->client, $this->defaultQuery, $this->accessTokenType);
     }
     public function addAlbum() : Method\Video\AddAlbum
     {
         return new Method\Video\AddAlbum($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function editAlbum() : Method\Video\EditAlbum
+    public function addToAlbum() : Method\Video\AddToAlbum
     {
-        return new Method\Video\EditAlbum($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Video\AddToAlbum($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function createComment() : Method\Video\CreateComment
+    {
+        return new Method\Video\CreateComment($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function delete() : Method\Video\Delete
+    {
+        return new Method\Video\Delete($this->client, $this->defaultQuery, $this->accessTokenType);
     }
     public function deleteAlbum() : Method\Video\DeleteAlbum
     {
         return new Method\Video\DeleteAlbum($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function reorderAlbums() : Method\Video\ReorderAlbums
+    public function deleteComment() : Method\Video\DeleteComment
     {
-        return new Method\Video\ReorderAlbums($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Video\DeleteComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function reorderVideos() : Method\Video\ReorderVideos
+    public function edit() : Method\Video\Edit
     {
-        return new Method\Video\ReorderVideos($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Video\Edit($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function addToAlbum() : Method\Video\AddToAlbum
+    public function editAlbum() : Method\Video\EditAlbum
     {
-        return new Method\Video\AddToAlbum($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Video\EditAlbum($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function removeFromAlbum() : Method\Video\RemoveFromAlbum
+    public function editComment() : Method\Video\EditComment
     {
-        return new Method\Video\RemoveFromAlbum($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Video\EditComment($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function get() : Method\Video\Get
+    {
+        return new Method\Video\Get($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function getAlbumById() : Method\Video\GetAlbumById
+    {
+        return new Method\Video\GetAlbumById($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function getAlbums() : Method\Video\GetAlbums
+    {
+        return new Method\Video\GetAlbums($this->client, $this->defaultQuery, $this->accessTokenType);
     }
     public function getAlbumsByVideo() : Method\Video\GetAlbumsByVideo
     {
@@ -90,37 +74,17 @@ class Video
     {
         return new Method\Video\GetComments($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function createComment() : Method\Video\CreateComment
+    public function removeFromAlbum() : Method\Video\RemoveFromAlbum
     {
-        return new Method\Video\CreateComment($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Video\RemoveFromAlbum($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function deleteComment() : Method\Video\DeleteComment
+    public function reorderAlbums() : Method\Video\ReorderAlbums
     {
-        return new Method\Video\DeleteComment($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Video\ReorderAlbums($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function restoreComment() : Method\Video\RestoreComment
+    public function reorderVideos() : Method\Video\ReorderVideos
     {
-        return new Method\Video\RestoreComment($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function editComment() : Method\Video\EditComment
-    {
-        return new Method\Video\EditComment($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function getTags() : Method\Video\GetTags
-    {
-        return new Method\Video\GetTags($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function putTag() : Method\Video\PutTag
-    {
-        return new Method\Video\PutTag($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function removeTag() : Method\Video\RemoveTag
-    {
-        return new Method\Video\RemoveTag($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function getNewTags() : Method\Video\GetNewTags
-    {
-        return new Method\Video\GetNewTags($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Video\ReorderVideos($this->client, $this->defaultQuery, $this->accessTokenType);
     }
     public function report() : Method\Video\Report
     {
@@ -130,16 +94,20 @@ class Video
     {
         return new Method\Video\ReportComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getCatalog() : Method\Video\GetCatalog
+    public function restore() : Method\Video\Restore
     {
-        return new Method\Video\GetCatalog($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Video\Restore($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function getCatalogSection() : Method\Video\GetCatalogSection
+    public function restoreComment() : Method\Video\RestoreComment
     {
-        return new Method\Video\GetCatalogSection($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Video\RestoreComment($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function hideCatalogSection() : Method\Video\HideCatalogSection
+    public function save() : Method\Video\Save
     {
-        return new Method\Video\HideCatalogSection($this->client, $this->defaultQuery, $this->accessTokenType);
+        return new Method\Video\Save($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function search() : Method\Video\Search
+    {
+        return new Method\Video\Search($this->client, $this->defaultQuery, $this->accessTokenType);
     }
 }

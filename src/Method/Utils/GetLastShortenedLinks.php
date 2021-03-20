@@ -16,7 +16,7 @@ class GetLastShortenedLinks extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'group', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user']);
     }
     public function call()
     {
@@ -25,7 +25,7 @@ class GetLastShortenedLinks extends \VkApigen\BaseMethod
     /**
      * Number of links to return.
      *
-     * {"type":"int","minimum":0,"default":10}
+     * {"type":"int","default":10,"minimum":0}
      */
     public function _count(int $count) : self
     {
@@ -35,7 +35,7 @@ class GetLastShortenedLinks extends \VkApigen\BaseMethod
     /**
      * Offset needed to return a specific subset of links.
      *
-     * {"type":"int","minimum":0,"default":0}
+     * {"type":"int","default":0,"minimum":0}
      */
     public function _offset(int $offset) : self
     {

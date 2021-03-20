@@ -33,9 +33,9 @@ class Report extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Type of complaint: 'porn' – pornography, 'spam' – spamming, 'insult' – abusive behavior, 'advertisment' – disruptive advertisements
+     * Type of complaint: 'porn' – pornography, 'spam' – spamming, 'insult' – abusive behavior, 'advertisement' – disruptive advertisements
      *
-     * {"type":"string","enum":["porn","spam","insult","advertisment"]}
+     * {"type":"string","enum":["porn","spam","insult","advertisement"]}
      */
     public function type(string $type) : self
     {

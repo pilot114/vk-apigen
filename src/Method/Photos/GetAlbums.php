@@ -16,7 +16,7 @@ class GetAlbums extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'service']);
     }
     public function call()
     {
@@ -35,7 +35,7 @@ class GetAlbums extends \VkApigen\BaseMethod
     /**
      * Album IDs.
      *
-     * {"type":"array","items":{"type":"integer"}}
+     * {"type":"array","items":{"type":"integer"},"maxItems":1000}
      */
     public function _album_ids(array $album_ids) : self
     {

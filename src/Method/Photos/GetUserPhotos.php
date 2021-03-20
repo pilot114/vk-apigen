@@ -45,7 +45,7 @@ class GetUserPhotos extends \VkApigen\BaseMethod
     /**
      * Number of photos to return. Maximum value is 1000.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":1000}
+     * {"type":"int","default":20,"minimum":0,"maximum":1000}
      */
     public function _count(int $count) : self
     {

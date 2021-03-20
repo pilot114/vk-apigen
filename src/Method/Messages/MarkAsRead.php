@@ -25,7 +25,7 @@ class MarkAsRead extends \VkApigen\BaseMethod
     /**
      * IDs of messages to mark as read.
      *
-     * {"type":"array","items":{"type":"integer","minimum":0}}
+     * {"type":"array","default":[],"items":{"type":"integer","minimum":0}}
      */
     public function _message_ids(array $message_ids) : self
     {
@@ -60,6 +60,16 @@ class MarkAsRead extends \VkApigen\BaseMethod
     public function _group_id(int $group_id) : self
     {
         $this->params['group_id'] = $group_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _mark_conversation_as_read(bool $mark_conversation_as_read) : self
+    {
+        $this->params['mark_conversation_as_read'] = $mark_conversation_as_read;
         return $this;
     }
 }

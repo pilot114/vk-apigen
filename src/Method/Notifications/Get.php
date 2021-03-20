@@ -25,7 +25,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Number of notifications to return.
      *
-     * {"type":"int","minimum":0,"default":30,"maximum":100}
+     * {"type":"int","default":30,"minimum":1,"maximum":100}
      */
     public function _count(int $count) : self
     {

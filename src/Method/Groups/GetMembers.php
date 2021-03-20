@@ -16,7 +16,7 @@ class GetMembers extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user', 'group', 'open', 'service']);
+        return in_array($this->accessTokenType, ['user', 'group', 'service']);
     }
     public function call()
     {
@@ -55,7 +55,7 @@ class GetMembers extends \VkApigen\BaseMethod
     /**
      * Number of community members to return.
      *
-     * {"type":"int","minimum":0,"default":1000,"maximum":1000}
+     * {"type":"int","default":1000,"minimum":0}
      */
     public function _count(int $count) : self
     {
@@ -65,7 +65,7 @@ class GetMembers extends \VkApigen\BaseMethod
     /**
      * List of additional fields to be returned. Available values: 'sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, lists, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters'.
      *
-     * {"type":"array","items":{"type":"string","enum":["sex","bdate","city","country","photo_50","photo_100","photo_200_orig","photo_200","photo_400_orig","photo_max","photo_max_orig","online","online_mobile","lists","domain","has_mobile","contacts","connections","site","education","universities","schools","can_post","can_see_all_posts","can_see_audio","can_write_private_message","status","last_seen","common_count","relation","relatives","counters"]}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {
@@ -75,7 +75,7 @@ class GetMembers extends \VkApigen\BaseMethod
     /**
      * *'friends' – only friends in this community will be returned,, *'unsure' – only those who pressed 'I may attend' will be returned (if it's an event).
      *
-     * {"type":"string","enum":["friends","unsure"]}
+     * {"type":"string","enum":["friends","unsure","managers","donut"]}
      */
     public function _filter(string $filter) : self
     {

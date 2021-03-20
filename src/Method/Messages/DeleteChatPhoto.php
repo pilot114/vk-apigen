@@ -16,7 +16,7 @@ class DeleteChatPhoto extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['user', 'group']);
     }
     public function call()
     {
@@ -25,11 +25,21 @@ class DeleteChatPhoto extends \VkApigen\BaseMethod
     /**
      * Chat ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","minimum":0,"maximum":100000000}
      */
     public function chat_id(int $chat_id) : self
     {
         $this->params['chat_id'] = $chat_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _group_id(int $group_id) : self
+    {
+        $this->params['group_id'] = $group_id;
         return $this;
     }
 }

@@ -52,4 +52,14 @@ class Save extends \VkApigen\BaseMethod
         $this->params['tags'] = $tags;
         return $this;
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool","default":false}
+     */
+    public function _return_tags(bool $return_tags) : self
+    {
+        $this->params['return_tags'] = $return_tags;
+        return $this;
+    }
 }

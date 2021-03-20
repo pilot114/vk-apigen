@@ -12,10 +12,10 @@
         }
     },
     "require": {
-        "php": "7.*",
+        "php": "^7.3",
         "ext-json": "*",
-        "vkcom/vk-api-schema": "^5.80",
-        "nikic/php-parser": "^4.2",
-        "guzzlehttp/guzzle": "^6.3"
+        "vkcom/vk-api-schema": "^5.130",
+        "nikic/php-parser": "^4.10",
+        "guzzlehttp/guzzle": "^7.2"
     }
 }

@@ -45,7 +45,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * search query string.
      *
-     * {"type":"string"}
+     * {"type":"string","maxLength":9000}
      */
     public function _query(string $query) : self
     {
@@ -65,7 +65,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * count of posts to return.
      *
-     * {"type":"int","minimum":0,"default":20,"maximum":100}
+     * {"type":"int","default":20,"minimum":0,"maximum":100}
      */
     public function _count(int $count) : self
     {
@@ -75,7 +75,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Offset needed to return a specific subset of posts.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","default":0,"minimum":0}
      */
     public function _offset(int $offset) : self
     {
@@ -95,7 +95,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
      */
     public function _fields(array $fields) : self
     {

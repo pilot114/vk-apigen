@@ -25,7 +25,7 @@ class GetComments extends \VkApigen\BaseMethod
     /**
      * Number of comments to return. For auto feed, you can use the 'new_offset' parameter returned by this method.
      *
-     * {"type":"int","minimum":0,"default":30,"maximum":100}
+     * {"type":"int","default":30,"minimum":0,"maximum":100}
      */
     public function _count(int $count) : self
     {
@@ -35,7 +35,7 @@ class GetComments extends \VkApigen\BaseMethod
     /**
      * Filters to apply: 'post' — new comments on wall posts, 'photo' — new comments on photos, 'video' — new comments on videos, 'topic' — new comments on discussions, 'note' — new comments on notes,
      *
-     * {"type":"array","items":{"type":"string","enum":["post","photo","video","topic","note"]}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/newsfeed_comments_filters"}}
      */
     public function _filters(array $filters) : self
     {
@@ -73,6 +73,16 @@ class GetComments extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"int","default":0,"minimum":0,"maximum":10}
+     */
+    public function _last_comments_count(int $last_comments_count) : self
+    {
+        $this->params['last_comments_count'] = $last_comments_count;
+        return $this;
+    }
+    /**
      * Identificator needed to return the next page with results. Value for this parameter returns in 'next_from' field.
      *
      * {"type":"string"}
@@ -85,7 +95,7 @@ class GetComments extends \VkApigen\BaseMethod
     /**
      * Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
      *
-     * {"type":"array","items":{"type":"string"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/base_user_group_fields"}}
      */
     public function _fields(array $fields) : self
     {

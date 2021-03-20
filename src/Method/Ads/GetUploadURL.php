@@ -32,4 +32,14 @@ class GetUploadURL extends \VkApigen\BaseMethod
         $this->params['ad_format'] = $ad_format;
         return $this;
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"int"}
+     */
+    public function _icon(int $icon) : self
+    {
+        $this->params['icon'] = $icon;
+        return $this;
+    }
 }

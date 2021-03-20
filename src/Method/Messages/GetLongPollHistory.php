@@ -65,7 +65,7 @@ class GetLongPollHistory extends \VkApigen\BaseMethod
     /**
      * Additional profile [vk.com/dev/fields|fields] to return.
      *
-     * {"type":"array","items":{"type":"string"},"default":0}
+     * {"type":"array","default":"photo,photo_medium_rec,sex,online,screen_name","items":{"$ref":"objects.json#\/definitions\/users_fields"}}
      */
     public function _fields(array $fields) : self
     {
@@ -75,7 +75,7 @@ class GetLongPollHistory extends \VkApigen\BaseMethod
     /**
      * Maximum number of events to return.
      *
-     * {"type":"int","minimum":1000,"default":1000}
+     * {"type":"int","default":1000,"minimum":1000}
      */
     public function _events_limit(int $events_limit) : self
     {
@@ -85,7 +85,7 @@ class GetLongPollHistory extends \VkApigen\BaseMethod
     /**
      * Maximum number of messages to return.
      *
-     * {"type":"int","minimum":200,"default":200}
+     * {"type":"int","default":200,"minimum":200}
      */
     public function _msgs_limit(int $msgs_limit) : self
     {
@@ -110,6 +110,36 @@ class GetLongPollHistory extends \VkApigen\BaseMethod
     public function _group_id(int $group_id) : self
     {
         $this->params['group_id'] = $group_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _lp_version(int $lp_version) : self
+    {
+        $this->params['lp_version'] = $lp_version;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int","default":0,"minimum":0,"maximum":2000}
+     */
+    public function _last_n(int $last_n) : self
+    {
+        $this->params['last_n'] = $last_n;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _credentials(bool $credentials) : self
+    {
+        $this->params['credentials'] = $credentials;
         return $this;
     }
 }
