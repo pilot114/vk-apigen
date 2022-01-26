@@ -25,7 +25,7 @@ class Report extends \VkApigen\BaseMethod
     /**
      * ID of the user or community that owns the video.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {
@@ -35,7 +35,7 @@ class Report extends \VkApigen\BaseMethod
     /**
      * Video ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int32","minimum":0}
      */
     public function video_id(int $video_id) : self
     {
@@ -43,7 +43,7 @@ class Report extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Reason for the complaint: '0' – spam, '1' – child pornography, '2' – extremism, '3' – violence, '4' – drug propaganda, '5' – adult material, '6' – insult, abuse
+     * Reason for the complaint: '0' - spam, '1' - child pornography, '2' - extremism, '3' - violence, '4' - drug propaganda, '5' - adult material, '6' - insult, abuse
      *
      * {"type":"int","minimum":0,"enum":[0,1,2,3,4,5,6],"enumNames":["spam","child pornography","extremism","violence","drug propaganda","adult material","insult abuse"]}
      */

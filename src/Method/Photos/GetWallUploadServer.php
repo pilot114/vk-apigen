@@ -25,7 +25,7 @@ class GetWallUploadServer extends \VkApigen\BaseMethod
     /**
      * ID of community to whose wall the photo will be uploaded.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

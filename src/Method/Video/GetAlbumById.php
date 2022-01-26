@@ -25,7 +25,7 @@ class GetAlbumById extends \VkApigen\BaseMethod
     /**
      * identifier of a user or community to add a video to. Use a negative value to designate a community ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {

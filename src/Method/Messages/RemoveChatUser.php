@@ -35,7 +35,7 @@ class RemoveChatUser extends \VkApigen\BaseMethod
     /**
      * ID of the user to be removed from the chat.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _user_id(int $user_id) : self
     {
@@ -45,7 +45,7 @@ class RemoveChatUser extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _member_id(int $member_id) : self
     {

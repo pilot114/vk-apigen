@@ -35,7 +35,7 @@ class SetActivity extends \VkApigen\BaseMethod
     /**
      * 'typing' — user has started to type.
      *
-     * {"type":"string"}
+     * {"type":"string","enum":["audiomessage","file","photo","typing","video"]}
      */
     public function _type(string $type) : self
     {
@@ -45,7 +45,7 @@ class SetActivity extends \VkApigen\BaseMethod
     /**
      * Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'chat_id', e.g. '2000000001'. For community: '- community ID', e.g. '-12345'. "
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int32"}
      */
     public function _peer_id(int $peer_id) : self
     {
@@ -55,7 +55,7 @@ class SetActivity extends \VkApigen\BaseMethod
     /**
      * Group ID (for group messages with group access token)
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

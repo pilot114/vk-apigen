@@ -25,7 +25,7 @@ class AddAlbum extends \VkApigen\BaseMethod
     /**
      * ID of an item owner community.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {
@@ -53,13 +53,23 @@ class AddAlbum extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Set as main ('1' – set, '0' – no).
+     * Set as main ('1' - set, '0' - no).
      *
      * {"type":"bool"}
      */
     public function _main_album(bool $main_album) : self
     {
         $this->params['main_album'] = $main_album;
+        return $this;
+    }
+    /**
+     * Set as hidden
+     *
+     * {"type":"bool"}
+     */
+    public function _is_hidden(bool $is_hidden) : self
+    {
+        $this->params['is_hidden'] = $is_hidden;
         return $this;
     }
 }

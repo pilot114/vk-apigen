@@ -25,7 +25,7 @@ class GetById extends \VkApigen\BaseMethod
     /**
      * Message IDs.
      *
-     * {"type":"array","items":{"type":"integer","minimum":0},"maxItems":100}
+     * {"type":"array","items":{"type":"integer","minimum":0,"format":"int32"},"maxItems":100}
      */
     public function message_ids(array $message_ids) : self
     {
@@ -65,7 +65,7 @@ class GetById extends \VkApigen\BaseMethod
     /**
      * Group ID (for group messages with group access token)
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

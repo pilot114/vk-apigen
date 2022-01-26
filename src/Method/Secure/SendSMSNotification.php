@@ -25,7 +25,7 @@ class SendSMSNotification extends \VkApigen\BaseMethod
     /**
      * ID of the user to whom SMS notification is sent. The user shall allow the application to send him/her notifications (, +1).
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function user_id(int $user_id) : self
     {

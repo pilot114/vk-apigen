@@ -25,7 +25,7 @@ class GetWallUploadServer extends \VkApigen\BaseMethod
     /**
      * Community ID (if the document will be uploaded to the community).
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","entity":"owner","minimum":0}
      */
     public function _group_id(int $group_id) : self
     {

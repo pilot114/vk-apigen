@@ -130,4 +130,8 @@ class Market
     {
         return new Method\Market\Search($this->client, $this->defaultQuery, $this->accessTokenType);
     }
+    public function searchItems() : Method\Market\SearchItems
+    {
+        return new Method\Market\SearchItems($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
 }

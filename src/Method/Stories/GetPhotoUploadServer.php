@@ -75,7 +75,7 @@ class GetPhotoUploadServer extends \VkApigen\BaseMethod
     /**
      * ID of the community to upload the story (should be verified or with the "fire" icon).
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

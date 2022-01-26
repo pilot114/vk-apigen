@@ -25,7 +25,7 @@ class Unban extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function group_id(int $group_id) : self
     {
@@ -35,7 +35,7 @@ class Unban extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {

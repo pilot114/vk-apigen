@@ -35,7 +35,7 @@ class IsMember extends \VkApigen\BaseMethod
     /**
      * User ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _user_id(int $user_id) : self
     {
@@ -45,7 +45,7 @@ class IsMember extends \VkApigen\BaseMethod
     /**
      * User IDs.
      *
-     * {"type":"array","items":{"type":"integer","minimum":0}}
+     * {"type":"array","items":{"type":"integer","format":"int64","entity":"owner","minimum":1}}
      */
     public function _user_ids(array $user_ids) : self
     {

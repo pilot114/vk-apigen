@@ -23,9 +23,9 @@ class GetLongPollServer extends \VkApigen\BaseMethod
         return $this->onCall('groups.getLongPollServer');
     }
     /**
-     * Community ID
+     * Community ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function group_id(int $group_id) : self
     {

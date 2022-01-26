@@ -35,7 +35,7 @@ class GetTransactionsHistory extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function _uid_from(int $uid_from) : self
     {
@@ -45,7 +45,7 @@ class GetTransactionsHistory extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function _uid_to(int $uid_to) : self
     {

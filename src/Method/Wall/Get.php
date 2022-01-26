@@ -25,7 +25,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * ID of the user or community that owns the wall. By default, current user ID. Use a negative value to designate a community ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {
@@ -63,9 +63,9 @@ class Get extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Filter to apply: 'owner' — posts by the wall owner, 'others' — posts by someone else, 'all' — posts by the wall owner and others (default), 'postponed' — timed posts (only available for calls with an 'access_token'), 'suggests' — suggested posts on a community wall
+     * Нет описания
      *
-     * {"type":"string","enum":["owner","others","all","postponed","suggests"]}
+     * {"type":"string","$ref":"objects.json#\/definitions\/wall_get_filter"}
      */
     public function _filter(string $filter) : self
     {

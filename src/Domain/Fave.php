@@ -18,10 +18,6 @@ class Fave
     {
         return new Method\Fave\AddArticle($this->client, $this->defaultQuery, $this->accessTokenType);
     }
-    public function addClassified() : Method\Fave\AddClassified
-    {
-        return new Method\Fave\AddClassified($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
     public function addLink() : Method\Fave\AddLink
     {
         return new Method\Fave\AddLink($this->client, $this->defaultQuery, $this->accessTokenType);
@@ -69,10 +65,6 @@ class Fave
     public function removeArticle() : Method\Fave\RemoveArticle
     {
         return new Method\Fave\RemoveArticle($this->client, $this->defaultQuery, $this->accessTokenType);
-    }
-    public function removeClassified() : Method\Fave\RemoveClassified
-    {
-        return new Method\Fave\RemoveClassified($this->client, $this->defaultQuery, $this->accessTokenType);
     }
     public function removeLink() : Method\Fave\RemoveLink
     {

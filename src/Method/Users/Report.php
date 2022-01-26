@@ -25,7 +25,7 @@ class Report extends \VkApigen\BaseMethod
     /**
      * ID of the user about whom a complaint is being made.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function user_id(int $user_id) : self
     {
@@ -33,7 +33,7 @@ class Report extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Type of complaint: 'porn' – pornography, 'spam' – spamming, 'insult' – abusive behavior, 'advertisement' – disruptive advertisements
+     * Type of complaint: 'porn' - pornography, 'spam' - spamming, 'insult' - abusive behavior, 'advertisement' - disruptive advertisements
      *
      * {"type":"string","enum":["porn","spam","insult","advertisement"]}
      */

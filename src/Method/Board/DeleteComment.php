@@ -25,7 +25,7 @@ class DeleteComment extends \VkApigen\BaseMethod
     /**
      * ID of the community that owns the discussion board.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function group_id(int $group_id) : self
     {
@@ -35,7 +35,7 @@ class DeleteComment extends \VkApigen\BaseMethod
     /**
      * Topic ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","minimum":1}
      */
     public function topic_id(int $topic_id) : self
     {
@@ -45,7 +45,7 @@ class DeleteComment extends \VkApigen\BaseMethod
     /**
      * Comment ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","minimum":1}
      */
     public function comment_id(int $comment_id) : self
     {

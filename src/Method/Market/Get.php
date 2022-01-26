@@ -25,7 +25,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * ID of an item owner community, "Note that community id in the 'owner_id' parameter should be negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community "
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int32"}
      */
     public function owner_id(int $owner_id) : self
     {
@@ -35,7 +35,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","default":0,"minimum":0}
+     * {"type":"int","format":"int32","default":0,"minimum":0}
      */
     public function _album_id(int $album_id) : self
     {
@@ -63,13 +63,53 @@ class Get extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * '1' – method will return additional fields: 'likes, can_comment, car_repost, photos'. These parameters are not returned by default.
+     * '1' - method will return additional fields: 'likes, can_comment, car_repost, photos'. These parameters are not returned by default.
      *
      * {"type":"bool"}
      */
     public function _extended(bool $extended) : self
     {
         $this->params['extended'] = $extended;
+        return $this;
+    }
+    /**
+     * Items update date from (format: yyyy-mm-dd)
+     *
+     * {"type":"string"}
+     */
+    public function _date_from(string $date_from) : self
+    {
+        $this->params['date_from'] = $date_from;
+        return $this;
+    }
+    /**
+     * Items update date to (format: yyyy-mm-dd)
+     *
+     * {"type":"string"}
+     */
+    public function _date_to(string $date_to) : self
+    {
+        $this->params['date_to'] = $date_to;
+        return $this;
+    }
+    /**
+     * Add variants to response if exist
+     *
+     * {"type":"bool"}
+     */
+    public function _need_variants(bool $need_variants) : self
+    {
+        $this->params['need_variants'] = $need_variants;
+        return $this;
+    }
+    /**
+     * Add disabled items to response
+     *
+     * {"type":"bool"}
+     */
+    public function _with_disabled(bool $with_disabled) : self
+    {
+        $this->params['with_disabled'] = $with_disabled;
         return $this;
     }
 }

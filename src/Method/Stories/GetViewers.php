@@ -25,7 +25,7 @@ class GetViewers extends \VkApigen\BaseMethod
     /**
      * Story owner ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {

@@ -25,7 +25,7 @@ class GetAlbums extends \VkApigen\BaseMethod
     /**
      * ID of an items owner community.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {

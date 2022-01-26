@@ -25,7 +25,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * ID of an items owner community.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {
@@ -113,7 +113,7 @@ class Search extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * '1' – to return additional fields: 'likes, can_comment, car_repost, photos'. By default: '0'.
+     * '1' - to return additional fields: 'likes, can_comment, car_repost, photos'. By default: '0'.
      *
      * {"type":"bool","default":"0"}
      */
@@ -125,11 +125,21 @@ class Search extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","default":0,"minimum":0,"enum":[0,2],"enumNames":["active","disabled"]}
+     * {"type":"array","items":{"type":"integer"},"maxItems":2}
      */
-    public function _status(int $status) : self
+    public function _status(array $status) : self
     {
         $this->params['status'] = $status;
+        return $this;
+    }
+    /**
+     * Add variants to response if exist
+     *
+     * {"type":"bool"}
+     */
+    public function _need_variants(bool $need_variants) : self
+    {
+        $this->params['need_variants'] = $need_variants;
         return $this;
     }
 }

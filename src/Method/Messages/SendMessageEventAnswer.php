@@ -35,7 +35,7 @@ class SendMessageEventAnswer extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function user_id(int $user_id) : self
     {

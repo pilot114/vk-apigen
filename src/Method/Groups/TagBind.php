@@ -16,7 +16,7 @@ class TagBind extends \VkApigen\BaseMethod
     }
     public function isAvailable()
     {
-        return in_array($this->accessTokenType, ['user']);
+        return in_array($this->accessTokenType, ['user', 'group']);
     }
     public function call()
     {
@@ -25,7 +25,7 @@ class TagBind extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function group_id(int $group_id) : self
     {
@@ -45,7 +45,7 @@ class TagBind extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","minimum":0,"maximum":2000000000}
+     * {"type":"int","format":"int64","minimum":1,"maximum":2000000000,"entity":"owner"}
      */
     public function user_id(int $user_id) : self
     {

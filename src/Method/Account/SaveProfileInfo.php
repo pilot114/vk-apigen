@@ -73,7 +73,7 @@ class SaveProfileInfo extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * User sex. Possible values: , * '1' – female,, * '2' – male.
+     * User sex. Possible values: , * '1' - female,, * '2' - male.
      *
      * {"type":"int","minimum":0,"enum":[0,1,2],"enumNames":["undefined","female","male"]}
      */
@@ -83,7 +83,7 @@ class SaveProfileInfo extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * User relationship status. Possible values: , * '1' – single,, * '2' – in a relationship,, * '3' – engaged,, * '4' – married,, * '5' – it's complicated,, * '6' – actively searching,, * '7' – in love,, * '0' – not specified.
+     * User relationship status. Possible values: , * '1' - single,, * '2' - in a relationship,, * '3' - engaged,, * '4' - married,, * '5' - it's complicated,, * '6' - actively searching,, * '7' - in love,, * '0' - not specified.
      *
      * {"type":"int","minimum":0,"enum":[1,2,3,4,5,6,7,0],"enumNames":["single","relationship","engaged","married","complicated","actively searching","in love","not specified"]}
      */
@@ -113,7 +113,7 @@ class SaveProfileInfo extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Birth date visibility. Returned values: , * '1' – show birth date,, * '2' – show only month and day,, * '0' – hide birth date.
+     * Birth date visibility. Returned values: , * '1' - show birth date,, * '2' - show only month and day,, * '0' - hide birth date.
      *
      * {"type":"int","minimum":0,"enum":[1,2,0],"enumNames":["show","hide year","hide"]}
      */

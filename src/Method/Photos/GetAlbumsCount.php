@@ -25,7 +25,7 @@ class GetAlbumsCount extends \VkApigen\BaseMethod
     /**
      * User ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _user_id(int $user_id) : self
     {
@@ -35,7 +35,7 @@ class GetAlbumsCount extends \VkApigen\BaseMethod
     /**
      * Community ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

@@ -25,7 +25,7 @@ class EditAlbum extends \VkApigen\BaseMethod
     /**
      * Community ID (if the album edited is owned by a community).
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {
@@ -53,7 +53,7 @@ class EditAlbum extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * new access permissions for the album. Possible values: , *'0' – all users,, *'1' – friends only,, *'2' – friends and friends of friends,, *'3' – "only me".
+     * new access permissions for the album. Possible values: , *'0' - all users,, *'1' - friends only,, *'2' - friends and friends of friends,, *'3' - "only me".
      *
      * {"type":"array","items":{"type":"string","enum":["0","1","2","3"],"enumNames":["all","friends","friends of friends","only me"]}}
      */

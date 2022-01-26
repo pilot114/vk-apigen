@@ -33,7 +33,7 @@ class Create extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * '1' – anonymous poll, participants list is hidden,, '0' – public poll, participants list is available,, Default value is '0'.
+     * '1' - anonymous poll, participants list is hidden,, '0' - public poll, participants list is available,, Default value is '0'.
      *
      * {"type":"bool"}
      */
@@ -65,11 +65,21 @@ class Create extends \VkApigen\BaseMethod
     /**
      * If a poll will be added to a communty it is required to send a negative group identifier. Current user by default.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {
         $this->params['owner_id'] = $owner_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"int"}
+     */
+    public function _app_id(int $app_id) : self
+    {
+        $this->params['app_id'] = $app_id;
         return $this;
     }
     /**

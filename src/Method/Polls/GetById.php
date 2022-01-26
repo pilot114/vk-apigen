@@ -25,7 +25,7 @@ class GetById extends \VkApigen\BaseMethod
     /**
      * ID of the user or community that owns the poll. Use a negative value to designate a community ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {
@@ -33,7 +33,7 @@ class GetById extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * '1' – poll is in a board, '0' – poll is on a wall. '0' by default.
+     * '1' - poll is in a board, '0' - poll is on a wall. '0' by default.
      *
      * {"type":"bool"}
      */

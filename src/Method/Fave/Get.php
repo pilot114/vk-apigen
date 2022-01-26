@@ -35,7 +35,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"string","enum":["article","clip","link","narrative","page","podcast","post","product","video"]}
+     * {"type":"string","enum":["article","clip","link","narrative","page","podcast","post","product","video","youla_product"]}
      */
     public function _item_type(string $item_type) : self
     {

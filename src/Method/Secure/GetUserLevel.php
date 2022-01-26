@@ -25,7 +25,7 @@ class GetUserLevel extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"array","items":{"type":"integer"}}
+     * {"type":"array","items":{"type":"integer","format":"int64","entity":"owner","minimum":1}}
      */
     public function user_ids(array $user_ids) : self
     {

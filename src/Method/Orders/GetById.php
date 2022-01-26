@@ -35,7 +35,7 @@ class GetById extends \VkApigen\BaseMethod
     /**
      * order IDs (when information about several orders is requested).
      *
-     * {"type":"array","items":{"type":"integer"}}
+     * {"type":"array","items":{"type":"integer","minimum":0},"maxItems":500}
      */
     public function _order_ids(array $order_ids) : self
     {

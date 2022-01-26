@@ -23,7 +23,7 @@ class GetCatalogInfo extends \VkApigen\BaseMethod
         return $this->onCall('groups.getCatalogInfo');
     }
     /**
-     * 1 – to return communities count and three communities for preview. By default: 0.
+     * 1 - to return communities count and three communities for preview. By default: 0.
      *
      * {"type":"bool","default":0}
      */
@@ -33,7 +33,7 @@ class GetCatalogInfo extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * 1 – to return subcategories info. By default: 0.
+     * 1 - to return subcategories info. By default: 0.
      *
      * {"type":"bool","default":0}
      */

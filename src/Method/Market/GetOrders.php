@@ -52,4 +52,24 @@ class GetOrders extends \VkApigen\BaseMethod
         $this->params['extended'] = $extended;
         return $this;
     }
+    /**
+     * Orders status updated date from (format: yyyy-mm-dd)
+     *
+     * {"type":"string"}
+     */
+    public function _date_from(string $date_from) : self
+    {
+        $this->params['date_from'] = $date_from;
+        return $this;
+    }
+    /**
+     * Orders status updated date to (format: yyyy-mm-dd)
+     *
+     * {"type":"string"}
+     */
+    public function _date_to(string $date_to) : self
+    {
+        $this->params['date_to'] = $date_to;
+        return $this;
+    }
 }

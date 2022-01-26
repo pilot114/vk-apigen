@@ -25,7 +25,7 @@ class GetLastActivity extends \VkApigen\BaseMethod
     /**
      * User ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function user_id(int $user_id) : self
     {

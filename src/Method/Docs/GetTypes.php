@@ -25,7 +25,7 @@ class GetTypes extends \VkApigen\BaseMethod
     /**
      * ID of the user or community that owns the documents. Use a negative value to designate a community ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {

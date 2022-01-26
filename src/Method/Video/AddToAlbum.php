@@ -25,7 +25,7 @@ class AddToAlbum extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _target_id(int $target_id) : self
     {
@@ -55,7 +55,7 @@ class AddToAlbum extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {
@@ -65,7 +65,7 @@ class AddToAlbum extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int32","minimum":0}
      */
     public function video_id(int $video_id) : self
     {

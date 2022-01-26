@@ -75,9 +75,9 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Item price.
      *
-     * {"type":"float","minimum":0.01}
+     * {"type":"float","minimum":0}
      */
-    public function price(float $price) : self
+    public function _price(float $price) : self
     {
         $this->params['price'] = $price;
         return $this;
@@ -97,7 +97,7 @@ class Edit extends \VkApigen\BaseMethod
      *
      * {"type":"int","minimum":0}
      */
-    public function main_photo_id(int $main_photo_id) : self
+    public function _main_photo_id(int $main_photo_id) : self
     {
         $this->params['main_photo_id'] = $main_photo_id;
         return $this;

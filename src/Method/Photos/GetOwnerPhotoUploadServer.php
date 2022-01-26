@@ -23,9 +23,9 @@ class GetOwnerPhotoUploadServer extends \VkApigen\BaseMethod
         return $this->onCall('photos.getOwnerPhotoUploadServer');
     }
     /**
-     * identifier of a community or current user. "Note that community id must be negative. 'owner_id=1' – user, 'owner_id=-1' – community, "
+     * identifier of a community or current user. "Note that community id must be negative. 'owner_id=1' - user, 'owner_id=-1' - community, "
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {

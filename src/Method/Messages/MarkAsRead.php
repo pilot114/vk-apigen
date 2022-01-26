@@ -25,7 +25,7 @@ class MarkAsRead extends \VkApigen\BaseMethod
     /**
      * IDs of messages to mark as read.
      *
-     * {"type":"array","default":[],"items":{"type":"integer","minimum":0}}
+     * {"type":"array","default":[],"items":{"type":"integer","minimum":0,"format":"int32"}}
      */
     public function _message_ids(array $message_ids) : self
     {
@@ -55,7 +55,7 @@ class MarkAsRead extends \VkApigen\BaseMethod
     /**
      * Group ID (for group messages with user access token)
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

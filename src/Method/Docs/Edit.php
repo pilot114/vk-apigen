@@ -25,7 +25,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * User ID or community ID. Use a negative value to designate a community ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {
@@ -47,7 +47,7 @@ class Edit extends \VkApigen\BaseMethod
      *
      * {"type":"string","maxLength":128}
      */
-    public function _title(string $title) : self
+    public function title(string $title) : self
     {
         $this->params['title'] = $title;
         return $this;

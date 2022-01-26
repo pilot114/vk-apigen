@@ -25,7 +25,7 @@ class ReorderVideos extends \VkApigen\BaseMethod
     /**
      * ID of the user or community that owns the album with videos.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _target_id(int $target_id) : self
     {
@@ -35,7 +35,7 @@ class ReorderVideos extends \VkApigen\BaseMethod
     /**
      * ID of the video album.
      *
-     * {"type":"int"}
+     * {"type":"int","default":-2}
      */
     public function _album_id(int $album_id) : self
     {
@@ -45,7 +45,7 @@ class ReorderVideos extends \VkApigen\BaseMethod
     /**
      * ID of the user or community that owns the video.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {
@@ -55,7 +55,7 @@ class ReorderVideos extends \VkApigen\BaseMethod
     /**
      * ID of the video.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int32","minimum":0}
      */
     public function video_id(int $video_id) : self
     {
@@ -65,7 +65,7 @@ class ReorderVideos extends \VkApigen\BaseMethod
     /**
      * ID of the user or community that owns the video before which the video in question shall be placed.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _before_owner_id(int $before_owner_id) : self
     {
@@ -75,7 +75,7 @@ class ReorderVideos extends \VkApigen\BaseMethod
     /**
      * ID of the video before which the video in question shall be placed.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int32","minimum":0}
      */
     public function _before_video_id(int $before_video_id) : self
     {
@@ -85,7 +85,7 @@ class ReorderVideos extends \VkApigen\BaseMethod
     /**
      * ID of the user or community that owns the video after which the photo in question shall be placed.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _after_owner_id(int $after_owner_id) : self
     {
@@ -95,7 +95,7 @@ class ReorderVideos extends \VkApigen\BaseMethod
     /**
      * ID of the video after which the photo in question shall be placed.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int32","minimum":0}
      */
     public function _after_video_id(int $after_video_id) : self
     {

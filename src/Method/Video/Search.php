@@ -27,7 +27,7 @@ class Search extends \VkApigen\BaseMethod
      *
      * {"type":"string"}
      */
-    public function q(string $q) : self
+    public function _q(string $q) : self
     {
         $this->params['q'] = $q;
         return $this;
@@ -60,6 +60,16 @@ class Search extends \VkApigen\BaseMethod
     public function _adult(bool $adult) : self
     {
         $this->params['adult'] = $adult;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _live(bool $live) : self
+    {
+        $this->params['live'] = $live;
         return $this;
     }
     /**

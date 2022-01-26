@@ -25,7 +25,7 @@ class Send extends \VkApigen\BaseMethod
     /**
      * User ID (by default — current user).
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _user_id(int $user_id) : self
     {
@@ -45,7 +45,7 @@ class Send extends \VkApigen\BaseMethod
     /**
      * Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'chat_id', e.g. '2000000001'. For community: '- community ID', e.g. '-12345'. "
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int32"}
      */
     public function _peer_id(int $peer_id) : self
     {
@@ -55,7 +55,7 @@ class Send extends \VkApigen\BaseMethod
     /**
      * IDs of message recipients. (See peer_id)
      *
-     * {"type":"array","items":{"type":"integer"},"maxItems":100}
+     * {"type":"array","items":{"type":"integer","format":"int32"},"maxItems":100}
      */
     public function _peer_ids(array $peer_ids) : self
     {
@@ -85,7 +85,7 @@ class Send extends \VkApigen\BaseMethod
     /**
      * IDs of message recipients (if new conversation shall be started).
      *
-     * {"type":"array","items":{"type":"integer"},"maxItems":100}
+     * {"type":"array","items":{"type":"integer","format":"int64","entity":"owner"},"maxItems":100}
      */
     public function _user_ids(array $user_ids) : self
     {
@@ -175,7 +175,7 @@ class Send extends \VkApigen\BaseMethod
     /**
      * Group ID (for group messages with group access token)
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

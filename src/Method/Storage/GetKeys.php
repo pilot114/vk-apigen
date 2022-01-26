@@ -25,7 +25,7 @@ class GetKeys extends \VkApigen\BaseMethod
     /**
      * user id, whose variables names are returned if they were requested with a server method.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _user_id(int $user_id) : self
     {

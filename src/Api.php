@@ -5,7 +5,7 @@ namespace VkApigen;
 use GuzzleHttp\Client;
 class Api
 {
-    const VERSION = '5.130.0';
+    const VERSION = '5.131.133';
     protected $client;
     protected $defaultQuery;
     protected $accessTokenType;
@@ -79,6 +79,10 @@ class Api
     public function groups() : Domain\Groups
     {
         return new Domain\Groups($this->client, $this->defaultQuery, $this->accessTokenType);
+    }
+    public function leadForms() : Domain\LeadForms
+    {
+        return new Domain\LeadForms($this->client, $this->defaultQuery, $this->accessTokenType);
     }
     public function likes() : Domain\Likes
     {

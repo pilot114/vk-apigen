@@ -35,7 +35,7 @@ class Save extends \VkApigen\BaseMethod
     /**
      * ID of the community to save photos to.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

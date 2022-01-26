@@ -35,7 +35,7 @@ class GetMessagesUploadServer extends \VkApigen\BaseMethod
     /**
      * Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'Chat ID', e.g. '2000000001'. For community: '- Community ID', e.g. '-12345'. "
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int32"}
      */
     public function _peer_id(int $peer_id) : self
     {

@@ -25,7 +25,7 @@ class Restore extends \VkApigen\BaseMethod
     /**
      * User ID or community ID from whose wall the post was deleted. Use a negative value to designate a community ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {

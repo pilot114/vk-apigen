@@ -35,7 +35,7 @@ class CreateComment extends \VkApigen\BaseMethod
     /**
      * Note owner ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {

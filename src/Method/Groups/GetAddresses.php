@@ -25,7 +25,7 @@ class GetAddresses extends \VkApigen\BaseMethod
     /**
      * ID or screen name of the community.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function group_id(int $group_id) : self
     {

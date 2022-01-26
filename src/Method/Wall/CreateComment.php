@@ -25,7 +25,7 @@ class CreateComment extends \VkApigen\BaseMethod
     /**
      * User ID or community ID. Use a negative value to designate a community ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {
@@ -45,7 +45,7 @@ class CreateComment extends \VkApigen\BaseMethod
     /**
      * Group ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _from_group(int $from_group) : self
     {

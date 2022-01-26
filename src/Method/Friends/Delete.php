@@ -25,7 +25,7 @@ class Delete extends \VkApigen\BaseMethod
     /**
      * ID of the user whose friend request is to be declined or who is to be deleted from the current user's friend list.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _user_id(int $user_id) : self
     {

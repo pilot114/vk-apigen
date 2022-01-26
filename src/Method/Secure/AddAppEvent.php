@@ -25,7 +25,7 @@ class AddAppEvent extends \VkApigen\BaseMethod
     /**
      * ID of a user to save the data
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function user_id(int $user_id) : self
     {
@@ -33,7 +33,7 @@ class AddAppEvent extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * there are 2 default activities: , * 1 – level. Works similar to ,, * 2 – points, saves points amount, Any other value is for saving completed missions
+     * there are 2 default activities: , * 1 - level. Works similar to ,, * 2 - points, saves points amount, Any other value is for saving completed missions
      *
      * {"type":"int","minimum":0}
      */
@@ -43,7 +43,7 @@ class AddAppEvent extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * depends on activity_id: * 1 – number, current level number,, * 2 – number, current user's points amount, , Any other value is ignored
+     * depends on activity_id: * 1 - number, current level number,, * 2 - number, current user's points amount, , Any other value is ignored
      *
      * {"type":"int","minimum":0}
      */

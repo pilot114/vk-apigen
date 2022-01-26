@@ -55,7 +55,7 @@ class EditAlbum extends \VkApigen\BaseMethod
     /**
      * ID of the user or community that owns the album.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {

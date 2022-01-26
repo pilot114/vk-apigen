@@ -45,7 +45,7 @@ class Repost extends \VkApigen\BaseMethod
     /**
      * Target community ID when reposting to a community.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

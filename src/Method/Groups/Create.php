@@ -43,7 +43,7 @@ class Create extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Community type. Possible values: *'group' – group,, *'event' – event,, *'public' – public page
+     * Community type. Possible values: *'group' - group,, *'event' - event,, *'public' - public page
      *
      * {"type":"string","default":"group","enum":["event","group","public"]}
      */
@@ -63,7 +63,17 @@ class Create extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Public page subtype. Possible values: *'1' – place or small business,, *'2' – company, organization or website,, *'3' – famous person or group of people,, *'4' – product or work of art.
+     * Public page subcategory ID.
+     *
+     * {"type":"int","minimum":0}
+     */
+    public function _public_subcategory(int $public_subcategory) : self
+    {
+        $this->params['public_subcategory'] = $public_subcategory;
+        return $this;
+    }
+    /**
+     * Public page subtype. Possible values: *'1' - place or small business,, *'2' - company, organization or website,, *'3' - famous person or group of people,, *'4' - product or work of art.
      *
      * {"type":"int","minimum":0,"enum":[1,2,3,4],"enumNames":["place or business","company or website","person or group","product or art"]}
      */

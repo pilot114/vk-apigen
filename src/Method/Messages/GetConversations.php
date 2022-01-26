@@ -45,7 +45,7 @@ class GetConversations extends \VkApigen\BaseMethod
     /**
      * Filter to apply: 'all' — all conversations, 'unread' — conversations with unread messages, 'important' — conversations, marked as important (only for community messages), 'unanswered' — conversations, marked as unanswered (only for community messages)
      *
-     * {"type":"string","default":"all","enum":["all","important","unanswered","unread"]}
+     * {"type":"string","default":"all","enum":["all","archive","important","unanswered","unread"]}
      */
     public function _filter(string $filter) : self
     {
@@ -85,7 +85,7 @@ class GetConversations extends \VkApigen\BaseMethod
     /**
      * Group ID (for group messages with group access token)
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

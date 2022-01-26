@@ -25,7 +25,7 @@ class GetOwnerCoverPhotoUploadServer extends \VkApigen\BaseMethod
     /**
      * ID of community that owns the album (if the photo will be uploaded to a community album).
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function group_id(int $group_id) : self
     {

@@ -25,7 +25,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * ID of the user or community that owns the video(s).
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {
@@ -80,6 +80,16 @@ class Get extends \VkApigen\BaseMethod
     public function _extended(bool $extended) : self
     {
         $this->params['extended'] = $extended;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"array","items":{"type":"string"}}
+     */
+    public function _fields(array $fields) : self
+    {
+        $this->params['fields'] = $fields;
         return $this;
     }
 }

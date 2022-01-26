@@ -25,7 +25,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * poll owner id
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {
@@ -63,7 +63,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * object containing answers that need to be edited,, key – answer id, value – new answer text. Example: {"382967099":"option1", "382967103":"option2"}"
+     * object containing answers that need to be edited,, key - answer id, value - new answer text. Example: {"382967099":"option1", "382967103":"option2"}"
      *
      * {"type":"string"}
      */

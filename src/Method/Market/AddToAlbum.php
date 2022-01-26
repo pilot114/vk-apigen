@@ -25,7 +25,7 @@ class AddToAlbum extends \VkApigen\BaseMethod
     /**
      * ID of an item owner community.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {
@@ -33,13 +33,13 @@ class AddToAlbum extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Item ID.
+     * Нет описания
      *
-     * {"type":"int","minimum":0}
+     * {"type":"array","items":{"type":"integer","minimum":0}}
      */
-    public function item_id(int $item_id) : self
+    public function item_ids(array $item_ids) : self
     {
-        $this->params['item_id'] = $item_id;
+        $this->params['item_ids'] = $item_ids;
         return $this;
     }
     /**

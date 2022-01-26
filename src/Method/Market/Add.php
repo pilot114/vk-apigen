@@ -25,7 +25,7 @@ class Add extends \VkApigen\BaseMethod
     /**
      * ID of an item owner community.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {
@@ -65,7 +65,7 @@ class Add extends \VkApigen\BaseMethod
     /**
      * Item price.
      *
-     * {"type":"float","minimum":0.01}
+     * {"type":"float","minimum":0}
      */
     public function _price(float $price) : self
     {
@@ -160,6 +160,16 @@ class Add extends \VkApigen\BaseMethod
     public function _weight(int $weight) : self
     {
         $this->params['weight'] = $weight;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string","maxLength":50}
+     */
+    public function _sku(string $sku) : self
+    {
+        $this->params['sku'] = $sku;
         return $this;
     }
 }

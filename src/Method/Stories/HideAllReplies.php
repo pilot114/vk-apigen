@@ -25,7 +25,7 @@ class HideAllReplies extends \VkApigen\BaseMethod
     /**
      * ID of the user whose replies should be hidden.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {
@@ -35,7 +35,7 @@ class HideAllReplies extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

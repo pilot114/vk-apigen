@@ -25,7 +25,7 @@ class Add extends \VkApigen\BaseMethod
     /**
      * ID of the user whose friend request will be approved or to whom a friend request will be sent.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _user_id(int $user_id) : self
     {

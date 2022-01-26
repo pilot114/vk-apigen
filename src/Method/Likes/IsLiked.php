@@ -25,7 +25,7 @@ class IsLiked extends \VkApigen\BaseMethod
     /**
      * User ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _user_id(int $user_id) : self
     {
@@ -45,7 +45,7 @@ class IsLiked extends \VkApigen\BaseMethod
     /**
      * ID of the user or community that owns the object.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {

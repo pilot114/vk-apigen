@@ -25,7 +25,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * user or community id. "Remember that for a community 'owner_id' must be negative."
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {
@@ -53,7 +53,7 @@ class Search extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * '1' – returns only page owner's posts.
+     * '1' - returns only page owner's posts.
      *
      * {"type":"bool"}
      */

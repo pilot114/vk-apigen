@@ -25,7 +25,7 @@ class GetAll extends \VkApigen\BaseMethod
     /**
      * ID of a user or community that owns the photos. Use a negative value to designate a community ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {
@@ -63,7 +63,7 @@ class GetAll extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * '1' – to return image sizes in [vk.com/dev/photo_sizes|special format].
+     * '1' - to return image sizes in [vk.com/dev/photo_sizes|special format].
      *
      * {"type":"bool"}
      */
@@ -73,7 +73,7 @@ class GetAll extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * '1' – to return photos only from standard albums, '0' – to return all photos including those in service albums, e.g., 'My wall photos' (default)
+     * '1' - to return photos only from standard albums, '0' - to return all photos including those in service albums, e.g., 'My wall photos' (default)
      *
      * {"type":"bool"}
      */
@@ -83,7 +83,7 @@ class GetAll extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * '1' – to show information about photos being hidden from the block above the wall.
+     * '1' - to show information about photos being hidden from the block above the wall.
      *
      * {"type":"bool"}
      */
@@ -93,7 +93,7 @@ class GetAll extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * '1' – not to return photos being hidden from the block above the wall. Works only with owner_id>0, no_service_albums is ignored.
+     * '1' - not to return photos being hidden from the block above the wall. Works only with owner_id>0, no_service_albums is ignored.
      *
      * {"type":"bool"}
      */

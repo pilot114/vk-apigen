@@ -25,7 +25,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Community ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function group_id(int $group_id) : self
     {
@@ -63,7 +63,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Community type. Possible values: *'0' – open,, *'1' – closed,, *'2' – private.
+     * Community type. Possible values: *'0' - open,, *'1' - closed,, *'2' - private.
      *
      * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_access"}
      */
@@ -83,7 +83,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Community subject. Possible values: , *'1' – auto/moto,, *'2' – activity holidays,, *'3' – business,, *'4' – pets,, *'5' – health,, *'6' – dating and communication, , *'7' – games,, *'8' – IT (computers and software),, *'9' – cinema,, *'10' – beauty and fashion,, *'11' – cooking,, *'12' – art and culture,, *'13' – literature,, *'14' – mobile services and internet,, *'15' – music,, *'16' – science and technology,, *'17' – real estate,, *'18' – news and media,, *'19' – security,, *'20' – education,, *'21' – home and renovations,, *'22' – politics,, *'23' – food,, *'24' – industry,, *'25' – travel,, *'26' – work,, *'27' – entertainment,, *'28' – religion,, *'29' – family,, *'30' – sports,, *'31' – insurance,, *'32' – television,, *'33' – goods and services,, *'34' – hobbies,, *'35' – finance,, *'36' – photo,, *'37' – esoterics,, *'38' – electronics and appliances,, *'39' – erotic,, *'40' – humor,, *'41' – society, humanities,, *'42' – design and graphics.
+     * Community subject. Possible values: , *'1' - auto/moto,, *'2' - activity holidays,, *'3' - business,, *'4' - pets,, *'5' - health,, *'6' - dating and communication, , *'7' - games,, *'8' - IT (computers and software),, *'9' - cinema,, *'10' - beauty and fashion,, *'11' - cooking,, *'12' - art and culture,, *'13' - literature,, *'14' - mobile services and internet,, *'15' - music,, *'16' - science and technology,, *'17' - real estate,, *'18' - news and media,, *'19' - security,, *'20' - education,, *'21' - home and renovations,, *'22' - politics,, *'23' - food,, *'24' - industry,, *'25' - travel,, *'26' - work,, *'27' - entertainment,, *'28' - religion,, *'29' - family,, *'30' - sports,, *'31' - insurance,, *'32' - television,, *'33' - goods and services,, *'34' - hobbies,, *'35' - finance,, *'36' - photo,, *'37' - esoterics,, *'38' - electronics and appliances,, *'39' - erotic,, *'40' - humor,, *'41' - society, humanities,, *'42' - design and graphics.
      *
      * {"type":"string","$ref":"objects.json#\/definitions\/groups_group_subject"}
      */
@@ -145,7 +145,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * Organizer community ID (for events only).
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _event_group_id(int $event_group_id) : self
     {
@@ -183,7 +183,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Wall settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (groups and events only),, *'3' – closed (groups and events only).
+     * Wall settings. Possible values: *'0' - disabled,, *'1' - open,, *'2' - limited (groups and events only),, *'3' - closed (groups and events only).
      *
      * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_wall"}
      */
@@ -193,7 +193,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Board topics settings. Possbile values: , *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
+     * Board topics settings. Possbile values: , *'0' - disabled,, *'1' - open,, *'2' - limited (for groups and events only).
      *
      * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_topics"}
      */
@@ -203,7 +203,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Photos settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
+     * Photos settings. Possible values: *'0' - disabled,, *'1' - open,, *'2' - limited (for groups and events only).
      *
      * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_photos"}
      */
@@ -213,7 +213,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Video settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
+     * Video settings. Possible values: *'0' - disabled,, *'1' - open,, *'2' - limited (for groups and events only).
      *
      * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_video"}
      */
@@ -223,7 +223,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Audio settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
+     * Audio settings. Possible values: *'0' - disabled,, *'1' - open,, *'2' - limited (for groups and events only).
      *
      * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_audio"}
      */
@@ -233,7 +233,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Links settings (for public pages only). Possible values: *'0' – disabled,, *'1' – enabled.
+     * Links settings (for public pages only). Possible values: *'0' - disabled,, *'1' - enabled.
      *
      * {"type":"bool"}
      */
@@ -243,7 +243,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Events settings (for public pages only). Possible values: *'0' – disabled,, *'1' – enabled.
+     * Events settings (for public pages only). Possible values: *'0' - disabled,, *'1' - enabled.
      *
      * {"type":"bool"}
      */
@@ -253,7 +253,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Places settings (for public pages only). Possible values: *'0' – disabled,, *'1' – enabled.
+     * Places settings (for public pages only). Possible values: *'0' - disabled,, *'1' - enabled.
      *
      * {"type":"bool"}
      */
@@ -263,7 +263,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Contacts settings (for public pages only). Possible values: *'0' – disabled,, *'1' – enabled.
+     * Contacts settings (for public pages only). Possible values: *'0' - disabled,, *'1' - enabled.
      *
      * {"type":"bool"}
      */
@@ -273,7 +273,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Documents settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
+     * Documents settings. Possible values: *'0' - disabled,, *'1' - open,, *'2' - limited (for groups and events only).
      *
      * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_docs"}
      */
@@ -283,7 +283,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Wiki pages settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
+     * Wiki pages settings. Possible values: *'0' - disabled,, *'1' - open,, *'2' - limited (for groups and events only).
      *
      * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_wiki"}
      */
@@ -333,7 +333,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Market settings. Possible values: *'0' – disabled,, *'1' – enabled.
+     * Market settings. Possible values: *'0' - disabled,, *'1' - enabled.
      *
      * {"type":"bool"}
      */
@@ -343,7 +343,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * market comments settings. Possible values: *'0' – disabled,, *'1' – enabled.
+     * market comments settings. Possible values: *'0' - disabled,, *'1' - enabled.
      *
      * {"type":"bool"}
      */
@@ -373,7 +373,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Market currency settings. Possbile values: , *'643' – Russian rubles,, *'980' – Ukrainian hryvnia,, *'398' – Kazakh tenge,, *'978' – Euro,, *'840' – US dollars
+     * Market currency settings. Possbile values: , *'643' - Russian rubles,, *'980' - Ukrainian hryvnia,, *'398' - Kazakh tenge,, *'978' - Euro,, *'840' - US dollars
      *
      * {"type":"int","minimum":0,"$ref":"objects.json#\/definitions\/groups_group_market_currency"}
      */
@@ -403,7 +403,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Obscene expressions filter in comments. Possible values: , *'0' – disabled,, *'1' – enabled.
+     * Obscene expressions filter in comments. Possible values: , *'0' - disabled,, *'1' - enabled.
      *
      * {"type":"bool"}
      */
@@ -413,7 +413,7 @@ class Edit extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Stopwords filter in comments. Possible values: , *'0' – disabled,, *'1' – enabled.
+     * Stopwords filter in comments. Possible values: , *'0' - disabled,, *'1' - enabled.
      *
      * {"type":"bool"}
      */

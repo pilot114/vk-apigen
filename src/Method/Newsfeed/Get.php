@@ -25,7 +25,7 @@ class Get extends \VkApigen\BaseMethod
     /**
      * Filters to apply: 'post' — new wall posts, 'photo' — new photos, 'photo_tag' — new photo tags, 'wall_photo' — new wall photos, 'friend' — new friends
      *
-     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/newsfeed_filters"}}
+     * {"type":"array","items":{"$ref":"objects.json#\/definitions\/newsfeed_newsfeed_item_type"}}
      */
     public function _filters(array $filters) : self
     {

@@ -25,7 +25,7 @@ class Delete extends \VkApigen\BaseMethod
     /**
      * Story owner's ID. Current user id is used by default.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {

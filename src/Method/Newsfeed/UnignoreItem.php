@@ -23,7 +23,7 @@ class UnignoreItem extends \VkApigen\BaseMethod
         return $this->onCall('newsfeed.unignoreItem');
     }
     /**
-     * Item type. Possible values: *'wall' – post on the wall,, *'tag' – tag on a photo,, *'profilephoto' – profile photo,, *'video' – video,, *'audio' – audio.
+     * Item type. Possible values: *'wall' - post on the wall,, *'tag' - tag on a photo,, *'profilephoto' - profile photo,, *'video' - video,, *'audio' - audio.
      *
      * {"type":"string","$ref":"objects.json#\/definitions\/newsfeed_ignore_item_type"}
      */
@@ -33,9 +33,9 @@ class UnignoreItem extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * Item owner's identifier (user or community), "Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community "
+     * Item owner's identifier (user or community), "Note that community id must be negative. 'owner_id=1' - user , 'owner_id=-1' - community "
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {

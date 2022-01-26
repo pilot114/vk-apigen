@@ -25,7 +25,7 @@ class CreateChat extends \VkApigen\BaseMethod
     /**
      * IDs of the users to be added to the chat.
      *
-     * {"type":"array","items":{"type":"integer","minimum":0}}
+     * {"type":"array","items":{"type":"integer","format":"int64","entity":"owner","minimum":0}}
      */
     public function _user_ids(array $user_ids) : self
     {
@@ -45,7 +45,7 @@ class CreateChat extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

@@ -45,7 +45,7 @@ class MarkAsImportantConversation extends \VkApigen\BaseMethod
     /**
      * Group ID (for group messages with group access token)
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

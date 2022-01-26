@@ -25,7 +25,7 @@ class ToggleMarket extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function group_id(int $group_id) : self
     {
@@ -40,6 +40,16 @@ class ToggleMarket extends \VkApigen\BaseMethod
     public function state(string $state) : self
     {
         $this->params['state'] = $state;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _ref(string $ref) : self
+    {
+        $this->params['ref'] = $ref;
         return $this;
     }
 }

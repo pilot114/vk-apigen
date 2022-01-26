@@ -25,7 +25,7 @@ class Restore extends \VkApigen\BaseMethod
     /**
      * Video ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int32","minimum":0}
      */
     public function video_id(int $video_id) : self
     {
@@ -35,7 +35,7 @@ class Restore extends \VkApigen\BaseMethod
     /**
      * ID of the user or community that owns the video.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {

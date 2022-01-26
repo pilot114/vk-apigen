@@ -25,7 +25,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * User ID or community ID. Use a negative value to designate a community ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {
@@ -200,6 +200,16 @@ class Edit extends \VkApigen\BaseMethod
     public function _copyright(string $copyright) : self
     {
         $this->params['copyright'] = $copyright;
+        return $this;
+    }
+    /**
+     * Topic ID. Allowed values can be obtained from newsfeed.getPostTopics method
+     *
+     * {"type":"int","minimum":0,"enum":[0,1,7,12,16,19,21,23,25,26,32,43],"enumNames":["empty_topic","art","it","games","music","photo","science_and_tech","sport","travel","tv_and_cinema","humor","fashion"]}
+     */
+    public function _topic_id(int $topic_id) : self
+    {
+        $this->params['topic_id'] = $topic_id;
         return $this;
     }
 }

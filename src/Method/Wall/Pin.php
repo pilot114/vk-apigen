@@ -25,7 +25,7 @@ class Pin extends \VkApigen\BaseMethod
     /**
      * ID of the user or community that owns the wall. By default, current user ID. Use a negative value to designate a community ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {

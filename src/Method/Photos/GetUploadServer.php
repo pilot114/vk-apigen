@@ -23,16 +23,6 @@ class GetUploadServer extends \VkApigen\BaseMethod
         return $this->onCall('photos.getUploadServer');
     }
     /**
-     * ID of community that owns the album (if the photo will be uploaded to a community album).
-     *
-     * {"type":"int"}
-     */
-    public function _group_id(int $group_id) : self
-    {
-        $this->params['group_id'] = $group_id;
-        return $this;
-    }
-    /**
      * Нет описания
      *
      * {"type":"int"}
@@ -40,6 +30,16 @@ class GetUploadServer extends \VkApigen\BaseMethod
     public function _album_id(int $album_id) : self
     {
         $this->params['album_id'] = $album_id;
+        return $this;
+    }
+    /**
+     * ID of community that owns the album (if the photo will be uploaded to a community album).
+     *
+     * {"type":"int","format":"int64","entity":"owner"}
+     */
+    public function _group_id(int $group_id) : self
+    {
+        $this->params['group_id'] = $group_id;
         return $this;
     }
 }

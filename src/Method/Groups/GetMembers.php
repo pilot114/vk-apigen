@@ -73,7 +73,7 @@ class GetMembers extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * *'friends' – only friends in this community will be returned,, *'unsure' – only those who pressed 'I may attend' will be returned (if it's an event).
+     * *'friends' - only friends in this community will be returned,, *'unsure' - only those who pressed 'I may attend' will be returned (if it's an event).
      *
      * {"type":"string","enum":["friends","unsure","managers","donut"]}
      */

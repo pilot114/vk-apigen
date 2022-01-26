@@ -25,7 +25,7 @@ class SendRequest extends \VkApigen\BaseMethod
     /**
      * id of the user to send a request
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function user_id(int $user_id) : self
     {
@@ -43,7 +43,7 @@ class SendRequest extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * request type. Values: 'invite' – if the request is sent to a user who does not have the app installed,, 'request' – if a user has already installed the app
+     * request type. Values: 'invite' - if the request is sent to a user who does not have the app installed,, 'request' - if a user has already installed the app
      *
      * {"type":"string","default":"request","enum":["invite","request"]}
      */

@@ -25,6 +25,16 @@ class GetOrderItems extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
+     */
+    public function _user_id(int $user_id) : self
+    {
+        $this->params['user_id'] = $user_id;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
      * {"type":"int","minimum":0}
      */
     public function order_id(int $order_id) : self

@@ -33,7 +33,7 @@ class GetById extends \VkApigen\BaseMethod
         return $this;
     }
     /**
-     * '1' – to return additional fields: 'likes, can_comment, car_repost, photos'. By default: '0'.
+     * '1' - to return additional fields: 'likes, can_comment, car_repost, photos'. By default: '0'.
      *
      * {"type":"bool"}
      */

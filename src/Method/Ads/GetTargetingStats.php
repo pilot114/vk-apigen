@@ -103,6 +103,16 @@ class GetTargetingStats extends \VkApigen\BaseMethod
         return $this;
     }
     /**
+     * Нет описания
+     *
+     * {"type":"string"}
+     */
+    public function _publisher_platforms(string $publisher_platforms) : self
+    {
+        $this->params['publisher_platforms'] = $publisher_platforms;
+        return $this;
+    }
+    /**
      * URL for the advertised object.
      *
      * {"type":"string"}

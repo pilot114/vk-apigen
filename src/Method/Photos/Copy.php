@@ -25,7 +25,7 @@ class Copy extends \VkApigen\BaseMethod
     /**
      * photo's owner ID
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function owner_id(int $owner_id) : self
     {

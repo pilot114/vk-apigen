@@ -12,9 +12,9 @@
         }
     },
     "require": {
-        "php": "^7.3",
+        "php": "^8.0",
         "ext-json": "*",
-        "vkcom/vk-api-schema": "^5.130",
+        "vkcom/vk-api-schema": "^5.131",
         "nikic/php-parser": "^4.10",
         "guzzlehttp/guzzle": "^7.2"
     }

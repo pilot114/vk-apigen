@@ -35,7 +35,7 @@ class GetVersion extends \VkApigen\BaseMethod
     /**
      * ID of the community that owns the wiki page.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {
@@ -45,7 +45,7 @@ class GetVersion extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _user_id(int $user_id) : self
     {

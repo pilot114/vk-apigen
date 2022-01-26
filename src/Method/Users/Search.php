@@ -325,7 +325,7 @@ class Search extends \VkApigen\BaseMethod
     /**
      * ID of a community to search in communities.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {

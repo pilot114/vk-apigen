@@ -32,4 +32,24 @@ class Save extends \VkApigen\BaseMethod
         $this->params['upload_results'] = $upload_results;
         return $this;
     }
+    /**
+     * Нет описания
+     *
+     * {"type":"bool"}
+     */
+    public function _extended(bool $extended) : self
+    {
+        $this->params['extended'] = $extended;
+        return $this;
+    }
+    /**
+     * Нет описания
+     *
+     * {"type":"array","items":{"type":"string"}}
+     */
+    public function _fields(array $fields) : self
+    {
+        $this->params['fields'] = $fields;
+        return $this;
+    }
 }

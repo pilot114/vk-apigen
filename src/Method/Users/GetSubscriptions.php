@@ -25,7 +25,7 @@ class GetSubscriptions extends \VkApigen\BaseMethod
     /**
      * User ID.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _user_id(int $user_id) : self
     {

@@ -25,11 +25,21 @@ class GetCounters extends \VkApigen\BaseMethod
     /**
      * Counters to be returned.
      *
-     * {"type":"array","items":{"type":"string","enum":["friends","messages","photos","videos","notes","gifts","events","groups","sdk","friends_suggestions"]}}
+     * {"type":"array","items":{"type":"string","enum":["friends","messages","photos","notes","gifts","events","groups","sdk","friends_suggestions","notifications","app_requests","friends_recommendations"]}}
      */
     public function _filter(array $filter) : self
     {
         $this->params['filter'] = $filter;
+        return $this;
+    }
+    /**
+     * User ID
+     *
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
+     */
+    public function _user_id(int $user_id) : self
+    {
+        $this->params['user_id'] = $user_id;
         return $this;
     }
 }

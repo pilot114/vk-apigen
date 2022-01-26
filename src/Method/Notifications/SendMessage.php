@@ -55,7 +55,7 @@ class SendMessage extends \VkApigen\BaseMethod
     /**
      * Нет описания
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":0,"entity":"owner"}
      */
     public function _group_id(int $group_id) : self
     {
@@ -70,6 +70,16 @@ class SendMessage extends \VkApigen\BaseMethod
     public function _random_id(int $random_id) : self
     {
         $this->params['random_id'] = $random_id;
+        return $this;
+    }
+    /**
+     * Type of sending (delivering) notifications: 'immediately' — push and bell notifications will be delivered as soon as possible, 'delayed' — push and bell notifications will be delivered in the most comfortable time for the user, 'delayed_push' — only push notifications will be delivered in the most comfortable time, while the bell notifications will be delivered as soon as possible
+     *
+     * {"type":"string","default":"immediately","enum":["delayed","delayed_push","immediately"]}
+     */
+    public function _sending_mode(string $sending_mode) : self
+    {
+        $this->params['sending_mode'] = $sending_mode;
         return $this;
     }
 }

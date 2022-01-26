@@ -25,7 +25,7 @@ class SetInfo extends \VkApigen\BaseMethod
     /**
      * Setting name.
      *
-     * {"type":"string"}
+     * {"type":"string","enum":["intro","no_wall_replies","own_posts_default"]}
      */
     public function _name(string $name) : self
     {

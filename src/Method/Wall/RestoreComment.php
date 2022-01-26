@@ -25,7 +25,7 @@ class RestoreComment extends \VkApigen\BaseMethod
     /**
      * User ID or community ID. Use a negative value to designate a community ID.
      *
-     * {"type":"int"}
+     * {"type":"int","format":"int64","entity":"owner"}
      */
     public function _owner_id(int $owner_id) : self
     {

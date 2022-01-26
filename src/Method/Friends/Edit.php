@@ -25,7 +25,7 @@ class Edit extends \VkApigen\BaseMethod
     /**
      * ID of the user whose friend list is to be edited.
      *
-     * {"type":"int","minimum":0}
+     * {"type":"int","format":"int64","minimum":1,"entity":"owner"}
      */
     public function user_id(int $user_id) : self
     {
